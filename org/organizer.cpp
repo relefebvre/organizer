@@ -4,6 +4,7 @@
 #include <sstream>
 #include <stdarg.h>
 #include <tomcrypt.h>
+#include <set>
 
 Organizer::Organizer()
 {
@@ -105,7 +106,32 @@ void Organizer::searchDouble()
     query.exec("SELECT Count(*), size FROM fic GROUP BY size HAVING Count(*) > 1;");
 
     while (query.next())
-        searchBySize(query.value(0).toULongLong());
+        searchBySize(query.value(1).toULongLong());
+
+    for( std::map<uint64_t,std::list<boost::filesystem::path> >::iterator it=doublons.begin() ; it!=doublons.end() ; )
+    {
+        if (it->second.size() == 2)
+        {
+            if (memcmp(md5(it->second.front().string().c_str()),md5(it->second.back().string().c_str()),sizeof(char)*16) != 0)
+                doublons.erase(it);
+        }
+        else
+        {
+            unsigned cpt=0;
+            std::set<unsigned char*> md5Sum;
+            std::pair<std::set<unsigned char*>::iterator,bool> ret;
+            for (std::list<boost::filesystem::path>::const_iterator itp=it->second.begin() ; itp!=it->second.end() ; ++itp)
+            {
+                ret = md5Sum.insert(md5(itp->string().c_str()));
+                if (!ret.second)
+                    ++cpt;
+            }
+            if (cpt == 0)
+                doublons.erase((it));
+        }
+        ++it;
+    }
+
 }
 
 void Organizer::searchBySize(uint64_t size)
@@ -130,6 +156,6 @@ void Organizer::afficherDoublons()
     {
         std::cout<<"Taille : "<<it->first<<std::endl;
         for (std::list<boost::filesystem::path>::const_iterator itp=it->second.begin() ; itp!=it->second.end() ; ++itp)
-            std::cout<<*itp<<std::endl;
+            std::cout<<itp->filename()<<std::endl;
     }
 }
