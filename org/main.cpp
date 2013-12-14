@@ -3,34 +3,62 @@
 #include <boost/foreach.hpp>
 #include <map>
 #include <stdint.h>
+#include <QtSql>
+#include <QSqlDatabase>
+#include <sstream>
+#include <tomcrypt.h>
 
 
 using namespace boost::filesystem;
 
 int main(int argc, char* argv[])
 {
-  std::map<uint64_t,std::string> data;
+  QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
+  db.setDatabaseName("db");
+  bool ok = db.open();
+  std::cout<<"Ouverture db : "<<ok<<std::endl;
 
-  std::cout<<argv[1]<<":"<<file_size(argv[1])<<std::endl;
+  QSqlQuery query;
 
-  for ( recursive_directory_iterator end, dir("/home");
+  std::cout<<query.exec("CREATE TABLE fic(size integer,path varchar(1000) UNIQUE);")<<std::endl;
+  std::cout<<query.exec("CREATE TABLE dir(empty bool,path varchar(1000) UNIQUE);")<<std::endl;
+
+  for ( recursive_directory_iterator end, dir(argv[1]);
          dir != end; ++dir ) {
+      path ph = *dir;
+
+      if (ph.filename().c_str()[0] == '.')
+      {
+          dir.no_push();
+          continue;
+      }
+
+      std::string path = ph.string();
+
+      std::cout<<path<<std::endl;
+
       if (is_regular_file(*dir))
       {
-          path ph = *dir;
           uint64_t size = file_size(*dir);
-          std::string path = ph.string();
-          data.insert(std::pair<uint64_t,std::string>(size,path));
-          //std::cout << ph.filename() <<":"<< ph.leaf() << std::endl;
+          std::stringstream Ssize;
+          Ssize << size;
+          query.prepare("INSERT INTO fic(size, path)"
+                        "VALUES (:size, :path);");
+          query.bindValue(":size", Ssize.str().c_str());
+          query.bindValue(":path", path.c_str());
       }
+      if (is_directory(*dir))
+      {
+          query.prepare("INSERT INTO dir(empty, path)"
+                        "VALUES (:empty, :path);");
+          query.bindValue(":empty",is_empty(ph));
+          query.bindValue(":path", path.c_str());
+      }
+      query.exec();
   }
 
-  std::cout<<"Résultat du find : "<<data.find(file_size(argv[1]))->second<<std::endl;
 
-  /*std::cout<<"-----------------Affichage---------------"<<std::endl;
 
-  for (std::map<uint64_t,std::string>::iterator it = data.begin() ; it != data.end() ; ++it)
-      std::cout<<it->second<<":"<<it->first<<std::endl;*/
 
   return 0;
 }
