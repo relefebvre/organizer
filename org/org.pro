@@ -8,7 +8,7 @@ HEADERS +=
 
 INCLUDEPATH +=/usr/include /usr/include/qt4/QtSql
 
-LIBS += -L/usr/lib/ -lboost_filesystem -lboost_system
+LIBS += -L/usr/lib/ -lboost_filesystem -lboost_system -ltomcrypt
 
 QT += core
 QT += sql
