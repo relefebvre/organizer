@@ -2,9 +2,11 @@ TEMPLATE = app
 CONFIG += console
 CONFIG += qt
 
-SOURCES += main.cpp
+SOURCES += main.cpp \
+    organizer.cpp
 
-HEADERS +=
+HEADERS += \
+    organizer.h
 
 INCLUDEPATH +=/usr/include /usr/include/qt4/QtSql
 
