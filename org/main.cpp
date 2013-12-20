@@ -9,35 +9,20 @@
 #include <tomcrypt.h>
 #include <list>
 #include <algorithm>
-#include "organizer.h"
-
+//#include "organizer.h"
+#include "orgview.h"
+#include <QApplication>
 
 using namespace boost::filesystem;
 using namespace std;
 
 int main(int argc, char* argv[])
 {
-   std::list<path> doublons;
 
-   Organizer org;
-
-    for ( recursive_directory_iterator end, dir(argv[1]);
-          dir != end; ++dir ) {
-        path ph = *dir;
-
-        if (ph.filename().c_str()[0] == '.')
-        {
-            dir.no_push();
-            continue;
-        }
-
-        org.insert(*dir);
-    }
-
-    org.searchDouble();
-
-    org.afficherDoublons();
-
-    return 0;
+    QApplication app(argc, argv);
+    OrgView org;
+    org.show();
+    return app.exec();
+;
 }
 
