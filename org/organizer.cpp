@@ -36,7 +36,7 @@ void Organizer::insert(boost::filesystem::path p) const
 {
     QSqlQuery query;
 
-    std::cout<<p<<std::endl;
+//    std::cout<<p<<std::endl;
 
     if (boost::filesystem::is_regular_file(p))
     {
@@ -50,6 +50,7 @@ void Organizer::insert(boost::filesystem::path p) const
     }
     if (boost::filesystem::is_directory(p))
     {
+        //system("ls -la | wc -l")
         query.prepare("INSERT INTO dir(empty, path)"
                       "VALUES (:empty, :path);");
         query.bindValue(":empty",boost::filesystem::is_empty(p));
@@ -159,3 +160,14 @@ void Organizer::afficherDoublons()
             std::cout<<itp->filename()<<std::endl;
     }
 }
+
+void Organizer::setRacine(std::string s)
+{
+    racine = s;
+}
+
+std::string Organizer::getRacine()
+{
+    return racine;
+}
+
