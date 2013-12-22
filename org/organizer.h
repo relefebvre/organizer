@@ -10,7 +10,10 @@
 
 class Organizer
 {
+
+protected:
     std::map<uint64_t,std::list<boost::filesystem::path> > doublons;
+    std::string racine;
 
 public:
     Organizer();
@@ -30,6 +33,9 @@ public:
     void searchBySize(uint64_t size);
 
     void afficherDoublons();
+
+    void setRacine(std::string);
+    std::string getRacine();
 };
 
 #endif // ORGANIZER_H
