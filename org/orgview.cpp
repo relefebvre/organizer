@@ -11,6 +11,8 @@
 #include <list>
 #include <algorithm>
 #include "organizer.h"
+#include <QVBoxLayout>
+#include <QDirModel>
 
 using namespace boost::filesystem;
 
@@ -21,6 +23,15 @@ OrgView::OrgView(QWidget *parent) :
 {
     ui->setupUi(this);
     runing = false;
+
+
+    QVBoxLayout *layout = new QVBoxLayout;
+
+    QDirModel *modele = new QDirModel;
+
+    ui->vue->setModel(modele);
+
+    layout->addWidget(ui->vue);
 }
 
 OrgView::~OrgView()

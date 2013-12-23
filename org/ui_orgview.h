@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'orgview.ui'
 **
-** Created: Fri Dec 20 16:58:40 2013
+** Created: Mon Dec 23 22:37:20 2013
 **      by: Qt User Interface Compiler version 4.8.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -18,9 +18,9 @@
 #include <QtGui/QMainWindow>
 #include <QtGui/QMenuBar>
 #include <QtGui/QPushButton>
-#include <QtGui/QStatusBar>
 #include <QtGui/QTabWidget>
 #include <QtGui/QTextBrowser>
+#include <QtGui/QTreeView>
 #include <QtGui/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -29,41 +29,49 @@ class Ui_OrgView
 {
 public:
     QWidget *centralwidget;
+    QWidget *widget;
     QTabWidget *tabWidget;
     QWidget *doublons;
     QTextBrowser *textBrowser;
     QPushButton *start_stop;
+    QTreeView *vue;
     QMenuBar *menubar;
-    QStatusBar *statusbar;
 
     void setupUi(QMainWindow *OrgView)
     {
         if (OrgView->objectName().isEmpty())
             OrgView->setObjectName(QString::fromUtf8("OrgView"));
-        OrgView->resize(1279, 759);
+        OrgView->resize(1000, 759);
+        OrgView->setMinimumSize(QSize(1000, 759));
+        OrgView->setMaximumSize(QSize(1000, 1000));
         centralwidget = new QWidget(OrgView);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
-        tabWidget = new QTabWidget(centralwidget);
+        centralwidget->setEnabled(true);
+        widget = new QWidget(centralwidget);
+        widget->setObjectName(QString::fromUtf8("widget"));
+        widget->setGeometry(QRect(-1, -1, 1001, 731));
+        tabWidget = new QTabWidget(widget);
         tabWidget->setObjectName(QString::fromUtf8("tabWidget"));
-        tabWidget->setGeometry(QRect(0, 10, 1271, 691));
+        tabWidget->setGeometry(QRect(0, 0, 1271, 601));
+        tabWidget->setMinimumSize(QSize(1271, 0));
         doublons = new QWidget();
         doublons->setObjectName(QString::fromUtf8("doublons"));
         textBrowser = new QTextBrowser(doublons);
         textBrowser->setObjectName(QString::fromUtf8("textBrowser"));
-        textBrowser->setGeometry(QRect(0, 540, 1151, 111));
+        textBrowser->setGeometry(QRect(40, 440, 441, 111));
         textBrowser->setMaximumSize(QSize(1151, 16777215));
         start_stop = new QPushButton(doublons);
         start_stop->setObjectName(QString::fromUtf8("start_stop"));
-        start_stop->setGeometry(QRect(10, 10, 111, 51));
+        start_stop->setGeometry(QRect(60, 0, 111, 51));
+        vue = new QTreeView(doublons);
+        vue->setObjectName(QString::fromUtf8("vue"));
+        vue->setGeometry(QRect(50, 70, 256, 341));
         tabWidget->addTab(doublons, QString());
         OrgView->setCentralWidget(centralwidget);
         menubar = new QMenuBar(OrgView);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 1279, 27));
+        menubar->setGeometry(QRect(0, 0, 1000, 25));
         OrgView->setMenuBar(menubar);
-        statusbar = new QStatusBar(OrgView);
-        statusbar->setObjectName(QString::fromUtf8("statusbar"));
-        OrgView->setStatusBar(statusbar);
 
         retranslateUi(OrgView);
 

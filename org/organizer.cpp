@@ -14,7 +14,7 @@ Organizer::Organizer()
         exit(errno);
     }
 
-    createTable("CREATE TABLE fic(size integer,path varchar(1000) UNIQUE);");
+    createTable("CREATE TABLE fic(size integer,path varchar(1000) UNIQUE, md5 varchar(16));");
 
     createTable("CREATE TABLE dir(empty bool,path varchar(1000) UNIQUE);");
 }
@@ -50,7 +50,6 @@ void Organizer::insert(boost::filesystem::path p) const
     }
     if (boost::filesystem::is_directory(p))
     {
-        //system("ls -la | wc -l")
         query.prepare("INSERT INTO dir(empty, path)"
                       "VALUES (:empty, :path);");
         query.bindValue(":empty",boost::filesystem::is_empty(p));
