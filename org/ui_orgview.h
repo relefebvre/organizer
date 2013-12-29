@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'orgview.ui'
 **
-** Created: Sun Dec 29 10:49:54 2013
+** Created: Sun Dec 29 15:38:26 2013
 **      by: Qt User Interface Compiler version 4.8.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -37,6 +37,8 @@ public:
     QPushButton *start_stop;
     QTreeView *vue;
     QLabel *label;
+    QTextBrowser *view_double;
+    QPushButton *search_double;
     QMenuBar *menubar;
 
     void setupUi(QMainWindow *OrgView)
@@ -60,19 +62,27 @@ public:
         doublons->setObjectName(QString::fromUtf8("doublons"));
         textBrowser = new QTextBrowser(doublons);
         textBrowser->setObjectName(QString::fromUtf8("textBrowser"));
-        textBrowser->setGeometry(QRect(40, 440, 911, 111));
+        textBrowser->setGeometry(QRect(50, 440, 941, 111));
         textBrowser->setMaximumSize(QSize(1151, 16777215));
         textBrowser->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
         textBrowser->setHorizontalScrollBarPolicy(Qt::ScrollBarAsNeeded);
         start_stop = new QPushButton(doublons);
         start_stop->setObjectName(QString::fromUtf8("start_stop"));
+        start_stop->setEnabled(true);
         start_stop->setGeometry(QRect(50, 10, 111, 51));
         vue = new QTreeView(doublons);
         vue->setObjectName(QString::fromUtf8("vue"));
         vue->setGeometry(QRect(50, 70, 256, 341));
         label = new QLabel(doublons);
         label->setObjectName(QString::fromUtf8("label"));
-        label->setGeometry(QRect(270, 35, 501, 21));
+        label->setGeometry(QRect(310, 20, 661, 21));
+        view_double = new QTextBrowser(doublons);
+        view_double->setObjectName(QString::fromUtf8("view_double"));
+        view_double->setGeometry(QRect(330, 70, 661, 341));
+        search_double = new QPushButton(doublons);
+        search_double->setObjectName(QString::fromUtf8("search_double"));
+        search_double->setEnabled(true);
+        search_double->setGeometry(QRect(170, 10, 111, 51));
         tabWidget->addTab(doublons, QString());
         OrgView->setCentralWidget(centralwidget);
         menubar = new QMenuBar(OrgView);
@@ -93,6 +103,7 @@ public:
         OrgView->setWindowTitle(QApplication::translate("OrgView", "MainWindow", 0, QApplication::UnicodeUTF8));
         start_stop->setText(QApplication::translate("OrgView", "Go", 0, QApplication::UnicodeUTF8));
         label->setText(QApplication::translate("OrgView", "TextLabel", 0, QApplication::UnicodeUTF8));
+        search_double->setText(QApplication::translate("OrgView", "Search", 0, QApplication::UnicodeUTF8));
         tabWidget->setTabText(tabWidget->indexOf(doublons), QApplication::translate("OrgView", "Doublons", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
 

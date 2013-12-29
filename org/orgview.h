@@ -20,11 +20,14 @@ public:
     ~OrgView();
     void start(std::string argv);
     void affiche(QString s);
+    void afficherDoublons();
 
 
 private slots:
     void on_start_stop_clicked();
     void setChemin( const QModelIndex & index );
+
+    void on_search_double_clicked();
 
 private:
     Ui::OrgView *ui;

@@ -25,6 +25,10 @@ OrgView::OrgView(QWidget *parent) :
     ui->setupUi(this);
     runing = false;
     connect(ui->vue,SIGNAL(clicked(QModelIndex const&)),this,SLOT(setChemin(QModelIndex const&)));
+    connect(ui->vue,SIGNAL(activated(QModelIndex const&)),this,SLOT(setChemin(QModelIndex const&)));
+    connect(ui->vue,SIGNAL(doubleClicked(QModelIndex const&)),this,SLOT(setChemin(QModelIndex const&)));
+    connect(ui->vue,SIGNAL(entered(QModelIndex const&)),this,SLOT(setChemin(QModelIndex const&)));
+    connect(ui->vue,SIGNAL(pressed(QModelIndex const&)),this,SLOT(setChemin(QModelIndex const&)));
 
     QVBoxLayout *layout = new QVBoxLayout;
 
@@ -36,6 +40,8 @@ OrgView::OrgView(QWidget *parent) :
 
     ui->start_stop->setEnabled(false);
     ui->label->setText("Selectionner un dossier à scanner");
+
+    ui->search_double->setEnabled(false);
 }
 
 OrgView::~OrgView()
@@ -66,10 +72,7 @@ void OrgView::start(std::string argv)
      runing = false;
      ui->start_stop->setText("Go");
 
-
-     //org.searchDouble();
-
-     //org.afficherDoublons();
+     ui->search_double->setEnabled(true);
 }
 
 void OrgView::affiche(QString s)
@@ -78,6 +81,21 @@ void OrgView::affiche(QString s)
     ui->textBrowser->repaint();
 }
 
+void OrgView::afficherDoublons()
+{
+    for( std::map<uint64_t,std::list<boost::filesystem::path> >::const_iterator it=doublons.begin() ; it!=doublons.end() ; ++it)
+    {
+        QString qs("Taille ");
+        qs += QString::number(it->first);
+        ui->view_double->append(qs);
+        ui->view_double->repaint();
+        for (std::list<boost::filesystem::path>::const_iterator itp=it->second.begin() ; itp!=it->second.end() ; ++itp)
+        {
+            ui->view_double->append(QString(itp->c_str()));
+            ui->view_double->repaint();
+        }
+    }
+}
 
 
 void OrgView::on_start_stop_clicked()
@@ -98,7 +116,14 @@ void OrgView::on_start_stop_clicked()
 void OrgView::setChemin(const QModelIndex &index)
 {
     QDirModel dir;
+    ui->search_double->setEnabled(false);
     setRacine(dir.fileInfo(index).absoluteFilePath().toStdString());
     ui->label->setText(QString(getRacine().c_str()));
     ui->start_stop->setEnabled(true);
+}
+
+void OrgView::on_search_double_clicked()
+{
+    searchDouble();
+    afficherDoublons();
 }

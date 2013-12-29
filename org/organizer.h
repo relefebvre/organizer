@@ -32,8 +32,6 @@ public:
 
     void searchBySize(uint64_t size);
 
-    void afficherDoublons();
-
     void setRacine(std::string);
     std::string getRacine();
 };

@@ -138,10 +138,12 @@ void Organizer::searchBySize(uint64_t size)
 {
     QSqlQuery query;
 
-    query.prepare("SELECT path FROM fic WHERE size=:size");
+    query.prepare("SELECT path FROM fic WHERE size=:size AND path LIKE :path");
     std::stringstream Ssize;
     Ssize << size;
     query.bindValue(":size",Ssize.str().c_str());
+    std::string s = getRacine()+"%";
+    query.bindValue(":path",s.c_str());
     query.exec();
 
     while (query.next()) {
@@ -150,15 +152,6 @@ void Organizer::searchBySize(uint64_t size)
     }
 }
 
-void Organizer::afficherDoublons()
-{
-    for( std::map<uint64_t,std::list<boost::filesystem::path> >::const_iterator it=doublons.begin() ; it!=doublons.end() ; ++it)
-    {
-        std::cout<<"Taille : "<<it->first<<std::endl;
-        for (std::list<boost::filesystem::path>::const_iterator itp=it->second.begin() ; itp!=it->second.end() ; ++itp)
-            std::cout<<itp->filename()<<std::endl;
-    }
-}
 
 void Organizer::setRacine(std::string s)
 {
