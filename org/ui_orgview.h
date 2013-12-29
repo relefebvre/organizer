@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'orgview.ui'
 **
-** Created: Sun Dec 29 15:38:26 2013
+** Created: Sun Dec 29 16:28:27 2013
 **      by: Qt User Interface Compiler version 4.8.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -33,12 +33,15 @@ public:
     QWidget *widget;
     QTabWidget *tabWidget;
     QWidget *doublons;
+    QTextBrowser *view_double;
+    QPushButton *search_double;
+    QWidget *tab;
+    QPushButton *search_empty;
+    QTextBrowser *view_empty;
     QTextBrowser *textBrowser;
     QPushButton *start_stop;
     QTreeView *vue;
     QLabel *label;
-    QTextBrowser *view_double;
-    QPushButton *search_double;
     QMenuBar *menubar;
 
     void setupUi(QMainWindow *OrgView)
@@ -56,34 +59,44 @@ public:
         widget->setGeometry(QRect(-1, -1, 1001, 731));
         tabWidget = new QTabWidget(widget);
         tabWidget->setObjectName(QString::fromUtf8("tabWidget"));
-        tabWidget->setGeometry(QRect(0, 0, 1271, 601));
-        tabWidget->setMinimumSize(QSize(1271, 0));
+        tabWidget->setGeometry(QRect(290, 70, 691, 341));
+        tabWidget->setMinimumSize(QSize(0, 0));
         doublons = new QWidget();
         doublons->setObjectName(QString::fromUtf8("doublons"));
-        textBrowser = new QTextBrowser(doublons);
-        textBrowser->setObjectName(QString::fromUtf8("textBrowser"));
-        textBrowser->setGeometry(QRect(50, 440, 941, 111));
-        textBrowser->setMaximumSize(QSize(1151, 16777215));
-        textBrowser->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
-        textBrowser->setHorizontalScrollBarPolicy(Qt::ScrollBarAsNeeded);
-        start_stop = new QPushButton(doublons);
-        start_stop->setObjectName(QString::fromUtf8("start_stop"));
-        start_stop->setEnabled(true);
-        start_stop->setGeometry(QRect(50, 10, 111, 51));
-        vue = new QTreeView(doublons);
-        vue->setObjectName(QString::fromUtf8("vue"));
-        vue->setGeometry(QRect(50, 70, 256, 341));
-        label = new QLabel(doublons);
-        label->setObjectName(QString::fromUtf8("label"));
-        label->setGeometry(QRect(310, 20, 661, 21));
         view_double = new QTextBrowser(doublons);
         view_double->setObjectName(QString::fromUtf8("view_double"));
-        view_double->setGeometry(QRect(330, 70, 661, 341));
+        view_double->setGeometry(QRect(10, 70, 671, 231));
         search_double = new QPushButton(doublons);
         search_double->setObjectName(QString::fromUtf8("search_double"));
         search_double->setEnabled(true);
-        search_double->setGeometry(QRect(170, 10, 111, 51));
+        search_double->setGeometry(QRect(10, 10, 111, 51));
         tabWidget->addTab(doublons, QString());
+        tab = new QWidget();
+        tab->setObjectName(QString::fromUtf8("tab"));
+        search_empty = new QPushButton(tab);
+        search_empty->setObjectName(QString::fromUtf8("search_empty"));
+        search_empty->setEnabled(true);
+        search_empty->setGeometry(QRect(10, 10, 111, 51));
+        view_empty = new QTextBrowser(tab);
+        view_empty->setObjectName(QString::fromUtf8("view_empty"));
+        view_empty->setGeometry(QRect(10, 70, 671, 231));
+        tabWidget->addTab(tab, QString());
+        textBrowser = new QTextBrowser(widget);
+        textBrowser->setObjectName(QString::fromUtf8("textBrowser"));
+        textBrowser->setGeometry(QRect(10, 440, 971, 111));
+        textBrowser->setMaximumSize(QSize(1151, 16777215));
+        textBrowser->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
+        textBrowser->setHorizontalScrollBarPolicy(Qt::ScrollBarAsNeeded);
+        start_stop = new QPushButton(widget);
+        start_stop->setObjectName(QString::fromUtf8("start_stop"));
+        start_stop->setEnabled(true);
+        start_stop->setGeometry(QRect(10, 10, 111, 51));
+        vue = new QTreeView(widget);
+        vue->setObjectName(QString::fromUtf8("vue"));
+        vue->setGeometry(QRect(10, 70, 256, 341));
+        label = new QLabel(widget);
+        label->setObjectName(QString::fromUtf8("label"));
+        label->setGeometry(QRect(150, 20, 831, 21));
         OrgView->setCentralWidget(centralwidget);
         menubar = new QMenuBar(OrgView);
         menubar->setObjectName(QString::fromUtf8("menubar"));
@@ -92,7 +105,7 @@ public:
 
         retranslateUi(OrgView);
 
-        tabWidget->setCurrentIndex(0);
+        tabWidget->setCurrentIndex(1);
 
 
         QMetaObject::connectSlotsByName(OrgView);
@@ -101,10 +114,12 @@ public:
     void retranslateUi(QMainWindow *OrgView)
     {
         OrgView->setWindowTitle(QApplication::translate("OrgView", "MainWindow", 0, QApplication::UnicodeUTF8));
-        start_stop->setText(QApplication::translate("OrgView", "Go", 0, QApplication::UnicodeUTF8));
-        label->setText(QApplication::translate("OrgView", "TextLabel", 0, QApplication::UnicodeUTF8));
         search_double->setText(QApplication::translate("OrgView", "Search", 0, QApplication::UnicodeUTF8));
         tabWidget->setTabText(tabWidget->indexOf(doublons), QApplication::translate("OrgView", "Doublons", 0, QApplication::UnicodeUTF8));
+        search_empty->setText(QApplication::translate("OrgView", "Search", 0, QApplication::UnicodeUTF8));
+        tabWidget->setTabText(tabWidget->indexOf(tab), QApplication::translate("OrgView", "Dossiers vides", 0, QApplication::UnicodeUTF8));
+        start_stop->setText(QApplication::translate("OrgView", "Go", 0, QApplication::UnicodeUTF8));
+        label->setText(QApplication::translate("OrgView", "TextLabel", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
 
 };

@@ -41,93 +41,32 @@
     <widget class="QTabWidget" name="tabWidget">
      <property name="geometry">
       <rect>
-       <x>0</x>
-       <y>0</y>
-       <width>1271</width>
-       <height>601</height>
+       <x>290</x>
+       <y>70</y>
+       <width>691</width>
+       <height>341</height>
       </rect>
      </property>
      <property name="minimumSize">
       <size>
-       <width>1271</width>
+       <width>0</width>
        <height>0</height>
       </size>
      </property>
      <property name="currentIndex">
-      <number>0</number>
+      <number>1</number>
      </property>
      <widget class="QWidget" name="doublons">
       <attribute name="title">
        <string>Doublons</string>
       </attribute>
-      <widget class="QTextBrowser" name="textBrowser">
-       <property name="geometry">
-        <rect>
-         <x>50</x>
-         <y>440</y>
-         <width>941</width>
-         <height>111</height>
-        </rect>
-       </property>
-       <property name="maximumSize">
-        <size>
-         <width>1151</width>
-         <height>16777215</height>
-        </size>
-       </property>
-       <property name="verticalScrollBarPolicy">
-        <enum>Qt::ScrollBarAsNeeded</enum>
-       </property>
-       <property name="horizontalScrollBarPolicy">
-        <enum>Qt::ScrollBarAsNeeded</enum>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="start_stop">
-       <property name="enabled">
-        <bool>true</bool>
-       </property>
-       <property name="geometry">
-        <rect>
-         <x>50</x>
-         <y>10</y>
-         <width>111</width>
-         <height>51</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Go</string>
-       </property>
-      </widget>
-      <widget class="QTreeView" name="vue">
-       <property name="geometry">
-        <rect>
-         <x>50</x>
-         <y>70</y>
-         <width>256</width>
-         <height>341</height>
-        </rect>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label">
-       <property name="geometry">
-        <rect>
-         <x>310</x>
-         <y>20</y>
-         <width>661</width>
-         <height>21</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>TextLabel</string>
-       </property>
-      </widget>
       <widget class="QTextBrowser" name="view_double">
        <property name="geometry">
         <rect>
-         <x>330</x>
+         <x>10</x>
          <y>70</y>
-         <width>661</width>
-         <height>341</height>
+         <width>671</width>
+         <height>231</height>
         </rect>
        </property>
       </widget>
@@ -137,7 +76,7 @@
        </property>
        <property name="geometry">
         <rect>
-         <x>170</x>
+         <x>10</x>
          <y>10</y>
          <width>111</width>
          <height>51</height>
@@ -148,6 +87,98 @@
        </property>
       </widget>
      </widget>
+     <widget class="QWidget" name="tab">
+      <attribute name="title">
+       <string>Dossiers vides</string>
+      </attribute>
+      <widget class="QPushButton" name="search_empty">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>10</y>
+         <width>111</width>
+         <height>51</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Search</string>
+       </property>
+      </widget>
+      <widget class="QTextBrowser" name="view_empty">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>70</y>
+         <width>671</width>
+         <height>231</height>
+        </rect>
+       </property>
+      </widget>
+     </widget>
+    </widget>
+    <widget class="QTextBrowser" name="textBrowser">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>440</y>
+       <width>971</width>
+       <height>111</height>
+      </rect>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>1151</width>
+       <height>16777215</height>
+      </size>
+     </property>
+     <property name="verticalScrollBarPolicy">
+      <enum>Qt::ScrollBarAsNeeded</enum>
+     </property>
+     <property name="horizontalScrollBarPolicy">
+      <enum>Qt::ScrollBarAsNeeded</enum>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="start_stop">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>10</y>
+       <width>111</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Go</string>
+     </property>
+    </widget>
+    <widget class="QTreeView" name="vue">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>70</y>
+       <width>256</width>
+       <height>341</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label">
+     <property name="geometry">
+      <rect>
+       <x>150</x>
+       <y>20</y>
+       <width>831</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>TextLabel</string>
+     </property>
     </widget>
    </widget>
   </widget>

@@ -163,3 +163,18 @@ std::string Organizer::getRacine()
     return racine;
 }
 
+void Organizer::searchEmpty()
+{
+    QSqlQuery query;
+
+    query.prepare("SELECT path FROM dir WHERE empty=\"true\" AND path LIKE :path");
+    std::string s = getRacine()+"%";
+    query.bindValue(":path",s.c_str());
+    query.exec();
+
+    while (query.next()) {
+        std::string ph =supprimerGuillemets(query.value(0).toString());
+        emptyDir.push_back((boost::filesystem::path)ph);
+    }
+}
+

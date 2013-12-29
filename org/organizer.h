@@ -13,6 +13,7 @@ class Organizer
 
 protected:
     std::map<uint64_t,std::list<boost::filesystem::path> > doublons;
+    std::list<boost::filesystem::path> emptyDir;
     std::string racine;
 
 public:
@@ -34,6 +35,8 @@ public:
 
     void setRacine(std::string);
     std::string getRacine();
+
+    void searchEmpty();
 };
 
 #endif // ORGANIZER_H

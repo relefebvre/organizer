@@ -42,6 +42,7 @@ OrgView::OrgView(QWidget *parent) :
     ui->label->setText("Selectionner un dossier à scanner");
 
     ui->search_double->setEnabled(false);
+    ui->search_empty->setEnabled(false);
 }
 
 OrgView::~OrgView()
@@ -73,6 +74,7 @@ void OrgView::start(std::string argv)
      ui->start_stop->setText("Go");
 
      ui->search_double->setEnabled(true);
+     ui->search_empty->setEnabled(true);
 }
 
 void OrgView::affiche(QString s)
@@ -97,6 +99,15 @@ void OrgView::afficherDoublons()
     }
 }
 
+void OrgView::afficherEmpty()
+{
+    for (std::list<boost::filesystem::path>::const_iterator it=emptyDir.begin() ; it!=emptyDir.end() ; ++it)
+    {
+        ui->view_empty->append(QString(it->c_str()));
+        ui->view_empty->repaint();
+    }
+}
+
 
 void OrgView::on_start_stop_clicked()
 {
@@ -117,6 +128,7 @@ void OrgView::setChemin(const QModelIndex &index)
 {
     QDirModel dir;
     ui->search_double->setEnabled(false);
+    ui->search_empty->setEnabled(false);
     setRacine(dir.fileInfo(index).absoluteFilePath().toStdString());
     ui->label->setText(QString(getRacine().c_str()));
     ui->start_stop->setEnabled(true);
@@ -126,4 +138,10 @@ void OrgView::on_search_double_clicked()
 {
     searchDouble();
     afficherDoublons();
+}
+
+void OrgView::on_search_empty_clicked()
+{
+    searchEmpty();
+    afficherEmpty();
 }

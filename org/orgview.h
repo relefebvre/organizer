@@ -21,6 +21,7 @@ public:
     void start(std::string argv);
     void affiche(QString s);
     void afficherDoublons();
+    void afficherEmpty();
 
 
 private slots:
@@ -28,6 +29,8 @@ private slots:
     void setChemin( const QModelIndex & index );
 
     void on_search_double_clicked();
+
+    void on_search_empty_clicked();
 
 private:
     Ui::OrgView *ui;
