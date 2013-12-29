@@ -15,6 +15,8 @@
 #include <QDirModel>
 #include <QFileSystemModel>
 
+
+
 using namespace boost::filesystem;
 
 
@@ -63,6 +65,11 @@ void OrgView::start(std::string argv)
              dir.no_push();
              continue;
          }
+
+         if (boost::filesystem::is_directory(ph))
+             if (isUpdate(ph))
+                 continue;
+
 
          insert(*dir);
          affiche(QString(ph.c_str()));

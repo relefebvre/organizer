@@ -5,6 +5,10 @@
 #include <stdarg.h>
 #include <tomcrypt.h>
 #include <set>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <unistd.h>
+#include <errno.h>
 
 Organizer::Organizer()
 {
@@ -16,7 +20,7 @@ Organizer::Organizer()
 
     createTable("CREATE TABLE fic(size integer,path varchar(1000) UNIQUE, md5 varchar(16));");
 
-    createTable("CREATE TABLE dir(empty bool,path varchar(1000) UNIQUE);");
+    createTable("CREATE TABLE dir(empty bool,path varchar(1000) UNIQUE, modif datetime);");
 }
 
 bool Organizer::createDB() const
@@ -36,8 +40,6 @@ void Organizer::insert(boost::filesystem::path p) const
 {
     QSqlQuery query;
 
-//    std::cout<<p<<std::endl;
-
     if (boost::filesystem::is_regular_file(p))
     {
         uint64_t size = boost::filesystem::file_size(p);
@@ -50,10 +52,18 @@ void Organizer::insert(boost::filesystem::path p) const
     }
     if (boost::filesystem::is_directory(p))
     {
-        query.prepare("INSERT INTO dir(empty, path)"
-                      "VALUES (:empty, :path);");
+        struct stat info;
+        if (stat(p.c_str(),&info) == -1)
+        {
+            perror("stat");
+            exit(errno);
+        }
+
+        query.prepare("INSERT INTO dir(empty, path, modif)"
+                      "VALUES (:empty, :path, :modif);");
         query.bindValue(":empty",boost::filesystem::is_empty(p));
         query.bindValue(":path", p.c_str());
+        query.bindValue(":modif", QString::number(info.st_mtime));
     }
     query.exec();
 }
@@ -176,5 +186,30 @@ void Organizer::searchEmpty()
         std::string ph =supprimerGuillemets(query.value(0).toString());
         emptyDir.push_back((boost::filesystem::path)ph);
     }
+}
+
+bool Organizer::isUpdate(boost::filesystem::path p) const
+{
+    QSqlQuery query;
+    query.prepare("SELECT modif FROM dir WHERE path=:path");
+    query.bindValue(":path",p.c_str());
+    query.exec();
+
+    struct stat info;
+    if (stat(p.c_str(),&info) == -1)
+    {
+        perror("stat");
+        exit(errno);
+    }
+
+    while(query.next())
+    {
+        if (QDateTime::fromTime_t(info.st_mtime) > query.value(0).toDateTime())
+            return true;
+        else
+            return false;
+    }
+
+    return false;
 }
 

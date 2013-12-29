@@ -37,6 +37,8 @@ public:
     std::string getRacine();
 
     void searchEmpty();
+
+    bool isUpdate(boost::filesystem::path p) const;
 };
 
 #endif // ORGANIZER_H
