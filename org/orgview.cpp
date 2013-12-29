@@ -13,6 +13,7 @@
 #include "organizer.h"
 #include <QVBoxLayout>
 #include <QDirModel>
+#include <QFileSystemModel>
 
 using namespace boost::filesystem;
 
@@ -23,7 +24,7 @@ OrgView::OrgView(QWidget *parent) :
 {
     ui->setupUi(this);
     runing = false;
-
+    connect(ui->vue,SIGNAL(clicked(QModelIndex const&)),this,SLOT(setChemin(QModelIndex const&)));
 
     QVBoxLayout *layout = new QVBoxLayout;
 
@@ -32,6 +33,9 @@ OrgView::OrgView(QWidget *parent) :
     ui->vue->setModel(modele);
 
     layout->addWidget(ui->vue);
+
+    ui->start_stop->setEnabled(false);
+    ui->label->setText("Selectionner un dossier à scanner");
 }
 
 OrgView::~OrgView()
@@ -55,7 +59,13 @@ void OrgView::start(std::string argv)
 
          insert(*dir);
          affiche(QString(ph.c_str()));
+
+         if (!runing)
+             break;
      }
+     runing = false;
+     ui->start_stop->setText("Go");
+
 
      //org.searchDouble();
 
@@ -80,6 +90,15 @@ void OrgView::on_start_stop_clicked()
     }
     else
     {
-
+        runing = false;
+        ui->start_stop->setText("Go");
     }
+}
+
+void OrgView::setChemin(const QModelIndex &index)
+{
+    QDirModel dir;
+    setRacine(dir.fileInfo(index).absoluteFilePath().toStdString());
+    ui->label->setText(QString(getRacine().c_str()));
+    ui->start_stop->setEnabled(true);
 }

@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'orgview.ui'
 **
-** Created: Mon Dec 23 22:37:20 2013
+** Created: Sun Dec 29 10:49:54 2013
 **      by: Qt User Interface Compiler version 4.8.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -15,6 +15,7 @@
 #include <QtGui/QApplication>
 #include <QtGui/QButtonGroup>
 #include <QtGui/QHeaderView>
+#include <QtGui/QLabel>
 #include <QtGui/QMainWindow>
 #include <QtGui/QMenuBar>
 #include <QtGui/QPushButton>
@@ -35,6 +36,7 @@ public:
     QTextBrowser *textBrowser;
     QPushButton *start_stop;
     QTreeView *vue;
+    QLabel *label;
     QMenuBar *menubar;
 
     void setupUi(QMainWindow *OrgView)
@@ -58,14 +60,19 @@ public:
         doublons->setObjectName(QString::fromUtf8("doublons"));
         textBrowser = new QTextBrowser(doublons);
         textBrowser->setObjectName(QString::fromUtf8("textBrowser"));
-        textBrowser->setGeometry(QRect(40, 440, 441, 111));
+        textBrowser->setGeometry(QRect(40, 440, 911, 111));
         textBrowser->setMaximumSize(QSize(1151, 16777215));
+        textBrowser->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
+        textBrowser->setHorizontalScrollBarPolicy(Qt::ScrollBarAsNeeded);
         start_stop = new QPushButton(doublons);
         start_stop->setObjectName(QString::fromUtf8("start_stop"));
-        start_stop->setGeometry(QRect(60, 0, 111, 51));
+        start_stop->setGeometry(QRect(50, 10, 111, 51));
         vue = new QTreeView(doublons);
         vue->setObjectName(QString::fromUtf8("vue"));
         vue->setGeometry(QRect(50, 70, 256, 341));
+        label = new QLabel(doublons);
+        label->setObjectName(QString::fromUtf8("label"));
+        label->setGeometry(QRect(270, 35, 501, 21));
         tabWidget->addTab(doublons, QString());
         OrgView->setCentralWidget(centralwidget);
         menubar = new QMenuBar(OrgView);
@@ -85,6 +92,7 @@ public:
     {
         OrgView->setWindowTitle(QApplication::translate("OrgView", "MainWindow", 0, QApplication::UnicodeUTF8));
         start_stop->setText(QApplication::translate("OrgView", "Go", 0, QApplication::UnicodeUTF8));
+        label->setText(QApplication::translate("OrgView", "TextLabel", 0, QApplication::UnicodeUTF8));
         tabWidget->setTabText(tabWidget->indexOf(doublons), QApplication::translate("OrgView", "Doublons", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
 

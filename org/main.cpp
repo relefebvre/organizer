@@ -21,7 +21,6 @@ int main(int argc, char* argv[])
 
     QApplication app(argc, argv);
     OrgView org;
-    org.setRacine(argv[1]);
     org.show();
     return app.exec();
 }
