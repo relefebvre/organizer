@@ -38,7 +38,7 @@
       <height>731</height>
      </rect>
     </property>
-    <widget class="QTabWidget" name="tabWidget">
+    <widget class="QTabWidget" name="test">
      <property name="geometry">
       <rect>
        <x>290</x>
@@ -54,7 +54,7 @@
       </size>
      </property>
      <property name="currentIndex">
-      <number>0</number>
+      <number>1</number>
      </property>
      <widget class="QWidget" name="doublons">
       <attribute name="title">
@@ -180,6 +180,19 @@
       <string>TextLabel</string>
      </property>
     </widget>
+    <widget class="QLabel" name="status">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>710</y>
+       <width>1001</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -188,7 +201,7 @@
      <x>0</x>
      <y>0</y>
      <width>1000</width>
-     <height>25</height>
+     <height>29</height>
     </rect>
    </property>
   </widget>

@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'orgview.ui'
 **
-** Created: Tue Dec 31 12:24:38 2013
+** Created: Tue Jan 7 21:53:51 2014
 **      by: Qt User Interface Compiler version 4.8.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -31,7 +31,7 @@ class Ui_OrgView
 public:
     QWidget *centralwidget;
     QWidget *widget;
-    QTabWidget *tabWidget;
+    QTabWidget *test;
     QWidget *doublons;
     QTextBrowser *view_double;
     QPushButton *search_double;
@@ -42,6 +42,7 @@ public:
     QPushButton *start_stop;
     QTreeView *vue;
     QLabel *label;
+    QLabel *status;
     QMenuBar *menubar;
 
     void setupUi(QMainWindow *OrgView)
@@ -57,10 +58,10 @@ public:
         widget = new QWidget(centralwidget);
         widget->setObjectName(QString::fromUtf8("widget"));
         widget->setGeometry(QRect(-1, -1, 1001, 731));
-        tabWidget = new QTabWidget(widget);
-        tabWidget->setObjectName(QString::fromUtf8("tabWidget"));
-        tabWidget->setGeometry(QRect(290, 70, 691, 341));
-        tabWidget->setMinimumSize(QSize(0, 0));
+        test = new QTabWidget(widget);
+        test->setObjectName(QString::fromUtf8("test"));
+        test->setGeometry(QRect(290, 70, 691, 341));
+        test->setMinimumSize(QSize(0, 0));
         doublons = new QWidget();
         doublons->setObjectName(QString::fromUtf8("doublons"));
         view_double = new QTextBrowser(doublons);
@@ -70,7 +71,7 @@ public:
         search_double->setObjectName(QString::fromUtf8("search_double"));
         search_double->setEnabled(true);
         search_double->setGeometry(QRect(10, 10, 111, 51));
-        tabWidget->addTab(doublons, QString());
+        test->addTab(doublons, QString());
         tab = new QWidget();
         tab->setObjectName(QString::fromUtf8("tab"));
         search_empty = new QPushButton(tab);
@@ -80,7 +81,7 @@ public:
         view_empty = new QTextBrowser(tab);
         view_empty->setObjectName(QString::fromUtf8("view_empty"));
         view_empty->setGeometry(QRect(10, 70, 671, 231));
-        tabWidget->addTab(tab, QString());
+        test->addTab(tab, QString());
         textBrowser = new QTextBrowser(widget);
         textBrowser->setObjectName(QString::fromUtf8("textBrowser"));
         textBrowser->setGeometry(QRect(10, 440, 971, 111));
@@ -97,15 +98,18 @@ public:
         label = new QLabel(widget);
         label->setObjectName(QString::fromUtf8("label"));
         label->setGeometry(QRect(150, 20, 831, 21));
+        status = new QLabel(widget);
+        status->setObjectName(QString::fromUtf8("status"));
+        status->setGeometry(QRect(0, 710, 1001, 21));
         OrgView->setCentralWidget(centralwidget);
         menubar = new QMenuBar(OrgView);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 1000, 25));
+        menubar->setGeometry(QRect(0, 0, 1000, 29));
         OrgView->setMenuBar(menubar);
 
         retranslateUi(OrgView);
 
-        tabWidget->setCurrentIndex(0);
+        test->setCurrentIndex(1);
 
 
         QMetaObject::connectSlotsByName(OrgView);
@@ -115,11 +119,12 @@ public:
     {
         OrgView->setWindowTitle(QApplication::translate("OrgView", "MainWindow", 0, QApplication::UnicodeUTF8));
         search_double->setText(QApplication::translate("OrgView", "Search", 0, QApplication::UnicodeUTF8));
-        tabWidget->setTabText(tabWidget->indexOf(doublons), QApplication::translate("OrgView", "Doublons", 0, QApplication::UnicodeUTF8));
+        test->setTabText(test->indexOf(doublons), QApplication::translate("OrgView", "Doublons", 0, QApplication::UnicodeUTF8));
         search_empty->setText(QApplication::translate("OrgView", "Search", 0, QApplication::UnicodeUTF8));
-        tabWidget->setTabText(tabWidget->indexOf(tab), QApplication::translate("OrgView", "Dossiers vides", 0, QApplication::UnicodeUTF8));
+        test->setTabText(test->indexOf(tab), QApplication::translate("OrgView", "Dossiers vides", 0, QApplication::UnicodeUTF8));
         start_stop->setText(QApplication::translate("OrgView", "Go", 0, QApplication::UnicodeUTF8));
         label->setText(QApplication::translate("OrgView", "TextLabel", 0, QApplication::UnicodeUTF8));
+        status->setText(QString());
     } // retranslateUi
 
 };

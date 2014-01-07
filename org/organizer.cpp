@@ -83,7 +83,6 @@ unsigned char* Organizer::md5(const char* filename)
     hash_state md;
     unsigned char *out = new unsigned char[16];
     char buf[4096];
-    buf[0]='\0';
     unsigned int nbLu=0;
 
     QSqlQuery query;
@@ -115,8 +114,6 @@ unsigned char* Organizer::md5(const char* filename)
         nbLu += tmp;
     }
 
-    std::cout<<"NbLu : "<<nbLu<<std::endl;
-
     md5_done(&md, out);
 
     /* query.prepare("UPDATE fic SET md5=:md5 WHERE path=:path");
@@ -127,18 +124,13 @@ unsigned char* Organizer::md5(const char* filename)
     close(fd);
     //}
 
-    double sum=0;
-    for (int i=0; i<16;++i)
-        sum+=out[i];
-
-    //std::cout<<"Filename : "<<filename<<std::endl;
-    //std::cout<<"Sum : "<<sum<<std::endl;
-
     return out;
 }
 
 void Organizer::searchDouble()
 {
+
+
     QSqlQuery query;
 
     query.exec("SELECT Count(*), size FROM fic GROUP BY size HAVING Count(*) > 1;");

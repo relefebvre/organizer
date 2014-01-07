@@ -39,6 +39,8 @@ public:
     void searchEmpty();
 
     bool isUpdate(boost::filesystem::path p) const;
+
+    void setStatus(std::string s);
 };
 
 #endif // ORGANIZER_H

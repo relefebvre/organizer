@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include <QModelIndex>
+#include <QGroupBox>
 #include "organizer.h"
 
 namespace Ui {
@@ -22,6 +23,7 @@ public:
     void affiche(QString s);
     void afficherDoublons();
     void afficherEmpty();
+    void setStatus(std::string s);
 
 
 private slots:

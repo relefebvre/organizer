@@ -14,6 +14,8 @@
 #include <QVBoxLayout>
 #include <QDirModel>
 #include <QFileSystemModel>
+#include <QRadioButton>
+#include <QScrollArea>
 
 
 
@@ -82,6 +84,8 @@ void OrgView::start(std::string argv)
 
      ui->search_double->setEnabled(true);
      ui->search_empty->setEnabled(true);
+
+     setStatus("Dossier " + getRacine() + " analisé");
 }
 
 void OrgView::affiche(QString s)
@@ -92,6 +96,8 @@ void OrgView::affiche(QString s)
 
 void OrgView::afficherDoublons()
 {
+    setStatus("Recherche de doublons dans le dossier " + getRacine());
+
     for( std::map<uint64_t,std::list<boost::filesystem::path> >::const_iterator it=doublons.begin() ; it!=doublons.end() ; ++it)
     {
         QString qs("Taille ");
@@ -101,18 +107,29 @@ void OrgView::afficherDoublons()
         for (std::list<boost::filesystem::path>::const_iterator itp=it->second.begin() ; itp!=it->second.end() ; ++itp)
         {
             ui->view_double->append(QString(itp->c_str()));
-            ui->view_double->repaint();
+            QApplication::processEvents();
         }
     }
+
+    setStatus("Recherche de doublons terminée");
 }
 
 void OrgView::afficherEmpty()
 {
+    setStatus("Recherche de dossiers vides dans le dossier " + getRacine());
+
     for (std::list<boost::filesystem::path>::const_iterator it=emptyDir.begin() ; it!=emptyDir.end() ; ++it)
     {
         ui->view_empty->append(QString(it->c_str()));
-        ui->view_empty->repaint();
+        QApplication::processEvents();
     }
+
+    setStatus("Recherche de dossiers vides terminée");
+}
+
+void OrgView::setStatus(std::string s)
+{
+    ui->status->setText(QString(s.c_str()));
 }
 
 
@@ -120,6 +137,8 @@ void OrgView::on_start_stop_clicked()
 {
     if (!runing)
     {
+        std::string status = "Analyse du dossier " + getRacine() + "...";
+        setStatus("Analyse du dossier " + getRacine() + "...");
         runing = true;
         ui->start_stop->setText("Stop");
         start(getRacine());
@@ -128,6 +147,7 @@ void OrgView::on_start_stop_clicked()
     {
         runing = false;
         ui->start_stop->setText("Go");
+
     }
 }
 
