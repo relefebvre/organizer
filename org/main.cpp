@@ -18,10 +18,9 @@ using namespace std;
 
 int main(int argc, char* argv[])
 {
-
+    QTextCodec::setCodecForCStrings(QTextCodec::codecForName("UTF-8"));
     QApplication app(argc, argv);
     OrgView org;
-    org.setRacine(argv[1]);
     org.show();
     return app.exec();
 }
