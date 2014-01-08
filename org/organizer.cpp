@@ -78,56 +78,57 @@ std::string Organizer::supprimerGuillemets(QString Qstr)
 }
 
 
-unsigned char* Organizer::md5(const char* filename)
+MD5Key* Organizer::md5(const char* filename)
 {
     hash_state md;
     unsigned char *out = new unsigned char[16];
     unsigned char buf[4096];
     unsigned int nbLu=0;
 
-    /*QSqlQuery query;
+    MD5Key *md5;
+
+    QSqlQuery query;
 
     query.prepare("SELECT md5 FROM fic WHERE path=:path");
     query.bindValue(":path",filename);
     query.exec();
 
-    /*if (query.next() && query.value(0).toString().length() > 0)
-        strcpy((char *)out,query.value(0).toString().toStdString().c_str());
+    if (query.next() && query.value(0).toString().length() > 0)
+        memcpy((unsigned char*)out,query.value(0).toString().toStdString().c_str(),sizeof(unsigned char)*16);
     else
-    {*/
-
-    int fd;
-    fd = open(filename,O_RDONLY);
-    if (fd == -1)
     {
-        perror("open");
-        exit(errno);
+        int fd;
+        fd = open(filename,O_RDONLY);
+        if (fd == -1)
+        {
+            perror("open");
+            exit(errno);
+        }
+
+        md5_init(&md);
+
+
+        while (nbLu != boost::filesystem::file_size(filename))
+        {
+            unsigned int tmp;
+            tmp = read(fd,buf,sizeof(buf));
+            md5_process(&md,buf, tmp);
+            nbLu += tmp;
+        }
+
+        md5_done(&md, out);
+
+        close(fd);
     }
 
-    md5_init(&md);
+    md5 = new MD5Key(out);
 
-
-    while (nbLu != boost::filesystem::file_size(filename))
-    {
-
-        unsigned int tmp;
-        tmp = read(fd,buf,sizeof(buf));
-        std::cout<<"Tmp lu : "<<tmp<<std::endl;
-        md5_process(&md,buf, tmp);
-        nbLu += tmp;
-    }
-
-    md5_done(&md, out);
-
-    /* query.prepare("UPDATE fic SET md5=:md5 WHERE path=:path");
-    query.bindValue(":md5",(char*)out);
+    query.prepare("UPDATE fic SET md5=:md5 WHERE path=:path");
+    query.bindValue(":md5",md5->toString().c_str());
     query.bindValue(":path",filename);
-    query.exec();*/
+    query.exec();
 
-    close(fd);
-    //}
-
-    return out;
+    return md5;
 }
 
 void Organizer::searchDouble()
@@ -147,39 +148,23 @@ void Organizer::searchDouble()
     {
         if (it->second.size() == 2)
         {
-            if (memcmp(md5(it->second.front().string().c_str()),md5(it->second.back().string().c_str()),sizeof(unsigned char)*16) != 0)
+            if (*md5(it->second.front().string().c_str()) != *md5(it->second.back().string().c_str()))
                 doublons.erase(it);
-           /* else
-            {
-                std::cout << "md5 front : " << md5(it->second.front().string().c_str()) << std::endl ;
-                std::cout << "md5 back : " << md5(it->second.back().string().c_str()) << std::endl ;
-
-            }*/
         }
         else
         {
-            std::set<unsigned char*> md5Sum;
-            std::pair<std::set<unsigned char*>::const_iterator,bool> ret;
+            std::set<MD5Key> md5Sum;
+            std::pair<std::set<MD5Key>::const_iterator,bool> ret;
 
             for (std::list<boost::filesystem::path>::const_iterator itp=it->second.begin() ; itp!=it->second.end() ; ++itp)
             {
-                std::cout<<"Taille : "<<it->first<<std::endl;
-                ret = md5Sum.insert(md5(itp->string().c_str()));
-                std::cout<<"Nb Elt : "<<md5Sum.size()<<std::endl;
-                std::cout<<"Path : "<<*itp<<std::endl;
-                std::cout<<"Md5 : "<<md5(itp->string().c_str())<<std::endl;
+                ret = md5Sum.insert(*md5(itp->string().c_str()));
 
                 if (ret.second == false)
-                //std::set<unsigned char*>::iterator isIn = md5Sum.find(md5(itp->string().c_str()));
-                //if (isIn != md5Sum.end())
-                {
                     ++cpt;
-                    std::cout<<"DOUBLON!!!!"<<std::endl;
-                }
-                //std::cout<<"Cpt : "<<cpt<<std::endl;
             }
-            /*if (cpt == 0)
-                doublons.erase((it));*/
+            if (cpt == 0)
+                doublons.erase((it));
         }
         ++it;
     }

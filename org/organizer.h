@@ -7,6 +7,7 @@
 #include <QString>
 #include <map>
 #include <list>
+#include "md5key.h"
 
 class Organizer
 {
@@ -27,7 +28,7 @@ public:
 
     std::string supprimerGuillemets(QString Qstr);
 
-    unsigned char* md5(const char* filename);
+    MD5Key *md5(const char* filename);
 
     void searchDouble(void);
 

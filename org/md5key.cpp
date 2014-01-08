@@ -17,6 +17,20 @@ bool operator<(const MD5Key &k1, const MD5Key &k2)
     return false ;
 }
 
+bool operator ==(const MD5Key &k1, const MD5Key &k2)
+{
+    if(memcmp(k1.getKey(), k2.getKey(), sizeof(unsigned char)*16) == 0)
+        return true ;
+    return false ;
+}
+
+bool operator !=(const MD5Key &k1, const MD5Key &k2)
+{
+    if(memcmp(k1.getKey(), k2.getKey(), sizeof(unsigned char)*16) == 0)
+        return false ;
+    return true ;
+}
+
 std::string MD5Key::toString() const
 {
     std::stringstream tmp;
@@ -35,3 +49,4 @@ std::ostream &operator<<(std::ostream &os, const MD5Key k1)
 {
     return os << k1.toString();
 }
+
