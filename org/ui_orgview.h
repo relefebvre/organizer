@@ -1,8 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'orgview.ui'
 **
-** Created: Wed Jan 8 15:46:18 2014
-**      by: Qt User Interface Compiler version 4.8.2
+** Created by: Qt User Interface Compiler version 4.8.6
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -64,6 +63,7 @@ public:
         test->setMinimumSize(QSize(0, 0));
         doublons = new QWidget();
         doublons->setObjectName(QString::fromUtf8("doublons"));
+        doublons->setFocusPolicy(Qt::TabFocus);
         view_double = new QTextBrowser(doublons);
         view_double->setObjectName(QString::fromUtf8("view_double"));
         view_double->setGeometry(QRect(10, 70, 671, 231));
@@ -95,6 +95,10 @@ public:
         vue = new QTreeView(widget);
         vue->setObjectName(QString::fromUtf8("vue"));
         vue->setGeometry(QRect(10, 70, 256, 341));
+        vue->setUniformRowHeights(false);
+        vue->setAnimated(true);
+        vue->header()->setCascadingSectionResizes(false);
+        vue->header()->setStretchLastSection(false);
         label = new QLabel(widget);
         label->setObjectName(QString::fromUtf8("label"));
         label->setGeometry(QRect(150, 20, 831, 21));
@@ -104,12 +108,12 @@ public:
         OrgView->setCentralWidget(centralwidget);
         menubar = new QMenuBar(OrgView);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 1000, 29));
+        menubar->setGeometry(QRect(0, 0, 1000, 27));
         OrgView->setMenuBar(menubar);
 
         retranslateUi(OrgView);
 
-        test->setCurrentIndex(1);
+        test->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(OrgView);

@@ -54,9 +54,12 @@
       </size>
      </property>
      <property name="currentIndex">
-      <number>1</number>
+      <number>0</number>
      </property>
      <widget class="QWidget" name="doublons">
+      <property name="focusPolicy">
+       <enum>Qt::TabFocus</enum>
+      </property>
       <attribute name="title">
        <string>Doublons</string>
       </attribute>
@@ -166,6 +169,18 @@
        <height>341</height>
       </rect>
      </property>
+     <property name="uniformRowHeights">
+      <bool>false</bool>
+     </property>
+     <property name="animated">
+      <bool>true</bool>
+     </property>
+     <attribute name="headerCascadingSectionResizes">
+      <bool>false</bool>
+     </attribute>
+     <attribute name="headerStretchLastSection">
+      <bool>false</bool>
+     </attribute>
     </widget>
     <widget class="QLabel" name="label">
      <property name="geometry">
@@ -201,7 +216,7 @@
      <x>0</x>
      <y>0</y>
      <width>1000</width>
-     <height>29</height>
+     <height>27</height>
     </rect>
    </property>
   </widget>

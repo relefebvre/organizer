@@ -47,6 +47,8 @@ OrgView::OrgView(QWidget *parent) :
 
     ui->search_double->setEnabled(false);
     ui->search_empty->setEnabled(false);
+
+    ui->vue->header()->resizeSection(0,200);
 }
 
 OrgView::~OrgView()
@@ -80,7 +82,7 @@ void OrgView::start(std::string argv)
              break;
      }
 
-     ui->start_stop->setText("Scanné");
+     ui->start_stop->setText("Scanner");
 
      ui->search_double->setEnabled(true);
      ui->search_empty->setEnabled(true);
