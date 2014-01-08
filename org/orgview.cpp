@@ -91,7 +91,9 @@ void OrgView::start(std::string argv)
 void OrgView::affiche(QString s)
 {
     ui->textBrowser->append(s);
-    ui->textBrowser->repaint();
+    //ui->textBrowser->repaint();
+    QApplication::processEvents();
+
 }
 
 void OrgView::afficherDoublons()

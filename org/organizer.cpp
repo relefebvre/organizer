@@ -82,10 +82,10 @@ unsigned char* Organizer::md5(const char* filename)
 {
     hash_state md;
     unsigned char *out = new unsigned char[16];
-    char buf[4096];
+    unsigned char buf[4096];
     unsigned int nbLu=0;
 
-    QSqlQuery query;
+    /*QSqlQuery query;
 
     query.prepare("SELECT md5 FROM fic WHERE path=:path");
     query.bindValue(":path",filename);
@@ -106,11 +106,14 @@ unsigned char* Organizer::md5(const char* filename)
 
     md5_init(&md);
 
+
     while (nbLu != boost::filesystem::file_size(filename))
     {
+
         unsigned int tmp;
         tmp = read(fd,buf,sizeof(buf));
-        md5_process(&md, (const unsigned char*)buf, tmp);
+        std::cout<<"Tmp lu : "<<tmp<<std::endl;
+        md5_process(&md,buf, tmp);
         nbLu += tmp;
     }
 
@@ -138,16 +141,23 @@ void Organizer::searchDouble()
     while (query.next())
         searchBySize(query.value(1).toULongLong());
 
+    unsigned cpt=0;
+
     for( std::map<uint64_t,std::list<boost::filesystem::path> >::iterator it=doublons.begin() ; it!=doublons.end() ; )
     {
         if (it->second.size() == 2)
         {
-            if (memcmp(md5(it->second.front().string().c_str()),md5(it->second.back().string().c_str()),sizeof(char)*16) != 0)
+            if (memcmp(md5(it->second.front().string().c_str()),md5(it->second.back().string().c_str()),sizeof(unsigned char)*16) != 0)
                 doublons.erase(it);
+           /* else
+            {
+                std::cout << "md5 front : " << md5(it->second.front().string().c_str()) << std::endl ;
+                std::cout << "md5 back : " << md5(it->second.back().string().c_str()) << std::endl ;
+
+            }*/
         }
         else
         {
-            unsigned cpt=0;
             std::set<unsigned char*> md5Sum;
             std::pair<std::set<unsigned char*>::const_iterator,bool> ret;
 
@@ -159,9 +169,9 @@ void Organizer::searchDouble()
                 std::cout<<"Path : "<<*itp<<std::endl;
                 std::cout<<"Md5 : "<<md5(itp->string().c_str())<<std::endl;
 
-                //if (ret.second == false)
-                std::set<unsigned char*>::iterator isIn = md5Sum.find(md5(itp->string().c_str()));
-                if (isIn != md5Sum.end())
+                if (ret.second == false)
+                //std::set<unsigned char*>::iterator isIn = md5Sum.find(md5(itp->string().c_str()));
+                //if (isIn != md5Sum.end())
                 {
                     ++cpt;
                     std::cout<<"DOUBLON!!!!"<<std::endl;
