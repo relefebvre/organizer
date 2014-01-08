@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'orgview.ui'
 **
-** Created: Wed Jan 8 14:17:27 2014
+** Created: Wed Jan 8 15:46:18 2014
 **      by: Qt User Interface Compiler version 4.8.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -100,7 +100,7 @@ public:
         label->setGeometry(QRect(150, 20, 831, 21));
         status = new QLabel(widget);
         status->setObjectName(QString::fromUtf8("status"));
-        status->setGeometry(QRect(0, 710, 1001, 21));
+        status->setGeometry(QRect(10, 560, 1001, 21));
         OrgView->setCentralWidget(centralwidget);
         menubar = new QMenuBar(OrgView);
         menubar->setObjectName(QString::fromUtf8("menubar"));
@@ -122,7 +122,7 @@ public:
         test->setTabText(test->indexOf(doublons), QApplication::translate("OrgView", "Doublons", 0, QApplication::UnicodeUTF8));
         search_empty->setText(QApplication::translate("OrgView", "Search", 0, QApplication::UnicodeUTF8));
         test->setTabText(test->indexOf(tab), QApplication::translate("OrgView", "Dossiers vides", 0, QApplication::UnicodeUTF8));
-        start_stop->setText(QApplication::translate("OrgView", "Go", 0, QApplication::UnicodeUTF8));
+        start_stop->setText(QApplication::translate("OrgView", "Scann\303\251", 0, QApplication::UnicodeUTF8));
         label->setText(QApplication::translate("OrgView", "TextLabel", 0, QApplication::UnicodeUTF8));
         status->setText(QString());
     } // retranslateUi

@@ -31,7 +31,7 @@ bool operator !=(const MD5Key &k1, const MD5Key &k2)
     return true ;
 }
 
-std::string MD5Key::toString() const
+const std::string MD5Key::toString() const
 {
     std::stringstream tmp;
     tmp.setf(std::ios_base::hex) ;

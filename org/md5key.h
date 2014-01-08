@@ -15,7 +15,7 @@ public:
     friend bool operator<(const MD5Key&k1, const MD5Key&k2);
     friend bool operator== (const MD5Key&k1, const MD5Key&k2);
     friend bool operator!= (const MD5Key&k1, const MD5Key&k2);
-    std::string toString() const;
+    const std::string toString() const;
     const unsigned char* getKey() const ;
 };
 

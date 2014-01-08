@@ -76,27 +76,30 @@ void OrgView::start(std::string argv)
          insert(*dir);
          affiche(QString(ph.c_str()));
 
-         if (!runing)
+         if (!runing)   
              break;
      }
-     runing = false;
-     ui->start_stop->setText("Go");
+
+     ui->start_stop->setText("Scanné");
 
      ui->search_double->setEnabled(true);
      ui->search_empty->setEnabled(true);
 
-     setStatus("Dossier " + getRacine() + " analisé");
+     if (!runing)
+        setStatus("ATTENTION le dossier " + getRacine() + " n'a pas été scanné complètement");
+     else
+        setStatus("Dossier " + getRacine() + " scanné");
+
+     runing = false;
 }
 
-void OrgView::affiche(QString s)
+void OrgView::affiche(const QString &s) const
 {
     ui->textBrowser->append(s);
-    //ui->textBrowser->repaint();
     QApplication::processEvents();
-
 }
 
-void OrgView::afficherDoublons()
+void OrgView::afficherDoublons() const
 {
     setStatus("Recherche de doublons dans le dossier " + getRacine());
 
@@ -105,7 +108,7 @@ void OrgView::afficherDoublons()
         QString qs("Taille ");
         qs += QString::number(it->first);
         ui->view_double->append(qs);
-        ui->view_double->repaint();
+        QApplication::processEvents();
         for (std::list<boost::filesystem::path>::const_iterator itp=it->second.begin() ; itp!=it->second.end() ; ++itp)
         {
             ui->view_double->append(QString(itp->c_str()));
@@ -116,7 +119,7 @@ void OrgView::afficherDoublons()
     setStatus("Recherche de doublons terminée");
 }
 
-void OrgView::afficherEmpty()
+void OrgView::afficherEmpty() const
 {
     setStatus("Recherche de dossiers vides dans le dossier " + getRacine());
 
@@ -129,7 +132,7 @@ void OrgView::afficherEmpty()
     setStatus("Recherche de dossiers vides terminée");
 }
 
-void OrgView::setStatus(std::string s)
+void OrgView::setStatus(const std::string & s) const
 {
     ui->status->setText(QString(s.c_str()));
 }
@@ -139,8 +142,8 @@ void OrgView::on_start_stop_clicked()
 {
     if (!runing)
     {
-        std::string status = "Analyse du dossier " + getRacine() + "...";
-        setStatus("Analyse du dossier " + getRacine() + "...");
+        std::string status = "Scan du dossier " + getRacine() + "...";
+        setStatus("Scan du dossier " + getRacine() + "...");
         runing = true;
         ui->start_stop->setText("Stop");
         start(getRacine());
@@ -148,7 +151,7 @@ void OrgView::on_start_stop_clicked()
     else
     {
         runing = false;
-        ui->start_stop->setText("Go");
+        ui->start_stop->setText("Scanné");
 
     }
 }
@@ -159,7 +162,18 @@ void OrgView::setChemin(const QModelIndex &index)
     ui->search_double->setEnabled(false);
     ui->search_empty->setEnabled(false);
     setRacine(dir.fileInfo(index).absoluteFilePath().toStdString());
-    ui->label->setText(QString(getRacine().c_str()));
+    std::stringstream tmp;
+    tmp << getRacine();
+    if (isUpdate(getRacine()))
+    {
+        tmp << "\t\tDossier à jour !";
+        ui->search_double->setEnabled(true);
+        ui->search_empty->setEnabled(true);
+    }
+    else
+        tmp << "\t\tScanné le dossier !";
+
+    ui->label->setText(QString(std::string(tmp.str()).c_str()));
     ui->start_stop->setEnabled(true);
 }
 

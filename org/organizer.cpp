@@ -31,13 +31,13 @@ bool Organizer::createDB() const
     return db.open();
 }
 
-void Organizer::createTable(std::string command) const
+void Organizer::createTable(const std::string &command) const
 {
     QSqlQuery query;
     query.exec(command.c_str());
 }
 
-void Organizer::insert(boost::filesystem::path p) const
+void Organizer::insert(const boost::filesystem::path &p) const
 {
     QSqlQuery query;
 
@@ -70,7 +70,7 @@ void Organizer::insert(boost::filesystem::path p) const
 }
 
 
-std::string Organizer::supprimerGuillemets(QString Qstr)
+const std::string Organizer::supprimerGuillemets(const QString &Qstr)
 {
     std::string str=Qstr.toStdString();
     str.erase(remove(str.begin(), str.end(), '"'), str.end());
@@ -171,7 +171,7 @@ void Organizer::searchDouble()
 
 }
 
-void Organizer::searchBySize(uint64_t size)
+void Organizer::searchBySize(const uint64_t size)
 {
     QSqlQuery query;
 
@@ -190,13 +190,12 @@ void Organizer::searchBySize(uint64_t size)
 }
 
 
-void Organizer::setRacine(std::string s)
+void Organizer::setRacine(const std::string &s)
 {
-    std::cout<<s<<std::endl;
     racine = s;
 }
 
-std::string Organizer::getRacine()
+const std::string &Organizer::getRacine() const
 {
     return racine;
 }
@@ -216,7 +215,7 @@ void Organizer::searchEmpty()
     }
 }
 
-bool Organizer::isUpdate(boost::filesystem::path p) const
+bool Organizer::isUpdate(const boost::filesystem::path &p) const
 {
     QSqlQuery query;
     query.prepare("SELECT modif FROM dir WHERE path=:path");

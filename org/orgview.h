@@ -20,10 +20,10 @@ public:
     explicit OrgView(QWidget *parent = 0);
     ~OrgView();
     void start(std::string argv);
-    void affiche(QString s);
-    void afficherDoublons();
-    void afficherEmpty();
-    void setStatus(std::string s);
+    void affiche(const QString & s) const;
+    void afficherDoublons() const;
+    void afficherEmpty() const;
+    void setStatus(const std::string &s) const;
 
 
 private slots:
@@ -33,13 +33,10 @@ private slots:
     void on_search_double_clicked();
 
     void on_search_empty_clicked();
-
 private:
     Ui::OrgView *ui;
 
 signals:
-
-    //void clicked ( const QModelIndex & index );
 
 };
 

@@ -22,26 +22,24 @@ public:
 
     bool createDB() const;
 
-    void createTable(std::string query) const;
+    void createTable(const std::string & query) const;
 
-    void insert(boost::filesystem::path p) const;
+    void insert(const boost::filesystem::path & p) const;
 
-    std::string supprimerGuillemets(QString Qstr);
+    const std::string supprimerGuillemets(const QString & Qstr);
 
     MD5Key *md5(const char* filename);
 
     void searchDouble(void);
 
-    void searchBySize(uint64_t size);
+    void searchBySize(const uint64_t size);
 
-    void setRacine(std::string);
-    std::string getRacine();
+    void setRacine(const std::string &);
+    const std::string & getRacine() const;
 
     void searchEmpty();
 
-    bool isUpdate(boost::filesystem::path p) const;
-
-    void setStatus(std::string s);
+    bool isUpdate(const boost::filesystem::path & p) const;
 };
 
 #endif // ORGANIZER_H
