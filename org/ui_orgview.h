@@ -32,8 +32,8 @@ public:
     QWidget *widget;
     QTabWidget *test;
     QWidget *doublons;
-    QTextBrowser *view_double;
     QPushButton *search_double;
+    QTreeView *treeView;
     QWidget *tab;
     QPushButton *search_empty;
     QTextBrowser *view_empty;
@@ -42,7 +42,6 @@ public:
     QTreeView *vue;
     QLabel *label;
     QLabel *status;
-    QTreeView *treeView;
     QMenuBar *menubar;
 
     void setupUi(QMainWindow *OrgView)
@@ -65,13 +64,17 @@ public:
         doublons = new QWidget();
         doublons->setObjectName(QString::fromUtf8("doublons"));
         doublons->setFocusPolicy(Qt::TabFocus);
-        view_double = new QTextBrowser(doublons);
-        view_double->setObjectName(QString::fromUtf8("view_double"));
-        view_double->setGeometry(QRect(10, 70, 671, 231));
         search_double = new QPushButton(doublons);
         search_double->setObjectName(QString::fromUtf8("search_double"));
         search_double->setEnabled(true);
         search_double->setGeometry(QRect(10, 10, 111, 51));
+        treeView = new QTreeView(doublons);
+        treeView->setObjectName(QString::fromUtf8("treeView"));
+        treeView->setGeometry(QRect(10, 70, 671, 221));
+        treeView->setSelectionMode(QAbstractItemView::MultiSelection);
+        treeView->setHorizontalScrollMode(QAbstractItemView::ScrollPerPixel);
+        treeView->setAnimated(false);
+        treeView->header()->setStretchLastSection(true);
         test->addTab(doublons, QString());
         tab = new QWidget();
         tab->setObjectName(QString::fromUtf8("tab"));
@@ -106,9 +109,6 @@ public:
         status = new QLabel(widget);
         status->setObjectName(QString::fromUtf8("status"));
         status->setGeometry(QRect(10, 560, 1001, 21));
-        treeView = new QTreeView(widget);
-        treeView->setObjectName(QString::fromUtf8("treeView"));
-        treeView->setGeometry(QRect(15, 591, 411, 131));
         OrgView->setCentralWidget(centralwidget);
         menubar = new QMenuBar(OrgView);
         menubar->setObjectName(QString::fromUtf8("menubar"));

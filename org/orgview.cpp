@@ -110,33 +110,35 @@ void OrgView::afficherDoublons() const
 {
     setStatus("Recherche de doublons dans le dossier " + getRacine());
 
-    DoublonModel * mod = new DoublonModel("dbl") ;
-    int i = 0 ;
+    DoublonModel * mod = new DoublonModel(" ") ;
+    int i = 1 ;
 
 
 
     for( std::map<uint64_t,std::list<boost::filesystem::path> >::const_iterator it=doublons.begin() ; it!=doublons.end() ; ++it)
     {
-
+        QString sPath;
         QString qs("Taille ");
         qs += QString::number(it->first);
         QList<QVariant> taille ;
         taille << qs ;
 
-        QString sPath;
 
 
+        //On ajoute une famille de path ayant la même taille au doublonTree
         mod->setupModelData(qs.split(QString("\n")), mod->rootItem);
 
-        //ui->view_double->append(qs);
         QApplication::processEvents();
+
         for (std::list<boost::filesystem::path>::const_iterator itp=it->second.begin() ; itp!=it->second.end() ; ++itp)
         {
             sPath += qs ;
-            sPath += "\t" ;
+            sPath += "\n" ;
             sPath += itp->c_str() ;
+
             mod->setupModelData(sPath.split(QString("\n")), mod->rootItem->child(i));
-            //ui->view_double->append(QString(itp->c_str()));
+
+            sPath.clear();
             QApplication::processEvents();
         }
 
@@ -200,7 +202,7 @@ void OrgView::setChemin(const QModelIndex &index)
         ui->search_empty->setEnabled(true);
     }
     else
-        tmp << "\t\tScanné le dossier !";
+        tmp << "\t\tDossier scanné !";
 
     ui->label->setText(QString(std::string(tmp.str()).c_str()));
     ui->start_stop->setEnabled(true);

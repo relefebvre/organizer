@@ -63,16 +63,6 @@
       <attribute name="title">
        <string>Doublons</string>
       </attribute>
-      <widget class="QTextBrowser" name="view_double">
-       <property name="geometry">
-        <rect>
-         <x>10</x>
-         <y>70</y>
-         <width>671</width>
-         <height>231</height>
-        </rect>
-       </property>
-      </widget>
       <widget class="QPushButton" name="search_double">
        <property name="enabled">
         <bool>true</bool>
@@ -88,6 +78,28 @@
        <property name="text">
         <string>Search</string>
        </property>
+      </widget>
+      <widget class="QTreeView" name="treeView">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>70</y>
+         <width>671</width>
+         <height>221</height>
+        </rect>
+       </property>
+       <property name="selectionMode">
+        <enum>QAbstractItemView::MultiSelection</enum>
+       </property>
+       <property name="horizontalScrollMode">
+        <enum>QAbstractItemView::ScrollPerPixel</enum>
+       </property>
+       <property name="animated">
+        <bool>false</bool>
+       </property>
+       <attribute name="headerStretchLastSection">
+        <bool>true</bool>
+       </attribute>
       </widget>
      </widget>
      <widget class="QWidget" name="tab">
@@ -206,16 +218,6 @@
      </property>
      <property name="text">
       <string/>
-     </property>
-    </widget>
-    <widget class="QTreeView" name="treeView">
-     <property name="geometry">
-      <rect>
-       <x>15</x>
-       <y>591</y>
-       <width>411</width>
-       <height>131</height>
-      </rect>
      </property>
     </widget>
    </widget>

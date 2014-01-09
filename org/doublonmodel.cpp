@@ -1,4 +1,5 @@
 #include "doublonmodel.h"
+#include <iostream>
 
 DoublonModel::DoublonModel(const QString &data, QObject *parent) :
     QAbstractItemModel(parent)
@@ -72,11 +73,47 @@ int DoublonModel::columnCount(const QModelIndex &parent) const
 
 void DoublonModel::setupModelData(const QStringList &lines, DoublonTree *parent)
 {
-    QList<QVariant> li ;
+    /*
+     *Ce bout de code fait ce qu'on attend de lui
+     *
+     *QList<QVariant> test ;
+    QList<QVariant> test2 ;
+    test2 << "Zizi" << "Bite" ;
+    test << "Zob" << "Zigou";
+    parent->appendChild(new DoublonTree(test, parent));
+    parent->appendChild(new DoublonTree(test2, parent));
+    (parent->child(0))->appendChild(new DoublonTree(test2, parent->child(0)));*/
 
-    QStringList::const_iterator constIterator;
-     for (constIterator = lines.constBegin(); constIterator != lines.constEnd(); ++constIterator)
-         li << (*constIterator).toLocal8Bit().constData() ;
+    /*
+     *Celui ci non. SegFault.
+     *
+     *
+     *
+    QList<QVariant> li ;
+    QVariant str[2] ;
+    std::string sstr[2] ;
+
+    for (int i = 0; i < lines.size(); ++i)
+        str[i] = lines.at(i).toLocal8Bit().constData() ;
+
+    for(int i = 0 ; i < 2 ; ++i)
+        sstr[i] = str[i].toString().toStdString() ;
+    sstr[0] += sstr[1] ;
+    li << str[0] ;
+    */
+
+
+
+    QList<QVariant> li ;
+    QList<QVariant> zob ;
+
+    zob << "Zizi" << "Zob";
+
+    for (int i = 0; i < lines.size(); ++i)
+    {
+        li << lines.at(i).toLocal8Bit().constData() ;
+    }
+
 
     parent->appendChild(new DoublonTree(li, parent));
 
