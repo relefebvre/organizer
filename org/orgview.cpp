@@ -16,6 +16,7 @@
 #include <QFileSystemModel>
 #include <QRadioButton>
 #include <QScrollArea>
+#include "doublonmodel.h"
 
 
 
@@ -41,6 +42,7 @@ OrgView::OrgView(QWidget *parent) :
     ui->vue->setModel(modele);
 
     layout->addWidget(ui->vue);
+    ui->vue->header()->resizeSection(0,200);
 
     ui->start_stop->setEnabled(false);
     ui->label->setText("Selectionner un dossier à scanner");
@@ -48,7 +50,10 @@ OrgView::OrgView(QWidget *parent) :
     ui->search_double->setEnabled(false);
     ui->search_empty->setEnabled(false);
 
-    ui->vue->header()->resizeSection(0,200);
+    layout->addWidget(ui->treeView);
+
+
+
 }
 
 OrgView::~OrgView()
@@ -105,18 +110,40 @@ void OrgView::afficherDoublons() const
 {
     setStatus("Recherche de doublons dans le dossier " + getRacine());
 
+    DoublonModel * mod = new DoublonModel("dbl") ;
+    int i = 0 ;
+
+
+
     for( std::map<uint64_t,std::list<boost::filesystem::path> >::const_iterator it=doublons.begin() ; it!=doublons.end() ; ++it)
     {
+
         QString qs("Taille ");
         qs += QString::number(it->first);
-        ui->view_double->append(qs);
+        QList<QVariant> taille ;
+        taille << qs ;
+
+        QString sPath;
+
+
+        mod->setupModelData(qs.split(QString("\n")), mod->rootItem);
+
+        //ui->view_double->append(qs);
         QApplication::processEvents();
         for (std::list<boost::filesystem::path>::const_iterator itp=it->second.begin() ; itp!=it->second.end() ; ++itp)
         {
-            ui->view_double->append(QString(itp->c_str()));
+            sPath += qs ;
+            sPath += "\t" ;
+            sPath += itp->c_str() ;
+            mod->setupModelData(sPath.split(QString("\n")), mod->rootItem->child(i));
+            //ui->view_double->append(QString(itp->c_str()));
             QApplication::processEvents();
         }
+
+        ++i ;
     }
+
+    ui->treeView->setModel(mod);
 
     setStatus("Recherche de doublons terminée");
 }

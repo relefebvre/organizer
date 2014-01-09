@@ -42,6 +42,7 @@ public:
     QTreeView *vue;
     QLabel *label;
     QLabel *status;
+    QTreeView *treeView;
     QMenuBar *menubar;
 
     void setupUi(QMainWindow *OrgView)
@@ -105,6 +106,9 @@ public:
         status = new QLabel(widget);
         status->setObjectName(QString::fromUtf8("status"));
         status->setGeometry(QRect(10, 560, 1001, 21));
+        treeView = new QTreeView(widget);
+        treeView->setObjectName(QString::fromUtf8("treeView"));
+        treeView->setGeometry(QRect(15, 591, 411, 131));
         OrgView->setCentralWidget(centralwidget);
         menubar = new QMenuBar(OrgView);
         menubar->setObjectName(QString::fromUtf8("menubar"));
@@ -126,7 +130,7 @@ public:
         test->setTabText(test->indexOf(doublons), QApplication::translate("OrgView", "Doublons", 0, QApplication::UnicodeUTF8));
         search_empty->setText(QApplication::translate("OrgView", "Search", 0, QApplication::UnicodeUTF8));
         test->setTabText(test->indexOf(tab), QApplication::translate("OrgView", "Dossiers vides", 0, QApplication::UnicodeUTF8));
-        start_stop->setText(QApplication::translate("OrgView", "Scann\303\251", 0, QApplication::UnicodeUTF8));
+        start_stop->setText(QApplication::translate("OrgView", "Scanner", 0, QApplication::UnicodeUTF8));
         label->setText(QApplication::translate("OrgView", "TextLabel", 0, QApplication::UnicodeUTF8));
         status->setText(QString());
     } // retranslateUi
