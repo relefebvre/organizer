@@ -70,7 +70,7 @@ public:
         search_double->setGeometry(QRect(10, 10, 111, 51));
         treeView = new QTreeView(doublons);
         treeView->setObjectName(QString::fromUtf8("treeView"));
-        treeView->setGeometry(QRect(10, 70, 671, 221));
+        treeView->setGeometry(QRect(10, 70, 671, 231));
         treeView->setSelectionMode(QAbstractItemView::MultiSelection);
         treeView->setHorizontalScrollMode(QAbstractItemView::ScrollPerPixel);
         treeView->setAnimated(false);

@@ -49,3 +49,13 @@ DoublonTree *DoublonTree::parent()
     return parentItem ;
 }
 
+bool DoublonTree::isChecked() const
+{
+    return checked ;
+}
+
+void DoublonTree::setChecked(bool set)
+{
+    checked = set ;
+}
+

@@ -50,10 +50,6 @@ OrgView::OrgView(QWidget *parent) :
     ui->search_double->setEnabled(false);
     ui->search_empty->setEnabled(false);
 
-    layout->addWidget(ui->treeView);
-
-
-
 }
 
 OrgView::~OrgView()
@@ -132,8 +128,8 @@ void OrgView::afficherDoublons() const
 
         for (std::list<boost::filesystem::path>::const_iterator itp=it->second.begin() ; itp!=it->second.end() ; ++itp)
         {
-            sPath += qs ;
-            sPath += "\n" ;
+           // sPath += qs ;
+           // sPath += "\n" ;
             sPath += itp->c_str() ;
 
             mod->setupModelData(sPath.split(QString("\n")), mod->rootItem->child(i));

@@ -5,7 +5,7 @@ DoublonModel::DoublonModel(const QString &data, QObject *parent) :
     QAbstractItemModel(parent)
 {
     QList<QVariant> rootData;
-    rootData << "Taille" << "Path";
+    rootData << "Taille";
     rootItem = new DoublonTree(rootData);
     setupModelData(data.split(QString("\n")), rootItem);
 }
@@ -103,17 +103,30 @@ void DoublonModel::setupModelData(const QStringList &lines, DoublonTree *parent)
     */
 
 
-
+    /*
+     *Ce code ci conduit à l'absence de l'affichage du path dans le TreeView
+     *
+     *La QList zob quand on l'interverti avec li est elle bien affichée.
+     *
+     *Le problème se trouve être au niveau de la conversion du PATH ou de son assignation
+     *
+     */
     QList<QVariant> li ;
     QList<QVariant> zob ;
+    std::string li1 ;
 
     zob << "Zizi" << "Zob";
 
-    for (int i = 0; i < lines.size(); ++i)
+
+    for (int i = 0; i < lines.size(); i++)
     {
-        li << lines.at(i).toLocal8Bit().constData() ;
+        li.append(lines.at(i)) ;
     }
 
+    foreach(QVariant qv , li)
+        std::cout << qv.toString().toStdString() << std::endl ;
+
+    std::cout << "Fin de la liste"<<std::endl ;
 
     parent->appendChild(new DoublonTree(li, parent));
 
@@ -129,6 +142,10 @@ QVariant DoublonModel::data(const QModelIndex &index, int role) const
 
     DoublonTree *item = static_cast<DoublonTree*>(index.internalPointer());
 
+    if ( role == Qt::CheckStateRole && index.column() == 0 )
+            return static_cast< int >( item->isChecked() ? Qt::Checked : Qt::Unchecked );
+
+
     return item->data(index.column());
 }
 
@@ -138,7 +155,12 @@ Qt::ItemFlags DoublonModel::flags(const QModelIndex &index) const
     if (!index.isValid())
         return 0;
 
-    return Qt::ItemIsEnabled | Qt::ItemIsSelectable;
+    Qt::ItemFlags flags = Qt::ItemIsEnabled | Qt::ItemIsSelectable;
+
+    if ( index.column() == 1 )
+            flags |= Qt::ItemIsUserCheckable;
+
+    return flags ;
 }
 
 QVariant DoublonModel::headerData(int section, Qt::Orientation orientation,

@@ -21,10 +21,14 @@ public:
      int row() const;
      DoublonTree *parent();
 
+     bool isChecked() const ;
+     void setChecked(bool set) ;
+
  private:
      QList<DoublonTree*> childItems;
      QList<QVariant> itemData;
      DoublonTree *parentItem;
+     bool checked ;
 
 
 };
