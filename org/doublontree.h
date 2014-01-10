@@ -9,15 +9,15 @@
 class DoublonTree
 {
 public:
-     DoublonTree(const QList<QVariant> &data, DoublonTree *parent = 0);
+     DoublonTree(const QVariant &data, const u_int8_t type, DoublonTree *parent = 0);
      ~DoublonTree();
 
      void appendChild(DoublonTree *child);
 
      DoublonTree *child(int row);
      int childCount() const;
-     int columnCount() const;
-     QVariant data(int column) const;
+     QVariant data() const;
+     int columnCount() const ;
      int row() const;
      DoublonTree *parent();
 
@@ -26,9 +26,11 @@ public:
 
  private:
      QList<DoublonTree*> childItems;
-     QList<QVariant> itemData;
      DoublonTree *parentItem;
+     QVariant itemData;
      bool checked ;
+
+     u_int8_t type ; // 0 -> dossier de l'arbre ; 1 -> fichier ; 2 -> dossier
 
 
 };

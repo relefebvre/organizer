@@ -6,8 +6,8 @@ DoublonModel::DoublonModel(const QString &data, QObject *parent) :
 {
     QList<QVariant> rootData;
     rootData << "Taille";
-    rootItem = new DoublonTree(rootData);
-    setupModelData(data.split(QString("\n")), rootItem);
+    rootItem = new DoublonTree(rootData,0);
+    setupModelData((data),0, rootItem);
 }
 
 DoublonModel::~DoublonModel()
@@ -71,64 +71,16 @@ int DoublonModel::columnCount(const QModelIndex &parent) const
         return rootItem->columnCount();
 }
 
-void DoublonModel::setupModelData(const QStringList &lines, DoublonTree *parent)
+void DoublonModel::setupModelData(const QString &line,const u_int8_t type, DoublonTree *parent)
 {
-    /*
-     *Ce bout de code fait ce qu'on attend de lui
-     *
-     *QList<QVariant> test ;
-    QList<QVariant> test2 ;
-    test2 << "Zizi" << "Bite" ;
-    test << "Zob" << "Zigou";
-    parent->appendChild(new DoublonTree(test, parent));
-    parent->appendChild(new DoublonTree(test2, parent));
-    (parent->child(0))->appendChild(new DoublonTree(test2, parent->child(0)));*/
-
-    /*
-     *Celui ci non. SegFault.
-     *
-     *
-     *
-    QList<QVariant> li ;
-    QVariant str[2] ;
-    std::string sstr[2] ;
-
-    for (int i = 0; i < lines.size(); ++i)
-        str[i] = lines.at(i).toLocal8Bit().constData() ;
-
-    for(int i = 0 ; i < 2 ; ++i)
-        sstr[i] = str[i].toString().toStdString() ;
-    sstr[0] += sstr[1] ;
-    li << str[0] ;
-    */
+    QVariant li ;
 
 
-    /*
-     *Ce code ci conduit à l'absence de l'affichage du path dans le TreeView
-     *
-     *La QList zob quand on l'interverti avec li est elle bien affichée.
-     *
-     *Le problème se trouve être au niveau de la conversion du PATH ou de son assignation
-     *
-     */
-    QList<QVariant> li ;
-    QList<QVariant> zob ;
-    std::string li1 ;
+    li= line ;
 
-    zob << "Zizi" << "Zob";
+    std::cout << li.toString().toStdString()<< std::endl ;
 
-
-    for (int i = 0; i < lines.size(); i++)
-    {
-        li.append(lines.at(i)) ;
-    }
-
-    foreach(QVariant qv , li)
-        std::cout << qv.toString().toStdString() << std::endl ;
-
-    std::cout << "Fin de la liste"<<std::endl ;
-
-    parent->appendChild(new DoublonTree(li, parent));
+    parent->appendChild(new DoublonTree(li,type, parent));
 
 }
 
@@ -146,7 +98,7 @@ QVariant DoublonModel::data(const QModelIndex &index, int role) const
             return static_cast< int >( item->isChecked() ? Qt::Checked : Qt::Unchecked );
 
 
-    return item->data(index.column());
+    return item->data();
 }
 
 
@@ -167,7 +119,7 @@ QVariant DoublonModel::headerData(int section, Qt::Orientation orientation,
                                int role) const
 {
     if (orientation == Qt::Horizontal && role == Qt::DisplayRole)
-        return rootItem->data(section);
+        return rootItem->data();
 
     return QVariant();
 }

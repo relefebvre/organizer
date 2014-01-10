@@ -1,8 +1,9 @@
 #include "doublontree.h"
 
 
-DoublonTree::DoublonTree(const QList<QVariant> &data, DoublonTree *parent)
+DoublonTree::DoublonTree(const QVariant &data, const u_int8_t type, DoublonTree *parent)
 {
+    this->type = type ;
     parentItem = parent ;
     itemData = data ;
 }
@@ -36,12 +37,12 @@ int DoublonTree::row() const
 
 int DoublonTree::columnCount() const
 {
-    return itemData.count() ;
+    return 1 ;
 }
 
-QVariant DoublonTree::data(int column) const
+QVariant DoublonTree::data() const
 {
-    return itemData.value(column) ;
+    return itemData ;
 }
 
 DoublonTree *DoublonTree::parent()

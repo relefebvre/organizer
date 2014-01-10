@@ -122,7 +122,7 @@ void OrgView::afficherDoublons() const
 
 
         //On ajoute une famille de path ayant la même taille au doublonTree
-        mod->setupModelData(qs.split(QString("\n")), mod->rootItem);
+        mod->setupModelData((qs),0, mod->rootItem);
 
         QApplication::processEvents();
 
@@ -132,7 +132,7 @@ void OrgView::afficherDoublons() const
            // sPath += "\n" ;
             sPath += itp->c_str() ;
 
-            mod->setupModelData(sPath.split(QString("\n")), mod->rootItem->child(i));
+            mod->setupModelData((sPath),1, mod->rootItem->child(i));
 
             sPath.clear();
             QApplication::processEvents();

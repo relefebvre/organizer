@@ -26,7 +26,7 @@ public:
 
      DoublonTree *rootItem;
 
-     void setupModelData(const QStringList &lines, DoublonTree *parent);
+     void setupModelData(const QString &line, const u_int8_t type, DoublonTree *parent);
 
 
 private:
