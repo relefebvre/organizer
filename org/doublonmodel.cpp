@@ -78,8 +78,6 @@ void DoublonModel::setupModelData(const QString &line,const u_int8_t type, Doubl
 
     li= line ;
 
-    std::cout << li.toString().toStdString()<< std::endl ;
-
     parent->appendChild(new DoublonTree(li,type, parent));
 
 }

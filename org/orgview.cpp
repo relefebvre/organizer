@@ -51,8 +51,6 @@ OrgView::OrgView(QWidget *parent) :
     ui->search_empty->setEnabled(false);
 
     mod = new DoublonModel(" ") ;
-    ui->treeView->setModel(mod);
-    selectionModel = ui->treeView->selectionModel();
 
 
 }
@@ -132,8 +130,6 @@ void OrgView::afficherDoublons() const
 
         for (std::list<boost::filesystem::path>::const_iterator itp=it->second.begin() ; itp!=it->second.end() ; ++itp)
         {
-           // sPath += qs ;
-           // sPath += "\n" ;
             sPath += itp->c_str() ;
 
             mod->setupModelData((sPath),1, mod->rootItem->child(i));
@@ -144,6 +140,9 @@ void OrgView::afficherDoublons() const
 
         ++i ;
     }
+
+    ui->treeView->setModel(mod);
+
 
 
 
