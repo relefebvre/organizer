@@ -50,6 +50,11 @@ OrgView::OrgView(QWidget *parent) :
     ui->search_double->setEnabled(false);
     ui->search_empty->setEnabled(false);
 
+    mod = new DoublonModel(" ") ;
+    ui->treeView->setModel(mod);
+    selectionModel = ui->treeView->selectionModel();
+
+
 }
 
 OrgView::~OrgView()
@@ -106,7 +111,6 @@ void OrgView::afficherDoublons() const
 {
     setStatus("Recherche de doublons dans le dossier " + getRacine());
 
-    DoublonModel * mod = new DoublonModel(" ") ;
     int i = 1 ;
 
 
@@ -141,7 +145,7 @@ void OrgView::afficherDoublons() const
         ++i ;
     }
 
-    ui->treeView->setModel(mod);
+
 
     setStatus("Recherche de doublons terminée");
 }

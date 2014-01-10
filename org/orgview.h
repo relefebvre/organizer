@@ -4,6 +4,8 @@
 #include <QMainWindow>
 #include <QModelIndex>
 #include <QGroupBox>
+#include <QItemSelectionModel>
+#include "doublonmodel.h"
 #include "organizer.h"
 
 namespace Ui {
@@ -35,6 +37,9 @@ private slots:
     void on_search_empty_clicked();
 private:
     Ui::OrgView *ui;
+    QItemSelectionModel *selectionModel;
+    DoublonModel * mod ;
+
 
 signals:
 
