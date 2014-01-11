@@ -5,15 +5,17 @@
 #include <stdint.h>
 #include <boost/filesystem.hpp>
 #include <QString>
-#include <map>
+#include <set>
 #include <list>
-#include "md5key.h"
+#include <map>
+#include "doublon.h"
 
 class Organizer
 {
 
 protected:
-    std::map<uint64_t,std::list<boost::filesystem::path> > doublons;
+    std::multiset<Doublon*> doublonSize;
+    std::map<const std::string,std::list<boost::filesystem::path> > doublons;
     std::list<boost::filesystem::path> emptyDir;
     std::string racine;
 
@@ -28,7 +30,7 @@ public:
 
     const std::string supprimerGuillemets(const QString & Qstr);
 
-    MD5Key *md5(const char* filename);
+    void md5(Doublon*);
 
     void searchDouble(void);
 

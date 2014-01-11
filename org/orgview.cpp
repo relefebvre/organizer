@@ -64,39 +64,41 @@ void OrgView::start(std::string argv)
 {
     std::list<path> doublons;
 
-     for ( recursive_directory_iterator end, dir(argv);
-           dir != end; ++dir ) {
-         path ph = *dir;
+    insert(path(argv));
 
-         if (ph.filename().c_str()[0] == '.')
-         {
-             dir.no_push();
-             continue;
-         }
+    for ( recursive_directory_iterator end, dir(argv);
+          dir != end; ++dir ) {
+        path ph = *dir;
 
-         if (boost::filesystem::is_directory(ph))
-             if (isUpdate(ph))
-                 continue;
+        if (ph.filename().c_str()[0] == '.')
+        {
+            dir.no_push();
+            continue;
+        }
+
+        if (boost::filesystem::is_directory(ph))
+            if (isUpdate(ph))
+                continue;
 
 
-         insert(*dir);
-         affiche(QString(ph.c_str()));
+        insert(*dir);
+        affiche(QString(ph.c_str()));
 
-         if (!runing)   
-             break;
-     }
+        if (!runing)
+            break;
+    }
 
-     ui->start_stop->setText("Scanner");
+    ui->start_stop->setText("Scanner");
 
-     ui->search_double->setEnabled(true);
-     ui->search_empty->setEnabled(true);
+    ui->search_double->setEnabled(true);
+    ui->search_empty->setEnabled(true);
 
-     if (!runing)
+    if (!runing)
         setStatus("ATTENTION le dossier " + getRacine() + " n'a pas été scanné complètement");
-     else
+    else
         setStatus("Dossier " + getRacine() + " scanné");
 
-     runing = false;
+    runing = false;
 }
 
 void OrgView::affiche(const QString &s) const
@@ -111,13 +113,14 @@ void OrgView::afficherDoublons() const
 
     int i = 1 ;
 
-
-
-    for( std::map<uint64_t,std::list<boost::filesystem::path> >::const_iterator it=doublons.begin() ; it!=doublons.end() ; ++it)
+    for( std::map<const std::string,std::list<boost::filesystem::path> >::const_iterator it=doublons.begin() ; it!=doublons.end() ; ++it)
     {
+        if ((it->second.size()) > 1)
+        {
         QString sPath;
-        QString qs("Taille ");
-        qs += QString::number(it->first);
+        QString qs("MD5 ");
+        //qs += QString(i);
+        qs += QString(it->first.c_str());
         QList<QVariant> taille ;
         taille << qs ;
 
@@ -139,6 +142,7 @@ void OrgView::afficherDoublons() const
         }
 
         ++i ;
+        }
     }
 
     ui->treeView->setModel(mod);
@@ -201,7 +205,7 @@ void OrgView::setChemin(const QModelIndex &index)
         ui->search_empty->setEnabled(true);
     }
     else
-        tmp << "\t\tDossier scanné !";
+        tmp << "\t\tDossier a scanner !";
 
     ui->label->setText(QString(std::string(tmp.str()).c_str()));
     ui->start_stop->setEnabled(true);

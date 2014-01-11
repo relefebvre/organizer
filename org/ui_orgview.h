@@ -1,7 +1,8 @@
 /********************************************************************************
 ** Form generated from reading UI file 'orgview.ui'
 **
-** Created by: Qt User Interface Compiler version 4.8.6
+** Created: Fri Jan 10 17:12:39 2014
+**      by: Qt User Interface Compiler version 4.8.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/

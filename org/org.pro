@@ -1,11 +1,10 @@
 TEMPLATE = app
-CONFIG += console
+
 CONFIG += qt
 
 SOURCES += main.cpp \
     organizer.cpp \
     orgview.cpp \
-    md5key.cpp \
     doublon.cpp \
     doublontree.cpp \
     doublonmodel.cpp
@@ -13,7 +12,6 @@ SOURCES += main.cpp \
 HEADERS += \
     organizer.h \
     orgview.h \
-    md5key.h \
     doublon.h \
     doublontree.h \
     doublonmodel.h

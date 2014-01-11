@@ -78,27 +78,30 @@ const std::string Organizer::supprimerGuillemets(const QString &Qstr)
 }
 
 
-MD5Key* Organizer::md5(const char* filename)
+void Organizer::md5(Doublon *d)
 {
     hash_state md;
     unsigned char *out = new unsigned char[16];
     unsigned char buf[4096];
     unsigned int nbLu=0;
 
-    MD5Key *md5;
-
     QSqlQuery query;
 
     query.prepare("SELECT md5 FROM fic WHERE path=:path");
-    query.bindValue(":path",filename);
+    query.bindValue(":path",d->getPath());
     query.exec();
 
+    bool update = true;
+
     if (query.next() && query.value(0).toString().length() > 0)
+    {
+        update= false;
         memcpy((unsigned char*)out,query.value(0).toString().toStdString().c_str(),sizeof(unsigned char)*16);
+    }
     else
     {
         int fd;
-        fd = open(filename,O_RDONLY);
+        fd = open(d->getPath(),O_RDONLY);
         if (fd == -1)
         {
             perror("open");
@@ -108,7 +111,7 @@ MD5Key* Organizer::md5(const char* filename)
         md5_init(&md);
 
 
-        while (nbLu != boost::filesystem::file_size(filename))
+        while (nbLu != boost::filesystem::file_size(d->getPath()))
         {
             unsigned int tmp;
             tmp = read(fd,buf,sizeof(buf));
@@ -121,20 +124,19 @@ MD5Key* Organizer::md5(const char* filename)
         close(fd);
     }
 
-    md5 = new MD5Key(out);
+    d->setKey(out);
 
-    query.prepare("UPDATE fic SET md5=:md5 WHERE path=:path");
-    query.bindValue(":md5",md5->toString().c_str());
-    query.bindValue(":path",filename);
-    query.exec();
-
-    return md5;
+    if (update)
+    {
+        query.prepare("UPDATE fic SET md5=:md5 WHERE path=:path");
+        query.bindValue(":md5",d->toString().c_str());
+        query.bindValue(":path",d->getPath());
+        query.exec();
+    }
 }
 
 void Organizer::searchDouble()
 {
-
-
     QSqlQuery query;
 
     query.exec("SELECT Count(*), size FROM fic GROUP BY size HAVING Count(*) > 1;");
@@ -142,33 +144,17 @@ void Organizer::searchDouble()
     while (query.next())
         searchBySize(query.value(1).toULongLong());
 
-    unsigned cpt=0;
-
-    for( std::map<uint64_t,std::list<boost::filesystem::path> >::iterator it=doublons.begin() ; it!=doublons.end() ; )
+    for (std::multiset<Doublon*>::const_iterator itd=doublonSize.begin() ; itd!=doublonSize.end() ; ++itd)
     {
-        if (it->second.size() == 2)
-        {
-            if (*md5(it->second.front().string().c_str()) != *md5(it->second.back().string().c_str()))
-                doublons.erase(it);
-        }
-        else
-        {
-            std::set<MD5Key> md5Sum;
-            std::pair<std::set<MD5Key>::const_iterator,bool> ret;
+        std::pair<std::multiset<Doublon*>::iterator,std::multiset<Doublon*>::iterator> ret = doublonSize.equal_range(*itd);
 
-            for (std::list<boost::filesystem::path>::const_iterator itp=it->second.begin() ; itp!=it->second.end() ; ++itp)
-            {
-                ret = md5Sum.insert(*md5(itp->string().c_str()));
-
-                if (ret.second == false)
-                    ++cpt;
-            }
-            if (cpt == 0)
-                doublons.erase((it));
+        for (std::multiset<Doublon*>::iterator itr = ret.first ; itr != ret.second ; ++itr)
+        {
+            std::string ph = (*itr)->getPath();
+            doublons[(*itd)->toString()].push_back(boost::filesystem::path(ph));
         }
-        ++it;
+        doublonSize.erase(ret.first,ret.second);
     }
-
 }
 
 void Organizer::searchBySize(const uint64_t size)
@@ -185,7 +171,9 @@ void Organizer::searchBySize(const uint64_t size)
 
     while (query.next()) {
         std::string ph =supprimerGuillemets(query.value(0).toString());
-        doublons[size].push_back((boost::filesystem::path)ph);
+        Doublon *tmp = new Doublon(ph);
+        md5(tmp);
+        doublonSize.insert(tmp);
     }
 }
 
