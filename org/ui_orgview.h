@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'orgview.ui'
 **
-** Created: Fri Jan 10 17:12:39 2014
+** Created: Sat Jan 11 14:47:34 2014
 **      by: Qt User Interface Compiler version 4.8.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -18,6 +18,7 @@
 #include <QtGui/QLabel>
 #include <QtGui/QMainWindow>
 #include <QtGui/QMenuBar>
+#include <QtGui/QProgressBar>
 #include <QtGui/QPushButton>
 #include <QtGui/QTabWidget>
 #include <QtGui/QTextBrowser>
@@ -35,6 +36,7 @@ public:
     QWidget *doublons;
     QPushButton *search_double;
     QTreeView *treeView;
+    QProgressBar *progressBarDouble;
     QWidget *tab;
     QPushButton *search_empty;
     QTextBrowser *view_empty;
@@ -76,6 +78,10 @@ public:
         treeView->setHorizontalScrollMode(QAbstractItemView::ScrollPerPixel);
         treeView->setAnimated(false);
         treeView->header()->setStretchLastSection(true);
+        progressBarDouble = new QProgressBar(doublons);
+        progressBarDouble->setObjectName(QString::fromUtf8("progressBarDouble"));
+        progressBarDouble->setGeometry(QRect(140, 20, 531, 23));
+        progressBarDouble->setValue(24);
         test->addTab(doublons, QString());
         tab = new QWidget();
         tab->setObjectName(QString::fromUtf8("tab"));
@@ -113,7 +119,7 @@ public:
         OrgView->setCentralWidget(centralwidget);
         menubar = new QMenuBar(OrgView);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 1000, 27));
+        menubar->setGeometry(QRect(0, 0, 1000, 29));
         OrgView->setMenuBar(menubar);
 
         retranslateUi(OrgView);

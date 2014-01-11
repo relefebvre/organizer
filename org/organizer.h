@@ -18,6 +18,7 @@ protected:
     std::map<const std::string,std::list<boost::filesystem::path> > doublons;
     std::list<boost::filesystem::path> emptyDir;
     std::string racine;
+    unsigned long nbFiles;
 
 public:
     Organizer();

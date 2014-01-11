@@ -35,6 +35,8 @@ OrgView::OrgView(QWidget *parent) :
     connect(ui->vue,SIGNAL(entered(QModelIndex const&)),this,SLOT(setChemin(QModelIndex const&)));
     connect(ui->vue,SIGNAL(pressed(QModelIndex const&)),this,SLOT(setChemin(QModelIndex const&)));
 
+    ui->progressBarDouble->setValue(0);
+
     QVBoxLayout *layout = new QVBoxLayout;
 
     QDirModel *modele = new QDirModel;
@@ -112,6 +114,7 @@ void OrgView::afficherDoublons() const
     setStatus("Recherche de doublons dans le dossier " + getRacine());
 
     int i = 1 ;
+    unsigned long nbFilesCount = 0;
 
     for( std::map<const std::string,std::list<boost::filesystem::path> >::const_iterator it=doublons.begin() ; it!=doublons.end() ; ++it)
     {
@@ -139,16 +142,18 @@ void OrgView::afficherDoublons() const
 
             sPath.clear();
             QApplication::processEvents();
+            ++nbFilesCount;
+            ui->progressBarDouble->setValue(100*nbFilesCount/nbFiles);
         }
 
         ++i ;
         }
+        else
+            ++nbFilesCount;
     }
 
     ui->treeView->setModel(mod);
-
-
-
+    ui->progressBarDouble->setValue(100*nbFilesCount/nbFiles);
 
     setStatus("Recherche de doublons terminée");
 }
@@ -193,6 +198,7 @@ void OrgView::on_start_stop_clicked()
 void OrgView::setChemin(const QModelIndex &index)
 {
     QDirModel dir;
+    nbFiles = 0;
     ui->search_double->setEnabled(false);
     ui->search_empty->setEnabled(false);
     setRacine(dir.fileInfo(index).absoluteFilePath().toStdString());

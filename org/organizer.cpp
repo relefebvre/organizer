@@ -22,6 +22,8 @@ Organizer::Organizer()
     createTable("CREATE TABLE fic(size integer,path varchar(1000) UNIQUE, md5 varchar(16));");
 
     createTable("CREATE TABLE dir(empty bool,path varchar(1000) UNIQUE, modif datetime);");
+
+    nbFiles = 0;
 }
 
 bool Organizer::createDB() const
@@ -152,6 +154,7 @@ void Organizer::searchDouble()
         {
             std::string ph = (*itr)->getPath();
             doublons[(*itd)->toString()].push_back(boost::filesystem::path(ph));
+            ++nbFiles;
         }
         doublonSize.erase(ret.first,ret.second);
     }
