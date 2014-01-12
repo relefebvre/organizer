@@ -136,7 +136,7 @@ void OrgView::afficherDoublons()
 
         for (std::list<boost::filesystem::path>::const_iterator itp=it->second.begin() ; itp!=it->second.end() ; ++itp)
         {
-            sPath += itp->c_str() ;
+            sPath = itp->c_str() ;
 
             mod->setupModelData((sPath),1, mod->rootItem->child(i));
 
