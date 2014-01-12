@@ -199,6 +199,7 @@ void OrgView::deleteFile()
         query.exec();
     }
 
+    searchDouble();
     afficherDoublons();
 
 }

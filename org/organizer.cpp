@@ -139,6 +139,8 @@ void Organizer::md5(Doublon *d)
 
 void Organizer::searchDouble()
 {
+    doublonSize.clear();
+    doublons.clear();
     QSqlQuery query;
 
     query.exec("SELECT Count(*), size FROM fic GROUP BY size HAVING Count(*) > 1;");
