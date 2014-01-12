@@ -16,6 +16,8 @@
 #include <QFileSystemModel>
 #include <QRadioButton>
 #include <QScrollArea>
+#include <QtSql>
+
 #include "doublonmodel.h"
 
 
@@ -52,7 +54,6 @@ OrgView::OrgView(QWidget *parent) :
     ui->search_double->setEnabled(false);
     ui->search_empty->setEnabled(false);
 
-    mod = new DoublonModel(" ") ;
 
 
 }
@@ -109,8 +110,10 @@ void OrgView::affiche(const QString &s) const
     QApplication::processEvents();
 }
 
-void OrgView::afficherDoublons() const
+void OrgView::afficherDoublons()
 {
+    mod = new DoublonModel(" ") ;
+
     setStatus("Recherche de doublons dans le dossier " + getRacine());
 
     int i = 1 ;
@@ -124,9 +127,6 @@ void OrgView::afficherDoublons() const
         QString qs("MD5 ");
         //qs += QString(i);
         qs += QString(it->first.c_str());
-        QList<QVariant> taille ;
-        taille << qs ;
-
 
 
         //On ajoute une famille de path ayant la même taille au doublonTree
@@ -174,6 +174,33 @@ void OrgView::afficherEmpty() const
 void OrgView::setStatus(const std::string & s) const
 {
     ui->status->setText(QString(s.c_str()));
+}
+
+void OrgView::deleteFile()
+{
+    QString path  ;
+    std::string cmd ;
+    QSqlQuery query;
+
+
+    QItemSelectionModel *selection = ui->treeView->selectionModel();
+    QModelIndexList listeSelection ;
+    listeSelection = selection->selectedIndexes() ;
+    ui->treeView->clearSelection();
+
+    for(int i = 0 ; i< listeSelection.size() ; ++i)
+    {
+        path = mod->data(listeSelection[i], Qt::DisplayRole).toString() ;
+        cmd = "rm -f "+path.toStdString() ;   //Création de la commande de suppression
+        system(cmd.c_str());    //Execution de la commande
+
+        query.prepare("DELETE * WHERE path=:path");
+        query.bindValue(":path",path);
+        query.exec();
+    }
+
+    afficherDoublons();
+
 }
 
 
@@ -227,4 +254,9 @@ void OrgView::on_search_empty_clicked()
 {
     searchEmpty();
     afficherEmpty();
+}
+
+void OrgView::on_deleteFile_clicked()
+{
+    deleteFile() ;
 }

@@ -76,7 +76,7 @@
         </rect>
        </property>
        <property name="text">
-        <string>Search</string>
+        <string>Chercher</string>
        </property>
       </widget>
       <widget class="QTreeView" name="treeView">
@@ -94,7 +94,13 @@
        <property name="horizontalScrollMode">
         <enum>QAbstractItemView::ScrollPerPixel</enum>
        </property>
+       <property name="autoExpandDelay">
+        <number>-1</number>
+       </property>
        <property name="animated">
+        <bool>false</bool>
+       </property>
+       <property name="allColumnsShowFocus">
         <bool>false</bool>
        </property>
        <attribute name="headerStretchLastSection">
@@ -106,12 +112,25 @@
         <rect>
          <x>140</x>
          <y>20</y>
-         <width>531</width>
+         <width>431</width>
          <height>23</height>
         </rect>
        </property>
        <property name="value">
-        <number>24</number>
+        <number>0</number>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="deleteFile">
+       <property name="geometry">
+        <rect>
+         <x>580</x>
+         <y>10</y>
+         <width>97</width>
+         <height>51</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Supprimer</string>
        </property>
       </widget>
      </widget>
@@ -241,7 +260,7 @@
      <x>0</x>
      <y>0</y>
      <width>1000</width>
-     <height>29</height>
+     <height>27</height>
     </rect>
    </property>
   </widget>

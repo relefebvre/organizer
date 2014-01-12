@@ -87,13 +87,14 @@ QVariant DoublonModel::data(const QModelIndex &index, int role) const
     if (!index.isValid())
         return QVariant();
 
+    DoublonTree *item = static_cast<DoublonTree*>(index.internalPointer());
+
     if (role != Qt::DisplayRole)
         return QVariant();
 
-    DoublonTree *item = static_cast<DoublonTree*>(index.internalPointer());
 
-    if ( role == Qt::CheckStateRole && index.column() == 0 )
-            return static_cast< int >( item->isChecked() ? Qt::Checked : Qt::Unchecked );
+    if(item -> getType() != 1)
+        return QVariant() ;
 
 
     return item->data();

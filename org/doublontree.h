@@ -21,14 +21,13 @@ public:
      int row() const;
      DoublonTree *parent();
 
-     bool isChecked() const ;
-     void setChecked(bool set) ;
+     u_int8_t getType() ;
 
  private:
      QList<DoublonTree*> childItems;
      DoublonTree *parentItem;
      QVariant itemData;
-     bool checked ;
+
 
      u_int8_t type ; // 0 -> dossier de l'arbre ; 1 -> fichier ; 2 -> dossier
 

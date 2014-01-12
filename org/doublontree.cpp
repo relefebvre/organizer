@@ -50,13 +50,9 @@ DoublonTree *DoublonTree::parent()
     return parentItem ;
 }
 
-bool DoublonTree::isChecked() const
-{
-    return checked ;
-}
 
-void DoublonTree::setChecked(bool set)
+u_int8_t DoublonTree::getType()
 {
-    checked = set ;
+    return type ;
 }
 

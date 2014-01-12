@@ -23,9 +23,11 @@ public:
     ~OrgView();
     void start(std::string argv);
     void affiche(const QString & s) const;
-    void afficherDoublons() const;
+    void afficherDoublons();
     void afficherEmpty() const;
     void setStatus(const std::string &s) const;
+    void deleteFile() ;
+
 
 
 private slots:
@@ -33,8 +35,9 @@ private slots:
     void setChemin( const QModelIndex & index );
 
     void on_search_double_clicked();
-
     void on_search_empty_clicked();
+    void on_deleteFile_clicked();
+
 private:
     Ui::OrgView *ui;
     QItemSelectionModel *selectionModel;

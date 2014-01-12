@@ -1,8 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'orgview.ui'
 **
-** Created: Sat Jan 11 14:47:34 2014
-**      by: Qt User Interface Compiler version 4.8.2
+** Created by: Qt User Interface Compiler version 4.8.6
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -37,6 +36,7 @@ public:
     QPushButton *search_double;
     QTreeView *treeView;
     QProgressBar *progressBarDouble;
+    QPushButton *deleteFile;
     QWidget *tab;
     QPushButton *search_empty;
     QTextBrowser *view_empty;
@@ -76,12 +76,17 @@ public:
         treeView->setGeometry(QRect(10, 70, 671, 231));
         treeView->setSelectionMode(QAbstractItemView::MultiSelection);
         treeView->setHorizontalScrollMode(QAbstractItemView::ScrollPerPixel);
+        treeView->setAutoExpandDelay(-1);
         treeView->setAnimated(false);
+        treeView->setAllColumnsShowFocus(false);
         treeView->header()->setStretchLastSection(true);
         progressBarDouble = new QProgressBar(doublons);
         progressBarDouble->setObjectName(QString::fromUtf8("progressBarDouble"));
-        progressBarDouble->setGeometry(QRect(140, 20, 531, 23));
-        progressBarDouble->setValue(24);
+        progressBarDouble->setGeometry(QRect(140, 20, 431, 23));
+        progressBarDouble->setValue(0);
+        deleteFile = new QPushButton(doublons);
+        deleteFile->setObjectName(QString::fromUtf8("deleteFile"));
+        deleteFile->setGeometry(QRect(580, 10, 97, 51));
         test->addTab(doublons, QString());
         tab = new QWidget();
         tab->setObjectName(QString::fromUtf8("tab"));
@@ -119,7 +124,7 @@ public:
         OrgView->setCentralWidget(centralwidget);
         menubar = new QMenuBar(OrgView);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 1000, 29));
+        menubar->setGeometry(QRect(0, 0, 1000, 27));
         OrgView->setMenuBar(menubar);
 
         retranslateUi(OrgView);
@@ -133,7 +138,8 @@ public:
     void retranslateUi(QMainWindow *OrgView)
     {
         OrgView->setWindowTitle(QApplication::translate("OrgView", "MainWindow", 0, QApplication::UnicodeUTF8));
-        search_double->setText(QApplication::translate("OrgView", "Search", 0, QApplication::UnicodeUTF8));
+        search_double->setText(QApplication::translate("OrgView", "Chercher", 0, QApplication::UnicodeUTF8));
+        deleteFile->setText(QApplication::translate("OrgView", "Supprimer", 0, QApplication::UnicodeUTF8));
         test->setTabText(test->indexOf(doublons), QApplication::translate("OrgView", "Doublons", 0, QApplication::UnicodeUTF8));
         search_empty->setText(QApplication::translate("OrgView", "Search", 0, QApplication::UnicodeUTF8));
         test->setTabText(test->indexOf(tab), QApplication::translate("OrgView", "Dossiers vides", 0, QApplication::UnicodeUTF8));
