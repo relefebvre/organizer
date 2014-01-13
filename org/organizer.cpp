@@ -22,8 +22,6 @@ Organizer::Organizer()
     createTable("CREATE TABLE fic(size integer,path varchar(1000) UNIQUE, md5 varchar(16));");
 
     createTable("CREATE TABLE dir(empty bool,path varchar(1000) UNIQUE, modif datetime);");
-
-    nbFiles = 0;
 }
 
 bool Organizer::createDB() const
@@ -131,7 +129,7 @@ void Organizer::md5(Doublon *d)
     if (update)
     {
         query.prepare("UPDATE fic SET md5=:md5 WHERE path=:path");
-        query.bindValue(":md5",d->toString().c_str());
+        query.bindValue(":md5",d->getKey()->toString().c_str());
         query.bindValue(":path",d->getPath());
         query.exec();
     }
@@ -155,9 +153,10 @@ void Organizer::searchDouble()
         for (std::multiset<Doublon*>::iterator itr = ret.first ; itr != ret.second ; ++itr)
         {
             std::string ph = (*itr)->getPath();
-            doublons[(*itd)->toString()].push_back(boost::filesystem::path(ph));
-            ++nbFiles;
+            doublons[*((*itd)->getKey())].push_back(boost::filesystem::path(ph));
         }
+        for(auto itd = ret.first ; itd != ret.second ; ++itd)
+            delete *itd;
         doublonSize.erase(ret.first,ret.second);
     }
 }

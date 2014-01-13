@@ -119,41 +119,40 @@ void OrgView::afficherDoublons()
     int i = 1 ;
     unsigned long nbFilesCount = 0;
 
-    for( std::map<const std::string,std::list<boost::filesystem::path> >::const_iterator it=doublons.begin() ; it!=doublons.end() ; ++it)
+    for( std::map<MD5Key,std::list<boost::filesystem::path> >::const_iterator it=doublons.begin() ; it!=doublons.end() ; ++it)
     {
         if ((it->second.size()) > 1)
         {
-        QString sPath;
-        QString qs("MD5 ");
-        //qs += QString(i);
-        qs += QString(it->first.c_str());
+            QString sPath;
+            QString qs("Nb doublons ");
+            //qs += QString(i);
+            //qs += QString(it->first.toString().c_str());
+            qs += QString::number(it->second.size());
 
 
-        //On ajoute une famille de path ayant la même taille au doublonTree
-        mod->setupModelData((qs),0, mod->rootItem);
+            //On ajoute une famille de path ayant la même taille au doublonTree
+            mod->setupModelData((qs),1, mod->rootItem);
 
-        QApplication::processEvents();
-
-        for (std::list<boost::filesystem::path>::const_iterator itp=it->second.begin() ; itp!=it->second.end() ; ++itp)
-        {
-            sPath = itp->c_str() ;
-
-            mod->setupModelData((sPath),1, mod->rootItem->child(i));
-
-            sPath.clear();
             QApplication::processEvents();
-            ++nbFilesCount;
-            ui->progressBarDouble->setValue(100*nbFilesCount/nbFiles);
-        }
 
-        ++i ;
+            for (std::list<boost::filesystem::path>::const_iterator itp=it->second.begin() ; itp!=it->second.end() ; ++itp)
+            {
+                sPath = itp->c_str() ;
+
+                mod->setupModelData((sPath),1, mod->rootItem->child(i));
+
+                sPath.clear();
+                QApplication::processEvents();
+            }
+
+            ++i ;
         }
-        else
-            ++nbFilesCount;
+        ++nbFilesCount;
+        ui->progressBarDouble->setValue(100*nbFilesCount/doublons.size());
     }
 
     ui->treeView->setModel(mod);
-    ui->progressBarDouble->setValue(100*nbFilesCount/nbFiles);
+    ui->progressBarDouble->setValue(100*nbFilesCount/doublons.size());
 
     setStatus("Recherche de doublons terminée");
 }
@@ -226,7 +225,7 @@ void OrgView::on_start_stop_clicked()
 void OrgView::setChemin(const QModelIndex &index)
 {
     QDirModel dir;
-    nbFiles = 0;
+
     ui->search_double->setEnabled(false);
     ui->search_empty->setEnabled(false);
     setRacine(dir.fileInfo(index).absoluteFilePath().toStdString());

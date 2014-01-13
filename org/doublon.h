@@ -3,28 +3,24 @@
 
 #include <string>
 #include <stdint.h>
+#include "md5key.h"
 
 class Doublon
 {
     std::string path ;
-    unsigned char md5[16];
+    MD5Key *md5;
 
 public:
     Doublon(std::string path);
-    Doublon(const unsigned char*key);
-    friend bool operator<(const Doublon&k1, const Doublon&k2);
-    friend bool operator== (const Doublon&k1, const Doublon&k2);
-    friend bool operator!= (const Doublon&k1, const Doublon&k2);
-    const std::string toString() const;
-    void setKey(unsigned char*);
-    const unsigned char* getKey() const ;
+
+    void setKey(const unsigned char*);
+    MD5Key* getKey() const ;
+
     const char *getPath() const;
+
     ~Doublon() ;
 };
 
-bool operator< (const Doublon&d1, const Doublon&d2);
-bool operator== (const Doublon&d1, const Doublon&d2);
-bool operator!= (const Doublon&d1, const Doublon&d2);
-std::ostream& operator<< (std::ostream& os, const Doublon);
+
 
 #endif // DOUBLON_H

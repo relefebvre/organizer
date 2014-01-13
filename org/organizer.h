@@ -9,16 +9,16 @@
 #include <list>
 #include <map>
 #include "doublon.h"
+#include "md5key.h"
 
 class Organizer
 {
 
 protected:
     std::multiset<Doublon*> doublonSize;
-    std::map<const std::string,std::list<boost::filesystem::path> > doublons;
+    std::map<MD5Key,std::list<boost::filesystem::path> > doublons;
     std::list<boost::filesystem::path> emptyDir;
     std::string racine;
-    unsigned long nbFiles;
 
 public:
     Organizer();
