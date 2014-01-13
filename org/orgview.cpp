@@ -125,7 +125,6 @@ void OrgView::afficherDoublons()
         {
         QString sPath;
         QString qs("MD5 ");
-        //qs += QString(i);
         qs += QString(it->first.c_str());
 
 
@@ -190,7 +189,7 @@ void OrgView::deleteFile()
 
     for(int i = 0 ; i< listeSelection.size() ; ++i)
     {
-        path = mod->data(listeSelection[i], Qt::DisplayRole).toString() ;
+        path = mod->dataPath(listeSelection[i], Qt::DisplayRole).toString() ;
         cmd = "rm -f "+path.toStdString() ;   //Création de la commande de suppression
         system(cmd.c_str());    //Execution de la commande
 

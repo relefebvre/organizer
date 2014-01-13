@@ -92,6 +92,19 @@ QVariant DoublonModel::data(const QModelIndex &index, int role) const
     if (role != Qt::DisplayRole)
         return QVariant();
 
+    return item->data();
+}
+
+QVariant DoublonModel::dataPath(const QModelIndex &index, int role) const
+{
+    if (!index.isValid())
+        return QVariant();
+
+    DoublonTree *item = static_cast<DoublonTree*>(index.internalPointer());
+
+    if (role != Qt::DisplayRole)
+        return QVariant();
+
 
     if(item -> getType() != 1)
         return QVariant() ;
@@ -99,6 +112,7 @@ QVariant DoublonModel::data(const QModelIndex &index, int role) const
 
     return item->data();
 }
+
 
 
 Qt::ItemFlags DoublonModel::flags(const QModelIndex &index) const
