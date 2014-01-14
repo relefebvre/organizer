@@ -2,13 +2,11 @@
 #include <QtSql>
 #include <QSqlDatabase>
 #include <sstream>
-#include <stdarg.h>
 #include <tomcrypt.h>
 #include <set>
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <unistd.h>
-#include <errno.h>
 #include <fcntl.h>
 
 Organizer::Organizer()
@@ -146,11 +144,11 @@ void Organizer::searchDouble()
     while (query.next())
         searchBySize(query.value(1).toULongLong());
 
-    for (std::multiset<Doublon*>::const_iterator itd=doublonSize.begin() ; itd!=doublonSize.end() ; ++itd)
+    for (auto itd=doublonSize.begin() ; itd!=doublonSize.end() ; ++itd)
     {
         std::pair<std::multiset<Doublon*>::iterator,std::multiset<Doublon*>::iterator> ret = doublonSize.equal_range(*itd);
 
-        for (std::multiset<Doublon*>::iterator itr = ret.first ; itr != ret.second ; ++itr)
+        for (auto itr = ret.first ; itr != ret.second ; ++itr)
         {
             std::string ph = (*itr)->getPath();
             doublons[*((*itd)->getKey())].push_back(boost::filesystem::path(ph));

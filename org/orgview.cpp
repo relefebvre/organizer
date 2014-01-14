@@ -17,7 +17,6 @@
 #include <QRadioButton>
 #include <QScrollArea>
 #include <QtSql>
-
 #include "doublonmodel.h"
 
 
@@ -119,7 +118,7 @@ void OrgView::afficherDoublons()
     int i = 1 ;
     unsigned long nbFilesCount = 0;
 
-    for( std::map<MD5Key,std::list<boost::filesystem::path> >::const_iterator it=doublons.begin() ; it!=doublons.end() ; ++it)
+    for(auto it=doublons.begin() ; it!=doublons.end() ; ++it)
     {
         if ((it->second.size()) > 1)
         {
@@ -135,7 +134,7 @@ void OrgView::afficherDoublons()
 
             QApplication::processEvents();
 
-            for (std::list<boost::filesystem::path>::const_iterator itp=it->second.begin() ; itp!=it->second.end() ; ++itp)
+            for (auto itp=it->second.begin() ; itp!=it->second.end() ; ++itp)
             {
                 sPath = itp->c_str() ;
 
@@ -161,7 +160,7 @@ void OrgView::afficherEmpty() const
 {
     setStatus("Recherche de dossiers vides dans le dossier " + getRacine());
 
-    for (std::list<boost::filesystem::path>::const_iterator it=emptyDir.begin() ; it!=emptyDir.end() ; ++it)
+    for (auto it=emptyDir.begin() ; it!=emptyDir.end() ; ++it)
     {
         ui->view_empty->append(QString(it->c_str()));
         QApplication::processEvents();

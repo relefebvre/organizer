@@ -1,10 +1,14 @@
+/**
+ *\file doublon.cpp
+ *\author Ducros & Lefebvre
+ *\date 21 Janvier 2014
+ *\brief Définit les doublons
+ */
+
 #include "doublon.h"
 #include <string>
-#include <string.h>
-#include <sstream>
-#include <iostream>
 
-Doublon::Doublon(std::string path)
+Doublon::Doublon(const std::string& path)
     :path(path)
 {}
 
