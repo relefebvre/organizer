@@ -12,9 +12,8 @@
 #include "md5key.h"
 
 /**
- * @brief The Doublon class
+ * @brief Classe représantant le doublon
  *\class Doublon
- *\brief Classe représantant le doublon
  */
 
 class Doublon
@@ -25,38 +24,31 @@ class Doublon
 public:
 
     /**
-     * @brief Doublon
-     * @param path
-     *\brief Constructeur de la classe Doublon
-     *\param[in] path : chemin absolu du fichier
+     * @brief Constructeur de la classe Doublon
+     * @param[in] path : chemin absolu du fichier
      */
     Doublon(const std::string &path);
 
     /**
-     * @brief setKey
-     *\brief Setteur de la clé MD5
-     *\param[in] md5 : tableau correspondant à la clé MD5 du fichier
+     * @brief Setteur de la clé MD5
+     * @param[in] md5 : tableau correspondant à la clé MD5 du fichier
      */
     void setKey(const unsigned char* md5);
 
     /**
-     * @brief getKey
-     * @return
-     *\brief Getteur de la clé MD5
-     *\return Pointeur sur l'objet représentant la clé MD5
+     * @brief Getteur de la clé MD5
+     * @return Pointeur sur l'objet représentant la clé MD5
      */
     MD5Key* getKey() const ;
 
     /**
-     * @brief getPath
-     * @return
-     *\brief Getteur du chemin du fichier
-     *\return Pointeur sur le tableau contenant le chemin du fichier
+     * @brief Getteur du chemin du fichier
+     * @return Pointeur sur le tableau contenant le chemin du fichier
      */
     const char *getPath() const;
 
     /**
-     *\brief Destructeur de la classe Doublon
+     * @brief Destructeur de la classe Doublon
      */
     ~Doublon() ;
 };

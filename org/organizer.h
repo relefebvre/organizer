@@ -19,9 +19,8 @@
 #include "md5key.h"
 
 /**
- * @brief The Organizer class
+ * @brief Classe représentant l'application
  *\class Organizer
- *\brief Classe représentant l'application
  */
 
 class Organizer
@@ -36,16 +35,13 @@ protected:
 public:
 
     /**
-     * @brief Organizer
-     *\brief Constructeur de la classe Organizer
+     * @brief Constructeur de la classe Organizer
      */
     Organizer();
 
     /**
-     * @brief createDB
-     * @return
-     *\brief Créer la base de donnée sqlite3
-     *\return true si la base de donnée est ouverte false sinon
+     *@brief Créer la base de donnée sqlite3
+     *@return true si la base de donnée est ouverte false sinon
      */
     bool createDB() const;
 
@@ -59,18 +55,18 @@ public:
 
     /**
      * @brief insert
-     * @param p
      *\brief Insert un chemin dans la base de donnée
+     * @param p
      *\param[in] p : Chemin à insérer dans la base de donnée
      */
     void insert(const boost::filesystem::path & p) const;
 
     /**
      * @brief supprimerGuillemets
-     * @param Qstr
-     * @return
      *\brief Supprime les guillemets d'une chaine de caractères
+     * @param Qstr
      *\param[in] Qstr : QString contenant la chaine avec guillemets
+     * @return
      *\return Chaîne de caractères sans guillemets
      */
     const std::string supprimerGuillemets(const QString & Qstr);
@@ -78,6 +74,7 @@ public:
     /**
      * @brief md5
      *\brief Calcul la somme MD5 d'un fichier
+     * @param Qstr
      *\param[in,out] d : Pointeur sur un Doublon
      */
     void md5(Doublon* d);
@@ -123,7 +120,7 @@ public:
      * @return
      *\brief Test si un dossier est à jour dans la base de données
      *\param[in] p : Chemin d'accès à un repertoire
-     *\return true si le repertoire est à jour false sinon
+     *\return true si le repertoire est à jour
      */
     bool isUpdate(const boost::filesystem::path & p) const;
 };

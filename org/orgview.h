@@ -20,9 +20,8 @@ class OrgView;
 }
 
 /**
- * @brief The OrgView class
+ *@brief Classe représentant l'affichage de l'application
  *\class OrgView
- *\brief Classe représentant l'affichage de l'application
  */
 
 class OrgView : public QMainWindow, public Organizer

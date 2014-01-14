@@ -1,0 +1,142 @@
+\hypertarget{class_m_d5_key}{\section{Référence de la classe M\-D5\-Key}
+\label{class_m_d5_key}\index{M\-D5\-Key@{M\-D5\-Key}}
+}
+
+
+Classe représentant la clé M\-D5.  
+
+
+
+
+{\ttfamily \#include $<$md5key.\-h$>$}
+
+\subsection*{Fonctions membres publiques}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_m_d5_key_a128484a209773db763f628f2dc8482fc}{M\-D5\-Key} (const unsigned char $\ast$)
+\begin{DoxyCompactList}\small\item\em Constructeur de la classe \hyperlink{class_m_d5_key}{M\-D5\-Key}. \end{DoxyCompactList}\item 
+const std\-::string \hyperlink{class_m_d5_key_a9f7ce0835cc0d70e316bf8152802c0a8}{to\-String} () const 
+\begin{DoxyCompactList}\small\item\em Transforme la clé M\-D5 en string. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Amis}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{class_m_d5_key_ab9ea4f1611018c7e43e9ff0a704dec58}{operator$<$} (const \hyperlink{class_m_d5_key}{M\-D5\-Key} \&k1, const \hyperlink{class_m_d5_key}{M\-D5\-Key} \&k2)
+\begin{DoxyCompactList}\small\item\em Surchagre de l'opérateur \char`\"{}inférieur\char`\"{}. \end{DoxyCompactList}\item 
+bool \hyperlink{class_m_d5_key_aedad54e0b5f2363c0340a9bb5a62781e}{operator==} (const \hyperlink{class_m_d5_key}{M\-D5\-Key} \&k1, const \hyperlink{class_m_d5_key}{M\-D5\-Key} \&k2)
+\begin{DoxyCompactList}\small\item\em Surchagre de l'opérateur \char`\"{}égale\char`\"{}. \end{DoxyCompactList}\item 
+bool \hyperlink{class_m_d5_key_a911c35f88bf2d6ba464bb3c62d9b6b69}{operator!=} (const \hyperlink{class_m_d5_key}{M\-D5\-Key} \&k1, const \hyperlink{class_m_d5_key}{M\-D5\-Key} \&k2)
+\begin{DoxyCompactList}\small\item\em Surchagre de l'opérateur \char`\"{}inégale\char`\"{}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Description détaillée}
+Classe représentant la clé M\-D5. 
+
+\subsection{Documentation des constructeurs et destructeur}
+\hypertarget{class_m_d5_key_a128484a209773db763f628f2dc8482fc}{\index{M\-D5\-Key@{M\-D5\-Key}!M\-D5\-Key@{M\-D5\-Key}}
+\index{M\-D5\-Key@{M\-D5\-Key}!MD5Key@{M\-D5\-Key}}
+\subsubsection[{M\-D5\-Key}]{\setlength{\rightskip}{0pt plus 5cm}M\-D5\-Key\-::\-M\-D5\-Key (
+\begin{DoxyParamCaption}
+\item[{const unsigned char $\ast$}]{md5}
+\end{DoxyParamCaption}
+)}}\label{class_m_d5_key_a128484a209773db763f628f2dc8482fc}
+
+
+Constructeur de la classe \hyperlink{class_m_d5_key}{M\-D5\-Key}. 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\tt in}  & {\em path} & \-: chemin aboslu du fichier \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Documentation des fonctions membres}
+\hypertarget{class_m_d5_key_a9f7ce0835cc0d70e316bf8152802c0a8}{\index{M\-D5\-Key@{M\-D5\-Key}!to\-String@{to\-String}}
+\index{to\-String@{to\-String}!MD5Key@{M\-D5\-Key}}
+\subsubsection[{to\-String}]{\setlength{\rightskip}{0pt plus 5cm}const std\-::string M\-D5\-Key\-::to\-String (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}}\label{class_m_d5_key_a9f7ce0835cc0d70e316bf8152802c0a8}
+
+
+Transforme la clé M\-D5 en string. 
+
+\begin{DoxyReturn}{Renvoie}
+String correspondant à la clé M\-D5 
+\end{DoxyReturn}
+
+
+\subsection{Documentation des fonctions amies et associées}
+\hypertarget{class_m_d5_key_a911c35f88bf2d6ba464bb3c62d9b6b69}{\index{M\-D5\-Key@{M\-D5\-Key}!operator!=@{operator!=}}
+\index{operator!=@{operator!=}!MD5Key@{M\-D5\-Key}}
+\subsubsection[{operator!=}]{\setlength{\rightskip}{0pt plus 5cm}bool operator!= (
+\begin{DoxyParamCaption}
+\item[{const {\bf M\-D5\-Key} \&}]{k1, }
+\item[{const {\bf M\-D5\-Key} \&}]{k2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [friend]}}}\label{class_m_d5_key_a911c35f88bf2d6ba464bb3c62d9b6b69}
+
+
+Surchagre de l'opérateur \char`\"{}inégale\char`\"{}. 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\tt in}  & {\em k1} & \-: \hyperlink{class_m_d5_key}{M\-D5\-Key} servant à la comparaison \\
+\hline
+\mbox{\tt in}  & {\em k2} & \-: \hyperlink{class_m_d5_key}{M\-D5\-Key} servant à la comparaison \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+true si l'objet k1 n'est pas égale à l'objet k2 false sinon 
+\end{DoxyReturn}
+\hypertarget{class_m_d5_key_ab9ea4f1611018c7e43e9ff0a704dec58}{\index{M\-D5\-Key@{M\-D5\-Key}!operator$<$@{operator$<$}}
+\index{operator$<$@{operator$<$}!MD5Key@{M\-D5\-Key}}
+\subsubsection[{operator$<$}]{\setlength{\rightskip}{0pt plus 5cm}bool operator$<$ (
+\begin{DoxyParamCaption}
+\item[{const {\bf M\-D5\-Key} \&}]{k1, }
+\item[{const {\bf M\-D5\-Key} \&}]{k2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [friend]}}}\label{class_m_d5_key_ab9ea4f1611018c7e43e9ff0a704dec58}
+
+
+Surchagre de l'opérateur \char`\"{}inférieur\char`\"{}. 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\tt in}  & {\em k1} & \-: \hyperlink{class_m_d5_key}{M\-D5\-Key} servant à la comparaison \\
+\hline
+\mbox{\tt in}  & {\em k2} & \-: \hyperlink{class_m_d5_key}{M\-D5\-Key} servant à la comparaison \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+true si l'objet k1 est plus petit que l'objet k2 false sinon 
+\end{DoxyReturn}
+\hypertarget{class_m_d5_key_aedad54e0b5f2363c0340a9bb5a62781e}{\index{M\-D5\-Key@{M\-D5\-Key}!operator==@{operator==}}
+\index{operator==@{operator==}!MD5Key@{M\-D5\-Key}}
+\subsubsection[{operator==}]{\setlength{\rightskip}{0pt plus 5cm}bool operator== (
+\begin{DoxyParamCaption}
+\item[{const {\bf M\-D5\-Key} \&}]{k1, }
+\item[{const {\bf M\-D5\-Key} \&}]{k2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [friend]}}}\label{class_m_d5_key_aedad54e0b5f2363c0340a9bb5a62781e}
+
+
+Surchagre de l'opérateur \char`\"{}égale\char`\"{}. 
+
+
+\begin{DoxyParams}[1]{Paramètres}
+\mbox{\tt in}  & {\em k1} & \-: \hyperlink{class_m_d5_key}{M\-D5\-Key} servant à la comparaison \\
+\hline
+\mbox{\tt in}  & {\em k2} & \-: \hyperlink{class_m_d5_key}{M\-D5\-Key} servant à la comparaison \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+true si l'objet k1 est égale à l'objet k2 false sinon 
+\end{DoxyReturn}
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants \-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{md5key_8h}{md5key.\-h}\item 
+md5key.\-cpp\end{DoxyCompactItemize}

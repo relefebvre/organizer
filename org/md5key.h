@@ -12,9 +12,8 @@
 
 
 /**
- * @brief The MD5Key class
+ * @brief Classe représentant la clé MD5
  *\class MD5Key
- *\brief Classe représentant la clé MD5
  */
 
 
@@ -24,53 +23,38 @@ class MD5Key
 public:
 
     /**
-     * @brief MD5Key
-     *\brief Constructeur de la classe MD5Key
-     *\param[in] path : chemin aboslu du fichier
+     * @brief Constructeur de la classe MD5Key
+     * @param[in] path : chemin aboslu du fichier
      */
     MD5Key(const unsigned char*);
 
     /**
-     * @brief toString
-     * @return
-     *\brief Transforme la clé MD5 en string
-     *\return String correspondant à la clé MD5
+     * @brief Transforme la clé MD5 en string
+     * @return String correspondant à la clé MD5
      */
     const std::string toString() const;
 
     /**
-     * @brief operator <
-     * @param k1
-     * @param k2
-     * @return
-     *\brief Surchagre de l'opérateur "inférieur"
-     *\param[in] k1 : MD5Key servant à la comparaison
-     *\param[in] k2 : MD5Key servant à la comparaison
-     *\return true si l'objet k1 est plus petit que l'objet k2 false sinon
+     * @brief Surchagre de l'opérateur "inférieur"
+     * @param[in] k1 : MD5Key servant à la comparaison
+     * @param[in] k2 : MD5Key servant à la comparaison
+     * @return true si l'objet k1 est plus petit que l'objet k2 false sinon
      */
     friend bool operator<(const MD5Key&k1, const MD5Key&k2);
 
     /**
-     * @brief operator ==
-     * @param k1
-     * @param k2
-     * @return
-     *\brief Surchagre de l'opérateur "égale"
-     *\param[in] k1 : MD5Key servant à la comparaison
-     *\param[in] k2 : MD5Key servant à la comparaison
-     *\return true si l'objet k1 est égale à l'objet k2 false sinon
+     * @brief Surchagre de l'opérateur "égale"
+     * @param[in] k1 : MD5Key servant à la comparaison
+     * @param[in] k2 : MD5Key servant à la comparaison
+     * @return true si l'objet k1 est égale à l'objet k2 false sinon
      */
     friend bool operator== (const MD5Key&k1, const MD5Key&k2);
 
     /**
-     * @brief operator !=
-     * @param k1
-     * @param k2
-     * @return
-     *\brief Surchagre de l'opérateur "inégale"
-     *\param[in] k1 : MD5Key servant à la comparaison
-     *\param[in] k2 : MD5Key servant à la comparaison
-     *\return true si l'objet k1 n'est pas égale à l'objet k2 false sinon
+     * @brief Surchagre de l'opérateur "inégale"
+     * @param[in] k1 : MD5Key servant à la comparaison
+     * @param[in] k2 : MD5Key servant à la comparaison
+     * @return true si l'objet k1 n'est pas égale à l'objet k2 false sinon
      */
     friend bool operator!= (const MD5Key&k1, const MD5Key&k2);
 };
