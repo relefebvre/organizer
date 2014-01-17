@@ -1,4 +1,3 @@
-
 #include <QtSql>
 #include "orgview.h"
 #include <QApplication>

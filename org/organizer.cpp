@@ -180,16 +180,6 @@ void Organizer::searchBySize(const uint64_t size)
 }
 
 
-void Organizer::setRacine(const std::string &s)
-{
-    racine = s;
-}
-
-const std::string &Organizer::getRacine() const
-{
-    return racine;
-}
-
 void Organizer::searchEmpty()
 {
     QSqlQuery query;

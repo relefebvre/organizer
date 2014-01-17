@@ -1,3 +1,6 @@
+#include "doublon.h"
+#include <string>
+
 /**
  *\file doublon.cpp
  *\author Ducros & Lefebvre
@@ -5,28 +8,9 @@
  *\brief Définit les doublons
  */
 
-#include "doublon.h"
-#include <string>
-
 Doublon::Doublon(const std::string& path)
     :path(path)
 {}
-
-void Doublon::setKey(const unsigned char * md5)
-{
-    this->md5 = new MD5Key(md5);
-}
-
-
-MD5Key *Doublon::getKey() const
-{
-    return md5 ;
-}
-
-const char *Doublon::getPath() const
-{
-    return path.c_str();
-}
 
 Doublon::~Doublon()
 {

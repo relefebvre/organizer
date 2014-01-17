@@ -46,81 +46,62 @@ public:
     bool createDB() const;
 
     /**
-     * @brief createTable
-     * @param query
-     *\brief Créer une table dans la base de donnée
-     *\param[in] query : Commande à exécuter pour la création de la table
+     *@brief Créer une table dans la base de donnée
+     *@param[in] query : Commande à exécuter pour la création de la table
      */
     void createTable(const std::string & query) const;
 
     /**
-     * @brief insert
-     *\brief Insert un chemin dans la base de donnée
-     * @param p
-     *\param[in] p : Chemin à insérer dans la base de donnée
+     *@brief Insert un chemin dans la base de donnée
+     *@param[in] p : Chemin à insérer dans la base de donnée
      */
     void insert(const boost::filesystem::path & p) const;
 
     /**
-     * @brief supprimerGuillemets
-     *\brief Supprime les guillemets d'une chaine de caractères
-     * @param Qstr
-     *\param[in] Qstr : QString contenant la chaine avec guillemets
-     * @return
-     *\return Chaîne de caractères sans guillemets
+     *@brief Supprime les guillemets d'une chaine de caractères
+     *@param[in] Qstr : QString contenant la chaine avec guillemets
+     *@return Chaîne de caractères sans guillemets
      */
     const std::string supprimerGuillemets(const QString & Qstr);
 
     /**
-     * @brief md5
-     *\brief Calcul la somme MD5 d'un fichier
-     * @param Qstr
-     *\param[in,out] d : Pointeur sur un Doublon
+     *@brief Calcul la somme MD5 d'un fichier
+     *@param[in,out] d : Pointeur sur un Doublon
      */
     void md5(Doublon* d);
 
     /**
-     * @brief searchDouble
-     *\brief Recherche les fichiers en double
+     *@brief Recherche les fichiers en double
      */
     void searchDouble(void);
 
     /**
-     * @brief searchBySize
-     * @param size
-     *\brief Recherche les fichiers ayant la même taille
-     *\param[in] size : Taille de fichier
+     *@brief Recherche les fichiers ayant la même taille
+     *@param[in] size : Taille de fichier
      */
     void searchBySize(const uint64_t size);
 
     /**
-     * @brief setRacine
-     *\brief Initialise la racine de l'arborecence
-     *\param[in] racine : Chemin d'un repertoire
+     *@brief Initialise la racine de l'arborecence
+     *@param[in] racine : Chemin d'un repertoire
      */
-    void setRacine(const std::string & racine);
+    inline void setRacine(const std::string & racine) { this->racine = racine; }
 
     /**
-     * @brief getRacine
-     * @return
-     *\brief Récupérérer la racine de l'arborecence
-     *\return Le chemin de la racine de l'arborecence
+     *@brief Récupérérer la racine de l'arborecence
+     *@return Le chemin de la racine de l'arborecence
      */
-    const std::string & getRacine() const;
+    inline const std::string & getRacine() const { return racine; }
 
     /**
-     * @brief searchEmpty
-     *\brief Recherche de dossiers vide
+     *@brief Recherche de dossiers vide
      */
     void searchEmpty();
 
     /**
-     * @brief isUpdate
-     * @param p
-     * @return
-     *\brief Test si un dossier est à jour dans la base de données
-     *\param[in] p : Chemin d'accès à un repertoire
-     *\return true si le repertoire est à jour
+     *@brief Test si un dossier est à jour dans la base de données
+     *@param[in] p : Chemin d'accès à un repertoire
+     *@return true si le repertoire est à jour
      */
     bool isUpdate(const boost::filesystem::path & p) const;
 };

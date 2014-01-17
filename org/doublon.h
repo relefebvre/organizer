@@ -33,19 +33,19 @@ public:
      * @brief Setteur de la clé MD5
      * @param[in] md5 : tableau correspondant à la clé MD5 du fichier
      */
-    void setKey(const unsigned char* md5);
+    inline void setKey(const unsigned char* md5) { this->md5 = new MD5Key(md5); }
 
     /**
      * @brief Getteur de la clé MD5
      * @return Pointeur sur l'objet représentant la clé MD5
      */
-    MD5Key* getKey() const ;
+    inline MD5Key* getKey() const { return md5; }
 
     /**
      * @brief Getteur du chemin du fichier
      * @return Pointeur sur le tableau contenant le chemin du fichier
      */
-    const char *getPath() const;
+    inline const char *getPath() const { return path.c_str(); }
 
     /**
      * @brief Destructeur de la classe Doublon
