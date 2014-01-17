@@ -17,6 +17,7 @@
 #include <QRadioButton>
 #include <QScrollArea>
 #include <QtSql>
+#include <QMessageBox>
 #include "doublonmodel.h"
 
 
@@ -53,7 +54,7 @@ OrgView::OrgView(QWidget *parent) :
     ui->search_double->setEnabled(false);
     ui->search_empty->setEnabled(false);
 
-
+    connect(ui->actionAuteurs,SIGNAL(triggered()),this,SLOT(apropos()));
 
 }
 
@@ -258,4 +259,12 @@ void OrgView::on_search_empty_clicked()
 void OrgView::on_deleteFile_clicked()
 {
     deleteFile() ;
+}
+
+void OrgView::apropos()
+{
+    QMessageBox msgBox;
+    msgBox.setWindowTitle("Auteurs");
+    msgBox.setText("Application réalisée par : \nDucros Alix & Lefebvre Rémi");
+    msgBox.exec();
 }

@@ -47,6 +47,7 @@ private slots:
     void on_search_double_clicked();
     void on_search_empty_clicked();
     void on_deleteFile_clicked();
+    void apropos();
 
 private:
     Ui::OrgView *ui;
