@@ -65,8 +65,6 @@ OrgView::~OrgView()
 
 void OrgView::start(std::string argv)
 {
-    std::list<path> doublons;
-
     insert(path(argv));
 
     for ( recursive_directory_iterator end, dir(argv);
@@ -193,7 +191,7 @@ void OrgView::deleteFile()
         cmd = "rm -f "+path.toStdString() ;   //Création de la commande de suppression
         system(cmd.c_str());    //Execution de la commande
 
-        query.prepare("DELETE * WHERE path=:path");
+        query.prepare("DELETE FROM fic WHERE path=:path");
         query.bindValue(":path",path);
         query.exec();
     }

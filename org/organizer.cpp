@@ -173,9 +173,19 @@ void Organizer::searchBySize(const uint64_t size)
 
     while (query.next()) {
         std::string ph =supprimerGuillemets(query.value(0).toString());
-        Doublon *tmp = new Doublon(ph);
-        md5(tmp);
-        doublonSize.insert(tmp);
+        if (boost::filesystem3::exists(boost::filesystem3::path(ph)))
+        {
+            Doublon *tmp = new Doublon(ph);
+            md5(tmp);
+            doublonSize.insert(tmp);
+        }
+        else
+        {
+            std::cout<<"Suppression de : "<<ph<<std::endl;
+            query.prepare("DELETE FROM fic WHERE path=:path");
+            query.bindValue(":path",ph.c_str());
+            query.exec();
+        }
     }
 }
 

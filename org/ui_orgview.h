@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'orgview.ui'
 **
-** Created: Fri Jan 17 16:58:17 2014
+** Created: Sat Jan 18 10:44:35 2014
 **      by: Qt User Interface Compiler version 4.8.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -140,7 +140,7 @@ public:
 
         retranslateUi(OrgView);
 
-        recherche->setCurrentIndex(0);
+        recherche->setCurrentIndex(1);
 
 
         QMetaObject::connectSlotsByName(OrgView);
