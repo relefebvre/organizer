@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'orgview.ui'
 **
-** Created: Sat Jan 18 10:44:35 2014
+** Created: Sat Jan 18 11:41:47 2014
 **      by: Qt User Interface Compiler version 4.8.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -48,6 +48,7 @@ public:
     QTreeView *vue;
     QLabel *label;
     QLabel *status;
+    QLabel *status_error;
     QMenuBar *menubar;
     QMenu *menuA_propos;
 
@@ -126,7 +127,10 @@ public:
         label->setGeometry(QRect(150, 20, 831, 21));
         status = new QLabel(widget);
         status->setObjectName(QString::fromUtf8("status"));
-        status->setGeometry(QRect(10, 560, 1001, 21));
+        status->setGeometry(QRect(0, 560, 1001, 21));
+        status_error = new QLabel(widget);
+        status_error->setObjectName(QString::fromUtf8("status_error"));
+        status_error->setGeometry(QRect(0, 600, 1001, 21));
         OrgView->setCentralWidget(centralwidget);
         menubar = new QMenuBar(OrgView);
         menubar->setObjectName(QString::fromUtf8("menubar"));
@@ -158,6 +162,7 @@ public:
         start_stop->setText(QApplication::translate("OrgView", "Scanner", 0, QApplication::UnicodeUTF8));
         label->setText(QApplication::translate("OrgView", "TextLabel", 0, QApplication::UnicodeUTF8));
         status->setText(QString());
+        status_error->setText(QString());
         menuA_propos->setTitle(QApplication::translate("OrgView", "A propos", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
 

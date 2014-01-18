@@ -55,7 +55,6 @@ OrgView::OrgView(QWidget *parent) :
     ui->search_empty->setEnabled(false);
 
     connect(ui->actionAuteurs,SIGNAL(triggered()),this,SLOT(apropos()));
-
 }
 
 OrgView::~OrgView()
@@ -67,7 +66,8 @@ void OrgView::start(std::string argv)
 {
     insert(path(argv));
 
-    for ( recursive_directory_iterator end, dir(argv);
+
+    try {for ( recursive_directory_iterator end, dir(argv);
           dir != end; ++dir ) {
         path ph = *dir;
 
@@ -87,7 +87,13 @@ void OrgView::start(std::string argv)
 
         if (!runing)
             break;
+    }}
+    catch (const boost::filesystem3::filesystem_error& err)
+    {
+        std::string s = "<font color='red'>"+std::string(err.what()) + "</font>";
+        ui->status_error->setText(QString(s.c_str()));
     }
+
 
     ui->start_stop->setText("Scanner");
 

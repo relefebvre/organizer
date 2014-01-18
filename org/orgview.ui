@@ -242,8 +242,21 @@
     <widget class="QLabel" name="status">
      <property name="geometry">
       <rect>
-       <x>10</x>
+       <x>0</x>
        <y>560</y>
+       <width>1001</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QLabel" name="status_error">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>600</y>
        <width>1001</width>
        <height>21</height>
       </rect>
