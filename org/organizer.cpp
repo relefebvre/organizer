@@ -181,7 +181,6 @@ void Organizer::searchBySize(const uint64_t size)
         }
         else
         {
-            std::cout<<"Suppression de : "<<ph<<std::endl;
             query.prepare("DELETE FROM fic WHERE path=:path");
             query.bindValue(":path",ph.c_str());
             query.exec();
@@ -201,7 +200,14 @@ void Organizer::searchEmpty()
 
     while (query.next()) {
         std::string ph =supprimerGuillemets(query.value(0).toString());
-        emptyDir.push_back((boost::filesystem::path)ph);
+        if (boost::filesystem3::exists(boost::filesystem3::path(ph)))
+            emptyDir.push_back((boost::filesystem::path)ph);
+        else
+        {
+            query.prepare("DELETE FROM dir WHERE path=:path");
+            query.bindValue(":path",ph.c_str());
+            query.exec();
+        }
     }
 }
 
