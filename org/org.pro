@@ -1,5 +1,7 @@
 TEMPLATE = app
 
+QMAKE_CXXFLAGS += -std=c++0x
+
 CONFIG += qt
 
 SOURCES += main.cpp \
@@ -7,14 +9,16 @@ SOURCES += main.cpp \
     orgview.cpp \
     doublon.cpp \
     doublontree.cpp \
-    doublonmodel.cpp
+    doublonmodel.cpp \
+    md5key.cpp
 
 HEADERS += \
     organizer.h \
     orgview.h \
     doublon.h \
     doublontree.h \
-    doublonmodel.h
+    doublonmodel.h \
+    md5key.h
 
 INCLUDEPATH +=/usr/include /usr/include/qt4/QtSql
 

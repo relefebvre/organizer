@@ -38,7 +38,7 @@
       <height>731</height>
      </rect>
     </property>
-    <widget class="QTabWidget" name="test">
+    <widget class="QTabWidget" name="recherche">
      <property name="geometry">
       <rect>
        <x>290</x>
@@ -54,7 +54,7 @@
       </size>
      </property>
      <property name="currentIndex">
-      <number>0</number>
+      <number>1</number>
      </property>
      <widget class="QWidget" name="doublons">
       <property name="focusPolicy">
@@ -242,8 +242,21 @@
     <widget class="QLabel" name="status">
      <property name="geometry">
       <rect>
-       <x>10</x>
+       <x>0</x>
        <y>560</y>
+       <width>1001</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QLabel" name="status_error">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>600</y>
        <width>1001</width>
        <height>21</height>
       </rect>
@@ -260,10 +273,22 @@
      <x>0</x>
      <y>0</y>
      <width>1000</width>
-     <height>27</height>
+     <height>29</height>
     </rect>
    </property>
+   <widget class="QMenu" name="menuA_propos">
+    <property name="title">
+     <string>A propos</string>
+    </property>
+    <addaction name="actionAuteurs"/>
+   </widget>
+   <addaction name="menuA_propos"/>
   </widget>
+  <action name="actionAuteurs">
+   <property name="text">
+    <string>Auteurs</string>
+   </property>
+  </action>
  </widget>
  <resources/>
  <connections/>

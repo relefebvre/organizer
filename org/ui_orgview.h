@@ -1,7 +1,8 @@
 /********************************************************************************
 ** Form generated from reading UI file 'orgview.ui'
 **
-** Created by: Qt User Interface Compiler version 4.8.6
+** Created: Sat Jan 18 11:41:47 2014
+**      by: Qt User Interface Compiler version 4.8.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -16,6 +17,7 @@
 #include <QtGui/QHeaderView>
 #include <QtGui/QLabel>
 #include <QtGui/QMainWindow>
+#include <QtGui/QMenu>
 #include <QtGui/QMenuBar>
 #include <QtGui/QProgressBar>
 #include <QtGui/QPushButton>
@@ -29,9 +31,10 @@ QT_BEGIN_NAMESPACE
 class Ui_OrgView
 {
 public:
+    QAction *actionAuteurs;
     QWidget *centralwidget;
     QWidget *widget;
-    QTabWidget *test;
+    QTabWidget *recherche;
     QWidget *doublons;
     QPushButton *search_double;
     QTreeView *treeView;
@@ -45,7 +48,9 @@ public:
     QTreeView *vue;
     QLabel *label;
     QLabel *status;
+    QLabel *status_error;
     QMenuBar *menubar;
+    QMenu *menuA_propos;
 
     void setupUi(QMainWindow *OrgView)
     {
@@ -54,16 +59,18 @@ public:
         OrgView->resize(1000, 759);
         OrgView->setMinimumSize(QSize(1000, 759));
         OrgView->setMaximumSize(QSize(1000, 1000));
+        actionAuteurs = new QAction(OrgView);
+        actionAuteurs->setObjectName(QString::fromUtf8("actionAuteurs"));
         centralwidget = new QWidget(OrgView);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         centralwidget->setEnabled(true);
         widget = new QWidget(centralwidget);
         widget->setObjectName(QString::fromUtf8("widget"));
         widget->setGeometry(QRect(-1, -1, 1001, 731));
-        test = new QTabWidget(widget);
-        test->setObjectName(QString::fromUtf8("test"));
-        test->setGeometry(QRect(290, 70, 691, 341));
-        test->setMinimumSize(QSize(0, 0));
+        recherche = new QTabWidget(widget);
+        recherche->setObjectName(QString::fromUtf8("recherche"));
+        recherche->setGeometry(QRect(290, 70, 691, 341));
+        recherche->setMinimumSize(QSize(0, 0));
         doublons = new QWidget();
         doublons->setObjectName(QString::fromUtf8("doublons"));
         doublons->setFocusPolicy(Qt::TabFocus);
@@ -87,7 +94,7 @@ public:
         deleteFile = new QPushButton(doublons);
         deleteFile->setObjectName(QString::fromUtf8("deleteFile"));
         deleteFile->setGeometry(QRect(580, 10, 97, 51));
-        test->addTab(doublons, QString());
+        recherche->addTab(doublons, QString());
         tab = new QWidget();
         tab->setObjectName(QString::fromUtf8("tab"));
         search_empty = new QPushButton(tab);
@@ -97,7 +104,7 @@ public:
         view_empty = new QTextBrowser(tab);
         view_empty->setObjectName(QString::fromUtf8("view_empty"));
         view_empty->setGeometry(QRect(10, 70, 671, 231));
-        test->addTab(tab, QString());
+        recherche->addTab(tab, QString());
         textBrowser = new QTextBrowser(widget);
         textBrowser->setObjectName(QString::fromUtf8("textBrowser"));
         textBrowser->setGeometry(QRect(10, 440, 971, 111));
@@ -120,16 +127,24 @@ public:
         label->setGeometry(QRect(150, 20, 831, 21));
         status = new QLabel(widget);
         status->setObjectName(QString::fromUtf8("status"));
-        status->setGeometry(QRect(10, 560, 1001, 21));
+        status->setGeometry(QRect(0, 560, 1001, 21));
+        status_error = new QLabel(widget);
+        status_error->setObjectName(QString::fromUtf8("status_error"));
+        status_error->setGeometry(QRect(0, 600, 1001, 21));
         OrgView->setCentralWidget(centralwidget);
         menubar = new QMenuBar(OrgView);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 1000, 27));
+        menubar->setGeometry(QRect(0, 0, 1000, 29));
+        menuA_propos = new QMenu(menubar);
+        menuA_propos->setObjectName(QString::fromUtf8("menuA_propos"));
         OrgView->setMenuBar(menubar);
+
+        menubar->addAction(menuA_propos->menuAction());
+        menuA_propos->addAction(actionAuteurs);
 
         retranslateUi(OrgView);
 
-        test->setCurrentIndex(0);
+        recherche->setCurrentIndex(1);
 
 
         QMetaObject::connectSlotsByName(OrgView);
@@ -138,14 +153,17 @@ public:
     void retranslateUi(QMainWindow *OrgView)
     {
         OrgView->setWindowTitle(QApplication::translate("OrgView", "MainWindow", 0, QApplication::UnicodeUTF8));
+        actionAuteurs->setText(QApplication::translate("OrgView", "Auteurs", 0, QApplication::UnicodeUTF8));
         search_double->setText(QApplication::translate("OrgView", "Chercher", 0, QApplication::UnicodeUTF8));
         deleteFile->setText(QApplication::translate("OrgView", "Supprimer", 0, QApplication::UnicodeUTF8));
-        test->setTabText(test->indexOf(doublons), QApplication::translate("OrgView", "Doublons", 0, QApplication::UnicodeUTF8));
+        recherche->setTabText(recherche->indexOf(doublons), QApplication::translate("OrgView", "Doublons", 0, QApplication::UnicodeUTF8));
         search_empty->setText(QApplication::translate("OrgView", "Search", 0, QApplication::UnicodeUTF8));
-        test->setTabText(test->indexOf(tab), QApplication::translate("OrgView", "Dossiers vides", 0, QApplication::UnicodeUTF8));
+        recherche->setTabText(recherche->indexOf(tab), QApplication::translate("OrgView", "Dossiers vides", 0, QApplication::UnicodeUTF8));
         start_stop->setText(QApplication::translate("OrgView", "Scanner", 0, QApplication::UnicodeUTF8));
         label->setText(QApplication::translate("OrgView", "TextLabel", 0, QApplication::UnicodeUTF8));
         status->setText(QString());
+        status_error->setText(QString());
+        menuA_propos->setTitle(QApplication::translate("OrgView", "A propos", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
 
 };

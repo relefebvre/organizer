@@ -2,13 +2,11 @@
 #include <QtSql>
 #include <QSqlDatabase>
 #include <sstream>
-#include <stdarg.h>
 #include <tomcrypt.h>
 #include <set>
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <unistd.h>
-#include <errno.h>
 #include <fcntl.h>
 
 Organizer::Organizer()
@@ -22,8 +20,6 @@ Organizer::Organizer()
     createTable("CREATE TABLE fic(size integer,path varchar(1000) UNIQUE, md5 varchar(16));");
 
     createTable("CREATE TABLE dir(empty bool,path varchar(1000) UNIQUE, modif datetime);");
-
-    nbFiles = 0;
 }
 
 bool Organizer::createDB() const
@@ -131,7 +127,7 @@ void Organizer::md5(Doublon *d)
     if (update)
     {
         query.prepare("UPDATE fic SET md5=:md5 WHERE path=:path");
-        query.bindValue(":md5",d->toString().c_str());
+        query.bindValue(":md5",d->getKey()->toString().c_str());
         query.bindValue(":path",d->getPath());
         query.exec();
     }
@@ -148,16 +144,17 @@ void Organizer::searchDouble()
     while (query.next())
         searchBySize(query.value(1).toULongLong());
 
-    for (std::multiset<Doublon*>::const_iterator itd=doublonSize.begin() ; itd!=doublonSize.end() ; ++itd)
+    for (auto itd=doublonSize.begin() ; itd!=doublonSize.end() ; ++itd)
     {
         std::pair<std::multiset<Doublon*>::iterator,std::multiset<Doublon*>::iterator> ret = doublonSize.equal_range(*itd);
 
-        for (std::multiset<Doublon*>::iterator itr = ret.first ; itr != ret.second ; ++itr)
+        for (auto itr = ret.first ; itr != ret.second ; ++itr)
         {
             std::string ph = (*itr)->getPath();
-            doublons[(*itd)->toString()].push_back(boost::filesystem::path(ph));
-            ++nbFiles;
+            doublons[*((*itd)->getKey())].push_back(boost::filesystem::path(ph));
         }
+        for(auto itd = ret.first ; itd != ret.second ; ++itd)
+            delete *itd;
         doublonSize.erase(ret.first,ret.second);
     }
 }
@@ -176,22 +173,21 @@ void Organizer::searchBySize(const uint64_t size)
 
     while (query.next()) {
         std::string ph =supprimerGuillemets(query.value(0).toString());
-        Doublon *tmp = new Doublon(ph);
-        md5(tmp);
-        doublonSize.insert(tmp);
+        if (boost::filesystem3::exists(boost::filesystem3::path(ph)))
+        {
+            Doublon *tmp = new Doublon(ph);
+            md5(tmp);
+            doublonSize.insert(tmp);
+        }
+        else
+        {
+            query.prepare("DELETE FROM fic WHERE path=:path");
+            query.bindValue(":path",ph.c_str());
+            query.exec();
+        }
     }
 }
 
-
-void Organizer::setRacine(const std::string &s)
-{
-    racine = s;
-}
-
-const std::string &Organizer::getRacine() const
-{
-    return racine;
-}
 
 void Organizer::searchEmpty()
 {
@@ -204,7 +200,14 @@ void Organizer::searchEmpty()
 
     while (query.next()) {
         std::string ph =supprimerGuillemets(query.value(0).toString());
-        emptyDir.push_back((boost::filesystem::path)ph);
+        if (boost::filesystem3::exists(boost::filesystem3::path(ph)))
+            emptyDir.push_back((boost::filesystem::path)ph);
+        else
+        {
+            query.prepare("DELETE FROM dir WHERE path=:path");
+            query.bindValue(":path",ph.c_str());
+            query.exec();
+        }
     }
 }
 
