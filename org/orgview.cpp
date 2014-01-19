@@ -295,3 +295,31 @@ void OrgView::apropos()
     msgBox.setText("Application réalisée par : \nDucros Alix & Lefebvre Rémi");
     msgBox.exec();
 }
+
+void OrgView::on_deleteEmpty_clicked()
+{
+    QString path  ;
+    std::string cmd ;
+    QSqlQuery query;
+
+
+    QItemSelectionModel *selection = ui->treeViewEmpty->selectionModel();
+    QModelIndexList listeSelection ;
+    listeSelection = selection->selectedIndexes() ;
+    ui->treeViewEmpty->clearSelection();
+
+    for(int i = 0 ; i< listeSelection.size() ; ++i)
+    {
+        path = modEmpty->dataPath(listeSelection[i], Qt::DisplayRole).toString() ;
+        cmd = "rm -rf "+path.toStdString() ;   //Création de la commande de suppression
+        system(cmd.c_str());    //Execution de la commande
+
+        query.prepare("DELETE FROM dir WHERE path=:path");
+        query.bindValue(":path",path);
+        query.exec();
+    }
+
+    searchEmpty();
+    afficherEmpty();
+
+}

@@ -54,7 +54,7 @@
       </size>
      </property>
      <property name="currentIndex">
-      <number>0</number>
+      <number>1</number>
      </property>
      <widget class="QWidget" name="doublons">
       <property name="focusPolicy">
@@ -159,7 +159,7 @@
         <rect>
          <x>5</x>
          <y>71</y>
-         <width>681</width>
+         <width>671</width>
          <height>241</height>
         </rect>
        </property>
@@ -169,12 +169,25 @@
         <rect>
          <x>140</x>
          <y>20</y>
-         <width>441</width>
+         <width>431</width>
          <height>21</height>
         </rect>
        </property>
        <property name="value">
         <number>0</number>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="deleteEmpty">
+       <property name="geometry">
+        <rect>
+         <x>580</x>
+         <y>10</y>
+         <width>97</width>
+         <height>51</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Supprimer</string>
        </property>
       </widget>
      </widget>

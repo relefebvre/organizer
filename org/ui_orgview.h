@@ -43,6 +43,7 @@ public:
     QPushButton *search_empty;
     QTreeView *treeViewEmpty;
     QProgressBar *progressBarEmpty;
+    QPushButton *deleteEmpty;
     QTextBrowser *textBrowser;
     QPushButton *start_stop;
     QTreeView *vue;
@@ -103,11 +104,14 @@ public:
         search_empty->setGeometry(QRect(10, 10, 111, 51));
         treeViewEmpty = new QTreeView(tab);
         treeViewEmpty->setObjectName(QString::fromUtf8("treeViewEmpty"));
-        treeViewEmpty->setGeometry(QRect(5, 71, 681, 241));
+        treeViewEmpty->setGeometry(QRect(5, 71, 671, 241));
         progressBarEmpty = new QProgressBar(tab);
         progressBarEmpty->setObjectName(QString::fromUtf8("progressBarEmpty"));
-        progressBarEmpty->setGeometry(QRect(140, 20, 441, 21));
+        progressBarEmpty->setGeometry(QRect(140, 20, 431, 21));
         progressBarEmpty->setValue(0);
+        deleteEmpty = new QPushButton(tab);
+        deleteEmpty->setObjectName(QString::fromUtf8("deleteEmpty"));
+        deleteEmpty->setGeometry(QRect(580, 10, 97, 51));
         recherche->addTab(tab, QString());
         textBrowser = new QTextBrowser(widget);
         textBrowser->setObjectName(QString::fromUtf8("textBrowser"));
@@ -148,7 +152,7 @@ public:
 
         retranslateUi(OrgView);
 
-        recherche->setCurrentIndex(0);
+        recherche->setCurrentIndex(1);
 
 
         QMetaObject::connectSlotsByName(OrgView);
@@ -162,6 +166,7 @@ public:
         deleteFile->setText(QApplication::translate("OrgView", "Supprimer", 0, QApplication::UnicodeUTF8));
         recherche->setTabText(recherche->indexOf(doublons), QApplication::translate("OrgView", "Doublons", 0, QApplication::UnicodeUTF8));
         search_empty->setText(QApplication::translate("OrgView", "Chercher", 0, QApplication::UnicodeUTF8));
+        deleteEmpty->setText(QApplication::translate("OrgView", "Supprimer", 0, QApplication::UnicodeUTF8));
         recherche->setTabText(recherche->indexOf(tab), QApplication::translate("OrgView", "Dossiers vides", 0, QApplication::UnicodeUTF8));
         start_stop->setText(QApplication::translate("OrgView", "Scanner", 0, QApplication::UnicodeUTF8));
         label->setText(QApplication::translate("OrgView", "TextLabel", 0, QApplication::UnicodeUTF8));

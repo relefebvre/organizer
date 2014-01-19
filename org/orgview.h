@@ -49,6 +49,8 @@ private slots:
     void on_deleteFile_clicked();
     void apropos();
 
+    void on_deleteEmpty_clicked();
+
 private:
     Ui::OrgView *ui;
     QItemSelectionModel *selectionModel;

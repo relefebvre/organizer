@@ -106,7 +106,7 @@ QVariant DoublonModel::dataPath(const QModelIndex &index, int role) const
         return QVariant();
 
 
-    if(item -> getType() != 1)
+    if(item -> getType() == 0 )
         return QVariant() ;
 
 

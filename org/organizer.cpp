@@ -191,6 +191,7 @@ void Organizer::searchBySize(const uint64_t size)
 
 void Organizer::searchEmpty()
 {
+    emptyDir.clear();
     QSqlQuery query;
 
     query.prepare("SELECT path FROM dir WHERE empty=\"true\" AND path LIKE :path");
