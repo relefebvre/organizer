@@ -88,7 +88,7 @@ void OrgView::start(std::string argv)
         if (!runing)
             break;
     }}
-    catch (const boost::filesystem3::filesystem_error& err)
+    catch (const boost::filesystem::filesystem_error& err)
     {
         std::string s = "<font color='red'>"+std::string(err.what()) + "</font>";
         ui->status_error->setText(QString(s.c_str()));
@@ -116,7 +116,7 @@ void OrgView::affiche(const QString &s) const
 
 void OrgView::afficherDoublons()
 {
-    mod = new DoublonModel(" ") ;
+    modDbl = new DoublonModel(" ") ;
 
     setStatus("Recherche de doublons dans le dossier " + getRacine());
 
@@ -127,21 +127,15 @@ void OrgView::afficherDoublons()
     {
         if ((it->second.size()) > 1)
         {
-<<<<<<< HEAD
-        QString sPath;
-        QString qs("MD5 ");
-        qs += QString(it->first.c_str());
-=======
             QString sPath;
             QString qs("Nb doublons ");
             //qs += QString(i);
             //qs += QString(it->first.toString().c_str());
             qs += QString::number(it->second.size());
->>>>>>> 9b30e60c2916fe817cf47f68ec62519e7ff5a521
 
 
             //On ajoute une famille de path ayant la même taille au doublonTree
-            mod->setupModelData((qs),1, mod->rootItem);
+            modDbl->setupModelData((qs),1, modDbl->rootItem);
 
             QApplication::processEvents();
 
@@ -149,7 +143,7 @@ void OrgView::afficherDoublons()
             {
                 sPath = itp->c_str() ;
 
-                mod->setupModelData((sPath),1, mod->rootItem->child(i));
+                modDbl->setupModelData((sPath),1, modDbl->rootItem->child(i));
 
                 sPath.clear();
                 QApplication::processEvents();
@@ -161,21 +155,44 @@ void OrgView::afficherDoublons()
         ui->progressBarDouble->setValue(100*nbFilesCount/doublons.size());
     }
 
-    ui->treeView->setModel(mod);
+    ui->treeView->setModel(modDbl);
     ui->progressBarDouble->setValue(100*nbFilesCount/doublons.size());
+
+    ui->treeView->expandAll();
 
     setStatus("Recherche de doublons terminée");
 }
 
-void OrgView::afficherEmpty() const
+void OrgView::afficherEmpty()
 {
+    modEmpty = new DoublonModel(" ") ;
+    int i = 1 ;
+    QString sPath;
+
+    unsigned long nbFilesCount = 0;
+
+
     setStatus("Recherche de dossiers vides dans le dossier " + getRacine());
 
     for (auto it=emptyDir.begin() ; it!=emptyDir.end() ; ++it)
     {
-        ui->view_empty->append(QString(it->c_str()));
+        sPath = it->c_str() ;
+
+        modEmpty->setupModelData((sPath),2, modEmpty->rootItem);
+
+        sPath.clear();
+
+        ++i ;
+        ++nbFilesCount;
+        ui->progressBarEmpty->setValue(100*nbFilesCount/emptyDir.size());
         QApplication::processEvents();
+
+        /*ui->view_empty->append(QString(it->c_str()));
+        QApplication::processEvents();*/
     }
+
+    ui->treeViewEmpty->setModel(modEmpty);
+    ui->progressBarEmpty->setValue(100*nbFilesCount/emptyDir.size());
 
     setStatus("Recherche de dossiers vides terminée");
 }
@@ -199,7 +216,7 @@ void OrgView::deleteFile()
 
     for(int i = 0 ; i< listeSelection.size() ; ++i)
     {
-        path = mod->dataPath(listeSelection[i], Qt::DisplayRole).toString() ;
+        path = modDbl->dataPath(listeSelection[i], Qt::DisplayRole).toString() ;
         cmd = "rm -f "+path.toStdString() ;   //Création de la commande de suppression
         system(cmd.c_str());    //Execution de la commande
 

@@ -173,7 +173,7 @@ void Organizer::searchBySize(const uint64_t size)
 
     while (query.next()) {
         std::string ph =supprimerGuillemets(query.value(0).toString());
-        if (boost::filesystem3::exists(boost::filesystem3::path(ph)))
+        if (boost::filesystem::exists(boost::filesystem::path(ph)))
         {
             Doublon *tmp = new Doublon(ph);
             md5(tmp);
@@ -200,7 +200,7 @@ void Organizer::searchEmpty()
 
     while (query.next()) {
         std::string ph =supprimerGuillemets(query.value(0).toString());
-        if (boost::filesystem3::exists(boost::filesystem3::path(ph)))
+        if (boost::filesystem::exists(boost::filesystem::path(ph)))
             emptyDir.push_back((boost::filesystem::path)ph);
         else
         {

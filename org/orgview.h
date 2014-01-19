@@ -35,7 +35,7 @@ public:
     void start(std::string argv);
     void affiche(const QString & s) const;
     void afficherDoublons();
-    void afficherEmpty() const;
+    void afficherEmpty();
     void setStatus(const std::string &s) const;
     void deleteFile() ;
 
@@ -52,7 +52,8 @@ private slots:
 private:
     Ui::OrgView *ui;
     QItemSelectionModel *selectionModel;
-    DoublonModel * mod ;
+    DoublonModel * modDbl ;
+    DoublonModel * modEmpty ;
 
 
 signals:
