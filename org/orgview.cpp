@@ -222,7 +222,7 @@ void OrgView::deleteFile()
     for(int i = 0 ; i< listeSelection.size() ; ++i)
     {
         path = modDbl->dataPath(listeSelection[i], Qt::DisplayRole).toString() ;
-        cmd = "rm -f "+path.toStdString() ;   //Création de la commande de suppression
+        cmd = "rm -f \""+path.toStdString()+"\"" ;   //Création de la commande de suppression
         std::cout << cmd << std::endl ;
         system(cmd.c_str());    //Execution de la commande
         std::cout << "Fichier "+path.toStdString()+" supprimé." << std::endl ;
@@ -253,7 +253,7 @@ void OrgView::deleteRepertory()
     for(int i = 0 ; i< listeSelection.size() ; ++i)
     {
         path = modEmpty->dataPath(listeSelection[i], Qt::DisplayRole).toString() ;
-        cmd = "rm -rf "+path.toStdString() ;   //Création de la commande de suppression
+        cmd = "rm -rf \""+path.toStdString()+"\"" ;   //Création de la commande de suppression
         system(cmd.c_str());    //Execution de la commande
         std::cout << "Dossier "+path.toStdString()+" supprimé." << std::endl ;
 
