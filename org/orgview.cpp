@@ -223,7 +223,10 @@ void OrgView::deleteFile()
     {
         path = modDbl->dataPath(listeSelection[i], Qt::DisplayRole).toString() ;
         cmd = "rm -f "+path.toStdString() ;   //Création de la commande de suppression
+        std::cout << cmd << std::endl ;
         system(cmd.c_str());    //Execution de la commande
+        std::cout << "Fichier "+path.toStdString()+" supprimé." << std::endl ;
+
 
         query.prepare("DELETE FROM fic WHERE path=:path");
         query.bindValue(":path",path);
@@ -252,6 +255,7 @@ void OrgView::deleteRepertory()
         path = modEmpty->dataPath(listeSelection[i], Qt::DisplayRole).toString() ;
         cmd = "rm -rf "+path.toStdString() ;   //Création de la commande de suppression
         system(cmd.c_str());    //Execution de la commande
+        std::cout << "Dossier "+path.toStdString()+" supprimé." << std::endl ;
 
         query.prepare("DELETE FROM dir WHERE path=:path");
         query.bindValue(":path",path);

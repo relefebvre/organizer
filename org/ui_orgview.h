@@ -160,7 +160,7 @@ public:
 
     void retranslateUi(QMainWindow *OrgView)
     {
-        OrgView->setWindowTitle(QApplication::translate("OrgView", "MainWindow", 0, QApplication::UnicodeUTF8));
+        OrgView->setWindowTitle(QApplication::translate("OrgView", "Organizer", 0, QApplication::UnicodeUTF8));
         actionAuteurs->setText(QApplication::translate("OrgView", "Auteurs", 0, QApplication::UnicodeUTF8));
         search_double->setText(QApplication::translate("OrgView", "Chercher", 0, QApplication::UnicodeUTF8));
         deleteFile->setText(QApplication::translate("OrgView", "Supprimer", 0, QApplication::UnicodeUTF8));
