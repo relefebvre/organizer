@@ -6,6 +6,9 @@
 #include "doublon.h"
 #include <QStringList>
 
+/**
+ * @brief The DoublonModel class
+ */
 
 class DoublonModel : public QAbstractItemModel
 {

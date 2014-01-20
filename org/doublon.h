@@ -12,7 +12,7 @@
 #include "md5key.h"
 
 /**
- * @brief Classe représantant le doublon
+ * @brief Classe représantant le Doublon
  *\class Doublon
  */
 

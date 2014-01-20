@@ -122,6 +122,10 @@ void OrgView::afficherDoublons()
 
     int i = 1 ;
     unsigned long nbFilesCount = 0;
+    int total = doublons.size() ;
+    if (total == 0)
+        total = 1 ;
+
 
     for(auto it=doublons.begin() ; it!=doublons.end() ; ++it)
     {
@@ -129,8 +133,6 @@ void OrgView::afficherDoublons()
         {
             QString sPath;
             QString qs("Nb doublons ");
-            //qs += QString(i);
-            //qs += QString(it->first.toString().c_str());
             qs += QString::number(it->second.size());
 
 
@@ -152,11 +154,11 @@ void OrgView::afficherDoublons()
             ++i ;
         }
         ++nbFilesCount;
-        ui->progressBarDouble->setValue(100*nbFilesCount/doublons.size());
+        ui->progressBarDouble->setValue(100*nbFilesCount/total);
     }
 
     ui->treeView->setModel(modDbl);
-    ui->progressBarDouble->setValue(100*nbFilesCount/doublons.size());
+    ui->progressBarDouble->setValue(100*nbFilesCount/total);
 
     ui->treeView->expandAll();
 
@@ -168,6 +170,9 @@ void OrgView::afficherEmpty()
     modEmpty = new DoublonModel(" ") ;
     int i = 1 ;
     QString sPath;
+    int total = emptyDir.size() ;
+    if (total == 0)
+        total = 1 ;
 
     unsigned long nbFilesCount = 0;
 
@@ -184,7 +189,7 @@ void OrgView::afficherEmpty()
 
         ++i ;
         ++nbFilesCount;
-        ui->progressBarEmpty->setValue(100*nbFilesCount/emptyDir.size());
+        ui->progressBarEmpty->setValue(100*nbFilesCount/total);
         QApplication::processEvents();
 
         /*ui->view_empty->append(QString(it->c_str()));
@@ -192,7 +197,7 @@ void OrgView::afficherEmpty()
     }
 
     ui->treeViewEmpty->setModel(modEmpty);
-    ui->progressBarEmpty->setValue(100*nbFilesCount/emptyDir.size());
+    ui->progressBarEmpty->setValue(100*nbFilesCount/total);
 
     setStatus("Recherche de dossiers vides terminée");
 }
@@ -228,6 +233,33 @@ void OrgView::deleteFile()
     searchDouble();
     afficherDoublons();
 
+}
+
+void OrgView::deleteRepertory()
+{
+    QString path  ;
+    std::string cmd ;
+    QSqlQuery query;
+
+
+    QItemSelectionModel *selection = ui->treeViewEmpty->selectionModel();
+    QModelIndexList listeSelection ;
+    listeSelection = selection->selectedIndexes() ;
+    ui->treeViewEmpty->clearSelection();
+
+    for(int i = 0 ; i< listeSelection.size() ; ++i)
+    {
+        path = modEmpty->dataPath(listeSelection[i], Qt::DisplayRole).toString() ;
+        cmd = "rm -rf "+path.toStdString() ;   //Création de la commande de suppression
+        system(cmd.c_str());    //Execution de la commande
+
+        query.prepare("DELETE FROM dir WHERE path=:path");
+        query.bindValue(":path",path);
+        query.exec();
+    }
+
+    searchEmpty();
+    afficherEmpty();
 }
 
 
@@ -298,28 +330,6 @@ void OrgView::apropos()
 
 void OrgView::on_deleteEmpty_clicked()
 {
-    QString path  ;
-    std::string cmd ;
-    QSqlQuery query;
 
-
-    QItemSelectionModel *selection = ui->treeViewEmpty->selectionModel();
-    QModelIndexList listeSelection ;
-    listeSelection = selection->selectedIndexes() ;
-    ui->treeViewEmpty->clearSelection();
-
-    for(int i = 0 ; i< listeSelection.size() ; ++i)
-    {
-        path = modEmpty->dataPath(listeSelection[i], Qt::DisplayRole).toString() ;
-        cmd = "rm -rf "+path.toStdString() ;   //Création de la commande de suppression
-        system(cmd.c_str());    //Execution de la commande
-
-        query.prepare("DELETE FROM dir WHERE path=:path");
-        query.bindValue(":path",path);
-        query.exec();
-    }
-
-    searchEmpty();
-    afficherEmpty();
-
+    deleteRepertory();
 }

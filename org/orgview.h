@@ -38,6 +38,7 @@ public:
     void afficherEmpty();
     void setStatus(const std::string &s) const;
     void deleteFile() ;
+    void deleteRepertory() ;
 
 
 
