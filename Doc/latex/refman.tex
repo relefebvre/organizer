@@ -11,23 +11,6 @@
 \usepackage[table]{xcolor}
 \usepackage{textcomp}
 \usepackage{alltt}
-\usepackage{ifpdf}
-\ifpdf
-\usepackage[pdftex,
-            pagebackref=true,
-            colorlinks=true,
-            linkcolor=blue,
-            unicode
-           ]{hyperref}
-\else
-\usepackage[ps2pdf,
-            pagebackref=true,
-            colorlinks=true,
-            linkcolor=blue,
-            unicode
-           ]{hyperref}
-\usepackage{pspicture}
-\fi
 \usepackage[utf8]{inputenc}
 \usepackage[french]{babel}
 
@@ -48,7 +31,6 @@
 \hbadness=750
 \tolerance=750
 \begin{document}
-\hypersetup{pageanchor=false,citecolor=blue}
 \begin{titlepage}
 \vspace*{7cm}
 \begin{center}
@@ -56,7 +38,7 @@
 \vspace*{1cm}
 {\large Généré par Doxygen 1.8.1.2}\\
 \vspace*{0.5cm}
-{\small Mardi Janvier 14 2014 17:35:43}\\
+{\small Mardi Janvier 21 2014 15:29:54}\\
 \end{center}
 \end{titlepage}
 \clearemptydoublepage
@@ -64,7 +46,6 @@
 \tableofcontents
 \clearemptydoublepage
 \pagenumbering{arabic}
-\hypersetup{pageanchor=true,citecolor=blue}
 \chapter{Index des classes}
 \input{hierarchy}
 \chapter{Index des classes}
@@ -83,6 +64,9 @@
 \chapter{Documentation des fichiers}
 \input{doublon_8cpp}
 \input{doublon_8h}
+\input{doublonmodel_8h}
+\input{doublontree_8cpp}
+\input{doublontree_8h}
 \input{md5key_8h}
 \input{organizer_8h}
 \input{orgview_8h}

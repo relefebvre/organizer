@@ -88,33 +88,388 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 <div class="title">Référence de la classe DoublonModel</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>la classe <a class="el" href="class_doublon_model.html" title="la classe DoublonModel permettant la représentation en arbre d&#39;une liste de doubons">DoublonModel</a> permettant la représentation en arbre d'une liste de doubons  
+ <a href="class_doublon_model.html#details">Plus de détails...</a></p>
+
+<p><code>#include &lt;<a class="el" href="doublonmodel_8h_source.html">doublonmodel.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pub-methods"></a>
 Fonctions membres publiques</h2></td></tr>
-<tr class="memitem:a33c5fb7b1b039ca333453024f461afdd"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a33c5fb7b1b039ca333453024f461afdd"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>DoublonModel</b> (const QString &amp;data, QObject *parent=0)</td></tr>
-<tr class="memitem:a10e14770aec49a113eb478af1c869bbb"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a10e14770aec49a113eb478af1c869bbb"></a>
-QVariant&#160;</td><td class="memItemRight" valign="bottom"><b>data</b> (const QModelIndex &amp;index, int role) const </td></tr>
-<tr class="memitem:aff5724d094400fd653e4d35ab4a2bfea"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aff5724d094400fd653e4d35ab4a2bfea"></a>
-Qt::ItemFlags&#160;</td><td class="memItemRight" valign="bottom"><b>flags</b> (const QModelIndex &amp;index) const </td></tr>
-<tr class="memitem:aafaab9974fb6f13dfed5b352051a9c8b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aafaab9974fb6f13dfed5b352051a9c8b"></a>
-QVariant&#160;</td><td class="memItemRight" valign="bottom"><b>headerData</b> (int section, Qt::Orientation orientation, int role=Qt::DisplayRole) const </td></tr>
-<tr class="memitem:a43711f335c10c2d82cba2ba935d5d903"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a43711f335c10c2d82cba2ba935d5d903"></a>
-QModelIndex&#160;</td><td class="memItemRight" valign="bottom"><b>index</b> (int row, int column, const QModelIndex &amp;parent=QModelIndex()) const </td></tr>
-<tr class="memitem:a4b63ebbfb27fe9bbe52647f175d72d39"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4b63ebbfb27fe9bbe52647f175d72d39"></a>
-QModelIndex&#160;</td><td class="memItemRight" valign="bottom"><b>parent</b> (const QModelIndex &amp;index) const </td></tr>
-<tr class="memitem:a387f51df68f693ea20af3ab968ca4df6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a387f51df68f693ea20af3ab968ca4df6"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>rowCount</b> (const QModelIndex &amp;parent=QModelIndex()) const </td></tr>
-<tr class="memitem:a47458991a1f0e7f4ae8bf79af4ff0c16"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a47458991a1f0e7f4ae8bf79af4ff0c16"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>columnCount</b> (const QModelIndex &amp;parent=QModelIndex()) const </td></tr>
-<tr class="memitem:a3188f8b049e9da84ca293b8e62990ba3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3188f8b049e9da84ca293b8e62990ba3"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setupModelData</b> (const QString &amp;line, const u_int8_t type, <a class="el" href="class_doublon_tree.html">DoublonTree</a> *parent)</td></tr>
+<tr class="memitem:a33c5fb7b1b039ca333453024f461afdd"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_doublon_model.html#a33c5fb7b1b039ca333453024f461afdd">DoublonModel</a> (const QString &amp;<a class="el" href="class_doublon_model.html#a10e14770aec49a113eb478af1c869bbb">data</a>, QObject *<a class="el" href="class_doublon_model.html#a4b63ebbfb27fe9bbe52647f175d72d39">parent</a>=0)</td></tr>
+<tr class="memdesc:a33c5fb7b1b039ca333453024f461afdd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructeur de la classe <a class="el" href="class_doublon_model.html" title="la classe DoublonModel permettant la représentation en arbre d&#39;une liste de doubons">DoublonModel</a>.  <a href="#a33c5fb7b1b039ca333453024f461afdd"></a><br/></td></tr>
+<tr class="memitem:a10e14770aec49a113eb478af1c869bbb"><td class="memItemLeft" align="right" valign="top">QVariant&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_doublon_model.html#a10e14770aec49a113eb478af1c869bbb">data</a> (const QModelIndex &amp;<a class="el" href="class_doublon_model.html#a43711f335c10c2d82cba2ba935d5d903">index</a>, int role) const </td></tr>
+<tr class="memdesc:a10e14770aec49a113eb478af1c869bbb"><td class="mdescLeft">&#160;</td><td class="mdescRight">méthode permettant de récupérer les données du neoud  <a href="#a10e14770aec49a113eb478af1c869bbb"></a><br/></td></tr>
+<tr class="memitem:aa9a8af489489ec841f00646b87df130c"><td class="memItemLeft" align="right" valign="top">QVariant&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_doublon_model.html#aa9a8af489489ec841f00646b87df130c">dataPath</a> (const QModelIndex &amp;<a class="el" href="class_doublon_model.html#a43711f335c10c2d82cba2ba935d5d903">index</a>, int role) const </td></tr>
+<tr class="memdesc:aa9a8af489489ec841f00646b87df130c"><td class="mdescLeft">&#160;</td><td class="mdescRight">méthode permettant de récupérer les données du noeud en tenant compte du type du noeud (noeud informatif, noeud représentant un fichier, ou un dossier)  <a href="#aa9a8af489489ec841f00646b87df130c"></a><br/></td></tr>
+<tr class="memitem:aff5724d094400fd653e4d35ab4a2bfea"><td class="memItemLeft" align="right" valign="top">Qt::ItemFlags&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_doublon_model.html#aff5724d094400fd653e4d35ab4a2bfea">flags</a> (const QModelIndex &amp;<a class="el" href="class_doublon_model.html#a43711f335c10c2d82cba2ba935d5d903">index</a>) const </td></tr>
+<tr class="memdesc:aff5724d094400fd653e4d35ab4a2bfea"><td class="mdescLeft">&#160;</td><td class="mdescRight">méthode s'assurant que la vue utilise ce modèle en lecture seule  <a href="#aff5724d094400fd653e4d35ab4a2bfea"></a><br/></td></tr>
+<tr class="memitem:aafaab9974fb6f13dfed5b352051a9c8b"><td class="memItemLeft" align="right" valign="top">QVariant&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_doublon_model.html#aafaab9974fb6f13dfed5b352051a9c8b">headerData</a> (int section, Qt::Orientation orientation, int role=Qt::DisplayRole) const </td></tr>
+<tr class="memdesc:aafaab9974fb6f13dfed5b352051a9c8b"><td class="mdescLeft">&#160;</td><td class="mdescRight">méthode permettant de renseigner le header de la vue dans laquelle est affiché le modèle  <a href="#aafaab9974fb6f13dfed5b352051a9c8b"></a><br/></td></tr>
+<tr class="memitem:a43711f335c10c2d82cba2ba935d5d903"><td class="memItemLeft" align="right" valign="top">QModelIndex&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_doublon_model.html#a43711f335c10c2d82cba2ba935d5d903">index</a> (int row, int column, const QModelIndex &amp;<a class="el" href="class_doublon_model.html#a4b63ebbfb27fe9bbe52647f175d72d39">parent</a>=QModelIndex()) const </td></tr>
+<tr class="memdesc:a43711f335c10c2d82cba2ba935d5d903"><td class="mdescLeft">&#160;</td><td class="mdescRight">méthode permettant de retrouver l'index d'un élément à patir de sa ligne et sa colonne  <a href="#a43711f335c10c2d82cba2ba935d5d903"></a><br/></td></tr>
+<tr class="memitem:a4b63ebbfb27fe9bbe52647f175d72d39"><td class="memItemLeft" align="right" valign="top">QModelIndex&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_doublon_model.html#a4b63ebbfb27fe9bbe52647f175d72d39">parent</a> (const QModelIndex &amp;<a class="el" href="class_doublon_model.html#a43711f335c10c2d82cba2ba935d5d903">index</a>) const </td></tr>
+<tr class="memdesc:a4b63ebbfb27fe9bbe52647f175d72d39"><td class="mdescLeft">&#160;</td><td class="mdescRight">méthode renvoyant l'index pointant vers le parent du noeud ciblé  <a href="#a4b63ebbfb27fe9bbe52647f175d72d39"></a><br/></td></tr>
+<tr class="memitem:a387f51df68f693ea20af3ab968ca4df6"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_doublon_model.html#a387f51df68f693ea20af3ab968ca4df6">rowCount</a> (const QModelIndex &amp;<a class="el" href="class_doublon_model.html#a4b63ebbfb27fe9bbe52647f175d72d39">parent</a>=QModelIndex()) const </td></tr>
+<tr class="memdesc:a387f51df68f693ea20af3ab968ca4df6"><td class="mdescLeft">&#160;</td><td class="mdescRight">méthode renvoyant ne nombre de lignes  <a href="#a387f51df68f693ea20af3ab968ca4df6"></a><br/></td></tr>
+<tr class="memitem:a47458991a1f0e7f4ae8bf79af4ff0c16"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_doublon_model.html#a47458991a1f0e7f4ae8bf79af4ff0c16">columnCount</a> (const QModelIndex &amp;<a class="el" href="class_doublon_model.html#a4b63ebbfb27fe9bbe52647f175d72d39">parent</a>=QModelIndex()) const </td></tr>
+<tr class="memdesc:a47458991a1f0e7f4ae8bf79af4ff0c16"><td class="mdescLeft">&#160;</td><td class="mdescRight">méthode renvoyant le nombre de colonnes  <a href="#a47458991a1f0e7f4ae8bf79af4ff0c16"></a><br/></td></tr>
+<tr class="memitem:a3188f8b049e9da84ca293b8e62990ba3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_doublon_model.html#a3188f8b049e9da84ca293b8e62990ba3">setupModelData</a> (const QString &amp;line, const u_int8_t type, <a class="el" href="class_doublon_tree.html">DoublonTree</a> *<a class="el" href="class_doublon_model.html#a4b63ebbfb27fe9bbe52647f175d72d39">parent</a>)</td></tr>
+<tr class="memdesc:a3188f8b049e9da84ca293b8e62990ba3"><td class="mdescLeft">&#160;</td><td class="mdescRight">méthode permettant de créer de nouveaux noeuds  <a href="#a3188f8b049e9da84ca293b8e62990ba3"></a><br/></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pub-attribs"></a>
 Attributs publics</h2></td></tr>
 <tr class="memitem:ad622e10652206f0f725b2aec69d11a18"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad622e10652206f0f725b2aec69d11a18"></a>
-<a class="el" href="class_doublon_tree.html">DoublonTree</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>rootItem</b></td></tr>
+<a class="el" href="class_doublon_tree.html">DoublonTree</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_doublon_model.html#ad622e10652206f0f725b2aec69d11a18">rootItem</a></td></tr>
+<tr class="memdesc:ad622e10652206f0f725b2aec69d11a18"><td class="mdescLeft">&#160;</td><td class="mdescRight">Noeud racine du modèle. <br/></td></tr>
 </table>
+<a name="details" id="details"></a><h2>Description détaillée</h2>
+<div class="textblock"><p>la classe <a class="el" href="class_doublon_model.html" title="la classe DoublonModel permettant la représentation en arbre d&#39;une liste de doubons">DoublonModel</a> permettant la représentation en arbre d'une liste de doubons </p>
+</div><h2>Documentation des constructeurs et destructeur</h2>
+<a class="anchor" id="a33c5fb7b1b039ca333453024f461afdd"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">DoublonModel::DoublonModel </td>
+          <td>(</td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">QObject *&#160;</td>
+          <td class="paramname"><em>parent</em> = <code>0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Constructeur de la classe <a class="el" href="class_doublon_model.html" title="la classe DoublonModel permettant la représentation en arbre d&#39;une liste de doubons">DoublonModel</a>. </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>: données du noeud </td></tr>
+    <tr><td class="paramname">parent</td><td>: noeud parent (par défault 0 : noeud "racine") </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2>Documentation des fonctions membres</h2>
+<a class="anchor" id="a47458991a1f0e7f4ae8bf79af4ff0c16"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int DoublonModel::columnCount </td>
+          <td>(</td>
+          <td class="paramtype">const QModelIndex &amp;&#160;</td>
+          <td class="paramname"><em>parent</em> = <code>QModelIndex()</code></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>méthode renvoyant le nombre de colonnes </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">parent</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Nombre de colonnes </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a10e14770aec49a113eb478af1c869bbb"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QVariant DoublonModel::data </td>
+          <td>(</td>
+          <td class="paramtype">const QModelIndex &amp;&#160;</td>
+          <td class="paramname"><em>index</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>role</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>méthode permettant de récupérer les données du neoud </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">index</td><td>: index du noeud duquel récuprer les données </td></tr>
+    <tr><td class="paramname">role</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>données du noeud ciblé </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="aa9a8af489489ec841f00646b87df130c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QVariant DoublonModel::dataPath </td>
+          <td>(</td>
+          <td class="paramtype">const QModelIndex &amp;&#160;</td>
+          <td class="paramname"><em>index</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>role</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>méthode permettant de récupérer les données du noeud en tenant compte du type du noeud (noeud informatif, noeud représentant un fichier, ou un dossier) </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">index</td><td>: index du noeud duquel récupérer les données </td></tr>
+    <tr><td class="paramname">role</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>données du noeud ciblé </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="aff5724d094400fd653e4d35ab4a2bfea"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Qt::ItemFlags DoublonModel::flags </td>
+          <td>(</td>
+          <td class="paramtype">const QModelIndex &amp;&#160;</td>
+          <td class="paramname"><em>index</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>méthode s'assurant que la vue utilise ce modèle en lecture seule </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">index</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd></dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="aafaab9974fb6f13dfed5b352051a9c8b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QVariant DoublonModel::headerData </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>section</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Qt::Orientation&#160;</td>
+          <td class="paramname"><em>orientation</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>role</em> = <code>Qt::DisplayRole</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>méthode permettant de renseigner le header de la vue dans laquelle est affiché le modèle </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">section</td><td></td></tr>
+    <tr><td class="paramname">orientation</td><td></td></tr>
+    <tr><td class="paramname">role</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd></dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a43711f335c10c2d82cba2ba935d5d903"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QModelIndex DoublonModel::index </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>row</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>column</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const QModelIndex &amp;&#160;</td>
+          <td class="paramname"><em>parent</em> = <code>QModelIndex()</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>méthode permettant de retrouver l'index d'un élément à patir de sa ligne et sa colonne </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">row</td><td></td></tr>
+    <tr><td class="paramname">column</td><td></td></tr>
+    <tr><td class="paramname">parent</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Index de l'élément ciblé </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a4b63ebbfb27fe9bbe52647f175d72d39"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QModelIndex DoublonModel::parent </td>
+          <td>(</td>
+          <td class="paramtype">const QModelIndex &amp;&#160;</td>
+          <td class="paramname"><em>index</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>méthode renvoyant l'index pointant vers le parent du noeud ciblé </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">index</td><td>: index du noeud dont on cherche le Papa </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Index sur le père </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a387f51df68f693ea20af3ab968ca4df6"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int DoublonModel::rowCount </td>
+          <td>(</td>
+          <td class="paramtype">const QModelIndex &amp;&#160;</td>
+          <td class="paramname"><em>parent</em> = <code>QModelIndex()</code></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>méthode renvoyant ne nombre de lignes </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">parent</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>Nombre de ligne </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a3188f8b049e9da84ca293b8e62990ba3"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void DoublonModel::setupModelData </td>
+          <td>(</td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>line</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const u_int8_t&#160;</td>
+          <td class="paramname"><em>type</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_doublon_tree.html">DoublonTree</a> *&#160;</td>
+          <td class="paramname"><em>parent</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>méthode permettant de créer de nouveaux noeuds </p>
+<dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">line</td><td>: donées du noeud </td></tr>
+    <tr><td class="paramname">type</td><td>: type du noeud (informatif=0, fichier=1 ou dossier=2) </td></tr>
+    <tr><td class="paramname">parent</td><td>: parent du noeud à créer </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>La documentation de cette classe a été générée à partir des fichiers suivants :<ul>
 <li><a class="el" href="doublonmodel_8h_source.html">doublonmodel.h</a></li>
 <li>doublonmodel.cpp</li>
@@ -122,7 +477,7 @@ Attributs publics</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Généré le Mardi Janvier 14 2014 17:35:42 pour Organizer par &#160;<a href="http://www.doxygen.org/index.html">
+Généré le Mardi Janvier 21 2014 15:29:52 pour Organizer par &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>

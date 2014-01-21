@@ -109,32 +109,32 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_organizer.html#aa0203d8ff56c2a2bc620f26b7f4acbe6" title="Créer la base de donnée sqlite3.">createDB</a>() <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_organizer.html#a767df574ab8675f6c6caa72c8c0d1f77" title="createTable">createTable</a>(<span class="keyword">const</span> std::string &amp; query) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_organizer.html#acdbfb38595b744a703f218c56b7cdd1b" title="insert">insert</a>(<span class="keyword">const</span> boost::filesystem::path &amp; p) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keyword">const</span> std::string <a class="code" href="class_organizer.html#a51829ddab54c6f52acd31ee752dcf30c" title="supprimerGuillemets">supprimerGuillemets</a>(<span class="keyword">const</span> QString &amp; Qstr);</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_organizer.html#a53f3e3bc13366e77e896ff590c7da7a4" title="md5">md5</a>(<a class="code" href="class_doublon.html" title="Classe représantant le doublon.">Doublon</a>* d);</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_organizer.html#a12be02528b8c31e9b65d4df997fbe9d7" title="searchDouble">searchDouble</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_organizer.html#a1addfcdc39e0f88d06dec40ed4c8f3c0" title="searchBySize">searchBySize</a>(<span class="keyword">const</span> uint64_t size);</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_organizer.html#a767df574ab8675f6c6caa72c8c0d1f77" title="Créer une table dans la base de donnée.">createTable</a>(<span class="keyword">const</span> std::string &amp; query) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_organizer.html#acdbfb38595b744a703f218c56b7cdd1b" title="Insert un chemin dans la base de donnée.">insert</a>(<span class="keyword">const</span> boost::filesystem::path &amp; p) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keyword">const</span> std::string <a class="code" href="class_organizer.html#a51829ddab54c6f52acd31ee752dcf30c" title="Supprime les guillemets d&#39;une chaine de caractères.">supprimerGuillemets</a>(<span class="keyword">const</span> QString &amp; Qstr);</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_organizer.html#a53f3e3bc13366e77e896ff590c7da7a4" title="Calcul la somme MD5 d&#39;un fichier.">md5</a>(<a class="code" href="class_doublon.html" title="Classe représentant le Doublon.">Doublon</a>* d);</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_organizer.html#a12be02528b8c31e9b65d4df997fbe9d7" title="Recherche les fichiers en double.">searchDouble</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_organizer.html#a1addfcdc39e0f88d06dec40ed4c8f3c0" title="Recherche les fichiers ayant la même taille.">searchBySize</a>(<span class="keyword">const</span> uint64_t size);</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;</div>
+<div class="line"><a name="l00088"></a><span class="lineno"><a class="code" href="class_organizer.html#a02f870946fca1233f00da57344160dad">   88</a></span>&#160;    <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_organizer.html#a02f870946fca1233f00da57344160dad" title="Initialise la racine de l&#39;arborecence.">setRacine</a>(<span class="keyword">const</span> std::string &amp; <a class="code" href="class_organizer.html#a2566fc607cc0b35100704973d863b9d2">racine</a>) { this-&gt;racine = <a class="code" href="class_organizer.html#a2566fc607cc0b35100704973d863b9d2">racine</a>; }</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;</div>
+<div class="line"><a name="l00094"></a><span class="lineno"><a class="code" href="class_organizer.html#ad2ba7fc945c876ab06b2fc03ab667b1c">   94</a></span>&#160;    <span class="keyword">inline</span> <span class="keyword">const</span> std::string &amp; <a class="code" href="class_organizer.html#ad2ba7fc945c876ab06b2fc03ab667b1c" title="Récupérérer la racine de l&#39;arborecence.">getRacine</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="class_organizer.html#a2566fc607cc0b35100704973d863b9d2">racine</a>; }</div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_organizer.html#a02f870946fca1233f00da57344160dad" title="setRacine">setRacine</a>(<span class="keyword">const</span> std::string &amp; <a class="code" href="class_organizer.html#a2566fc607cc0b35100704973d863b9d2">racine</a>);</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    <span class="keyword">const</span> std::string &amp; <a class="code" href="class_organizer.html#a59afde8760b237f962bcf540cd49c028" title="getRacine">getRacine</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_organizer.html#ae27eedbd6bdd5aeb2b42c4b90572b8b0" title="searchEmpty">searchEmpty</a>();</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_organizer.html#a197fdab12212f89f461f7a46437e8ccc" title="isUpdate">isUpdate</a>(<span class="keyword">const</span> boost::filesystem::path &amp; p) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;};</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;<span class="preprocessor">#endif // ORGANIZER_H</span></div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_organizer.html#ae27eedbd6bdd5aeb2b42c4b90572b8b0" title="Recherche de dossiers vide.">searchEmpty</a>();</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="class_organizer.html#a197fdab12212f89f461f7a46437e8ccc" title="Test si un dossier est à jour dans la base de données.">isUpdate</a>(<span class="keyword">const</span> boost::filesystem::path &amp; p) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;};</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;<span class="preprocessor">#endif // ORGANIZER_H</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Généré le Mardi Janvier 14 2014 17:35:42 pour Organizer par &#160;<a href="http://www.doxygen.org/index.html">
+Généré le Mardi Janvier 21 2014 15:29:52 pour Organizer par &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>

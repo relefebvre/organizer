@@ -82,47 +82,42 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 <div class="title">doublontree.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef DOUBLONTREE_H</span></div>
+<a href="doublontree_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef DOUBLONTREE_H</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define DOUBLONTREE_H</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="doublon_8h.html" title="Définit les doublons.">doublon.h</a>&quot;</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;QList&gt;</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;QVariant&gt;</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
-<div class="line"><a name="l00009"></a><span class="lineno"><a class="code" href="class_doublon_tree.html">    9</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_doublon_tree.html">DoublonTree</a></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;{</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;     <a class="code" href="class_doublon_tree.html">DoublonTree</a>(<span class="keyword">const</span> QVariant &amp;data, <span class="keyword">const</span> u_int8_t type, <a class="code" href="class_doublon_tree.html">DoublonTree</a> *parent = 0);</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;     ~<a class="code" href="class_doublon_tree.html">DoublonTree</a>();</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;     <span class="keywordtype">void</span> appendChild(<a class="code" href="class_doublon_tree.html">DoublonTree</a> *child);</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;     <a class="code" href="class_doublon_tree.html">DoublonTree</a> *child(<span class="keywordtype">int</span> row);</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;     <span class="keywordtype">int</span> childCount() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;     QVariant data() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;     <span class="keywordtype">int</span> columnCount() <span class="keyword">const</span> ;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;     <span class="keywordtype">int</span> row() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;     <a class="code" href="class_doublon_tree.html">DoublonTree</a> *parent();</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;     u_int8_t getType() ;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;     QList&lt;DoublonTree*&gt; childItems;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;     <a class="code" href="class_doublon_tree.html">DoublonTree</a> *parentItem;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;     QVariant itemData;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;     u_int8_t type ; <span class="comment">// 0 -&gt; dossier de l&#39;arbre ; 1 -&gt; fichier ; 2 -&gt; dossier</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;};</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor">#endif // DOUBLONTREE_H</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="code" href="class_doublon_tree.html">   19</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_doublon_tree.html" title="La classe DoublonTree.">DoublonTree</a></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;{</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;     <a class="code" href="class_doublon_tree.html#aeef7a22a4ecbbd4e936325c9699848a0" title="Constructeur de la classe DoublonTree.">DoublonTree</a>(<span class="keyword">const</span> QVariant &amp;<a class="code" href="class_doublon_tree.html#a587ca20a3be3ed2829b36dbfda00be05" title="méthode permettant de récupérer les données du noeud">data</a>, <span class="keyword">const</span> u_int8_t type, <a class="code" href="class_doublon_tree.html" title="La classe DoublonTree.">DoublonTree</a> *<a class="code" href="class_doublon_tree.html#a378ba45c738cbebf3e7527b98b457f65" title="méthode renvoyant le parent du noeud ciblé">parent</a> = 0);</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;     <a class="code" href="class_doublon_tree.html#a37c467c62bfbaf1223fae07e75141589" title="Destructeur de la classe DoublonTree.">~DoublonTree</a>();</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;     <span class="keywordtype">void</span> <a class="code" href="class_doublon_tree.html#aa6b40c180f310fcd948fb2629b2ef10c" title="méthode permattant d&#39;ajouter un fils au noeud">appendChild</a>(<a class="code" href="class_doublon_tree.html" title="La classe DoublonTree.">DoublonTree</a> *<a class="code" href="class_doublon_tree.html#a03b05097f7c811686d7a7ae67f56b8ee" title="méthode permettant de récupérer un fils en fonction d&#39;une ligne">child</a>);</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;     <a class="code" href="class_doublon_tree.html" title="La classe DoublonTree.">DoublonTree</a> *<a class="code" href="class_doublon_tree.html#a03b05097f7c811686d7a7ae67f56b8ee" title="méthode permettant de récupérer un fils en fonction d&#39;une ligne">child</a>(<span class="keywordtype">int</span> <a class="code" href="class_doublon_tree.html#a108bb7946eef6efb9057911cf90f6095" title="méthode permettant de récupérer le numéro de ligne à laquelle se trouve ce noeud">row</a>);</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;     <span class="keywordtype">int</span> <a class="code" href="class_doublon_tree.html#ad048f4249d32acc81a203465f5569312" title="méthode qui compte le nombre de fils">childCount</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;     QVariant <a class="code" href="class_doublon_tree.html#a587ca20a3be3ed2829b36dbfda00be05" title="méthode permettant de récupérer les données du noeud">data</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;     <span class="keywordtype">int</span> <a class="code" href="class_doublon_tree.html#a1ccd8565e780ff0cc31b3b5d982737c0" title="méthode permettant de récupérer le nombre de colonnes nécessaire à l&#39;affichage des données...">columnCount</a>() <span class="keyword">const</span> ;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;     <span class="keywordtype">int</span> <a class="code" href="class_doublon_tree.html#a108bb7946eef6efb9057911cf90f6095" title="méthode permettant de récupérer le numéro de ligne à laquelle se trouve ce noeud">row</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;     <a class="code" href="class_doublon_tree.html" title="La classe DoublonTree.">DoublonTree</a> *<a class="code" href="class_doublon_tree.html#a378ba45c738cbebf3e7527b98b457f65" title="méthode renvoyant le parent du noeud ciblé">parent</a>();</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;     u_int8_t <a class="code" href="class_doublon_tree.html#a2885ec60d59853eef0b1932f0068e9ca" title="méthode permettant de récupérer la type du noeud">getType</a>() ;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;     QList&lt;DoublonTree*&gt; childItems;</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;     <a class="code" href="class_doublon_tree.html" title="La classe DoublonTree.">DoublonTree</a> *parentItem;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;     QVariant itemData;</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;     u_int8_t type ;</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;};</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;<span class="preprocessor">#endif // DOUBLONTREE_H</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Généré le Mardi Janvier 14 2014 17:35:42 pour Organizer par &#160;<a href="http://www.doxygen.org/index.html">
+Généré le Mardi Janvier 21 2014 15:29:52 pour Organizer par &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>

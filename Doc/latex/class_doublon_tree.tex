@@ -1,39 +1,191 @@
-\hypertarget{class_doublon_tree}{\section{Référence de la classe Doublon\-Tree}
+\section{Référence de la classe Doublon\-Tree}
 \label{class_doublon_tree}\index{Doublon\-Tree@{Doublon\-Tree}}
-}
+
+
+La classe \doxyref{Doublon\-Tree}{p.}{class_doublon_tree}.  
+
+
+
+
+{\ttfamily \#include $<$doublontree.\-h$>$}
+
 \subsection*{Fonctions membres publiques}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{class_doublon_tree_aeef7a22a4ecbbd4e936325c9699848a0}{{\bfseries Doublon\-Tree} (const Q\-Variant \&data, const u\-\_\-int8\-\_\-t type, \hyperlink{class_doublon_tree}{Doublon\-Tree} $\ast$parent=0)}\label{class_doublon_tree_aeef7a22a4ecbbd4e936325c9699848a0}
+{\bf Doublon\-Tree} (const Q\-Variant \&{\bf data}, const u\-\_\-int8\-\_\-t type, {\bf Doublon\-Tree} $\ast${\bf parent}=0)
+\begin{DoxyCompactList}\small\item\em Constructeur de la classe \doxyref{Doublon\-Tree}{p.}{class_doublon_tree}. \end{DoxyCompactList}\item 
+{\bf $\sim$\-Doublon\-Tree} ()\label{class_doublon_tree_a37c467c62bfbaf1223fae07e75141589}
 
-\item 
-\hypertarget{class_doublon_tree_aa6b40c180f310fcd948fb2629b2ef10c}{void {\bfseries append\-Child} (\hyperlink{class_doublon_tree}{Doublon\-Tree} $\ast$child)}\label{class_doublon_tree_aa6b40c180f310fcd948fb2629b2ef10c}
+\begin{DoxyCompactList}\small\item\em Destructeur de la classe \doxyref{Doublon\-Tree}{p.}{class_doublon_tree}. \end{DoxyCompactList}\item 
+void {\bf append\-Child} ({\bf Doublon\-Tree} $\ast${\bf child})
+\begin{DoxyCompactList}\small\item\em méthode permattant d'ajouter un fils au noeud \end{DoxyCompactList}\item 
+{\bf Doublon\-Tree} $\ast$ {\bf child} (int {\bf row})
+\begin{DoxyCompactList}\small\item\em méthode permettant de récupérer un fils en fonction d'une ligne \end{DoxyCompactList}\item 
+int {\bf child\-Count} () const 
+\begin{DoxyCompactList}\small\item\em méthode qui compte le nombre de fils \end{DoxyCompactList}\item 
+Q\-Variant {\bf data} () const 
+\begin{DoxyCompactList}\small\item\em méthode permettant de récupérer les données du noeud \end{DoxyCompactList}\item 
+int {\bf column\-Count} () const 
+\begin{DoxyCompactList}\small\item\em méthode permettant de récupérer le nombre de colonnes nécessaire à l'affichage des données \end{DoxyCompactList}\item 
+int {\bf row} () const 
+\begin{DoxyCompactList}\small\item\em méthode permettant de récupérer le numéro de ligne à laquelle se trouve ce noeud \end{DoxyCompactList}\item 
+{\bf Doublon\-Tree} $\ast$ {\bf parent} ()
+\begin{DoxyCompactList}\small\item\em méthode renvoyant le parent du noeud ciblé \end{DoxyCompactList}\item 
+u\-\_\-int8\-\_\-t {\bf get\-Type} ()
+\begin{DoxyCompactList}\small\item\em méthode permettant de récupérer la type du noeud \end{DoxyCompactList}\end{DoxyCompactItemize}
 
-\item 
-\hypertarget{class_doublon_tree_a03b05097f7c811686d7a7ae67f56b8ee}{\hyperlink{class_doublon_tree}{Doublon\-Tree} $\ast$ {\bfseries child} (int row)}\label{class_doublon_tree_a03b05097f7c811686d7a7ae67f56b8ee}
 
-\item 
-\hypertarget{class_doublon_tree_ad048f4249d32acc81a203465f5569312}{int {\bfseries child\-Count} () const }\label{class_doublon_tree_ad048f4249d32acc81a203465f5569312}
+\subsection{Description détaillée}
+La classe \doxyref{Doublon\-Tree}{p.}{class_doublon_tree}. 
 
-\item 
-\hypertarget{class_doublon_tree_a587ca20a3be3ed2829b36dbfda00be05}{Q\-Variant {\bfseries data} () const }\label{class_doublon_tree_a587ca20a3be3ed2829b36dbfda00be05}
+\subsection{Documentation des constructeurs et destructeur}
+\index{Doublon\-Tree@{Doublon\-Tree}!Doublon\-Tree@{Doublon\-Tree}}
+\index{Doublon\-Tree@{Doublon\-Tree}!DoublonTree@{Doublon\-Tree}}
+\subsubsection[{Doublon\-Tree}]{\setlength{\rightskip}{0pt plus 5cm}Doublon\-Tree\-::\-Doublon\-Tree (
+\begin{DoxyParamCaption}
+\item[{const Q\-Variant \&}]{data, }
+\item[{const u\-\_\-int8\-\_\-t}]{type, }
+\item[{{\bf Doublon\-Tree} $\ast$}]{parent = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}\label{class_doublon_tree_aeef7a22a4ecbbd4e936325c9699848a0}
 
-\item 
-\hypertarget{class_doublon_tree_a1ccd8565e780ff0cc31b3b5d982737c0}{int {\bfseries column\-Count} () const }\label{class_doublon_tree_a1ccd8565e780ff0cc31b3b5d982737c0}
 
-\item 
-\hypertarget{class_doublon_tree_a108bb7946eef6efb9057911cf90f6095}{int {\bfseries row} () const }\label{class_doublon_tree_a108bb7946eef6efb9057911cf90f6095}
+Constructeur de la classe \doxyref{Doublon\-Tree}{p.}{class_doublon_tree}. 
 
-\item 
-\hypertarget{class_doublon_tree_a378ba45c738cbebf3e7527b98b457f65}{\hyperlink{class_doublon_tree}{Doublon\-Tree} $\ast$ {\bfseries parent} ()}\label{class_doublon_tree_a378ba45c738cbebf3e7527b98b457f65}
 
-\item 
-\hypertarget{class_doublon_tree_a2885ec60d59853eef0b1932f0068e9ca}{u\-\_\-int8\-\_\-t {\bfseries get\-Type} ()}\label{class_doublon_tree_a2885ec60d59853eef0b1932f0068e9ca}
+\begin{DoxyParams}{Paramètres}
+{\em data} & \-: données du noeud à construire \\
+\hline
+{\em type} & \-: type du neoud (informatif, fichier, dossier) \\
+\hline
+{\em parent} & \-: pointeur sur le parent du noeud (par défaut construction d'un noeud \char`\"{}racine\char`\"{}) \\
+\hline
+\end{DoxyParams}
 
-\end{DoxyCompactItemize}
+
+\subsection{Documentation des fonctions membres}
+\index{Doublon\-Tree@{Doublon\-Tree}!append\-Child@{append\-Child}}
+\index{append\-Child@{append\-Child}!DoublonTree@{Doublon\-Tree}}
+\subsubsection[{append\-Child}]{\setlength{\rightskip}{0pt plus 5cm}void Doublon\-Tree\-::append\-Child (
+\begin{DoxyParamCaption}
+\item[{{\bf Doublon\-Tree} $\ast$}]{child}
+\end{DoxyParamCaption}
+)}\label{class_doublon_tree_aa6b40c180f310fcd948fb2629b2ef10c}
+
+
+méthode permattant d'ajouter un fils au noeud 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em Pointeur} & sur le noeud à assimiler en tant que fils \\
+\hline
+\end{DoxyParams}
+\index{Doublon\-Tree@{Doublon\-Tree}!child@{child}}
+\index{child@{child}!DoublonTree@{Doublon\-Tree}}
+\subsubsection[{child}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Doublon\-Tree} $\ast$ Doublon\-Tree\-::child (
+\begin{DoxyParamCaption}
+\item[{int}]{row}
+\end{DoxyParamCaption}
+)}\label{class_doublon_tree_a03b05097f7c811686d7a7ae67f56b8ee}
+
+
+méthode permettant de récupérer un fils en fonction d'une ligne 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em row} & \-: ligne du fils qu'on veut récupérer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+\-: Pointeur sur le fils ciblé 
+\end{DoxyReturn}
+\index{Doublon\-Tree@{Doublon\-Tree}!child\-Count@{child\-Count}}
+\index{child\-Count@{child\-Count}!DoublonTree@{Doublon\-Tree}}
+\subsubsection[{child\-Count}]{\setlength{\rightskip}{0pt plus 5cm}int Doublon\-Tree\-::child\-Count (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{class_doublon_tree_ad048f4249d32acc81a203465f5569312}
+
+
+méthode qui compte le nombre de fils 
+
+\begin{DoxyReturn}{Renvoie}
+Nombre de fils 
+\end{DoxyReturn}
+\index{Doublon\-Tree@{Doublon\-Tree}!column\-Count@{column\-Count}}
+\index{column\-Count@{column\-Count}!DoublonTree@{Doublon\-Tree}}
+\subsubsection[{column\-Count}]{\setlength{\rightskip}{0pt plus 5cm}int Doublon\-Tree\-::column\-Count (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{class_doublon_tree_a1ccd8565e780ff0cc31b3b5d982737c0}
+
+
+méthode permettant de récupérer le nombre de colonnes nécessaire à l'affichage des données 
+
+\begin{DoxyReturn}{Renvoie}
+1 
+\end{DoxyReturn}
+\index{Doublon\-Tree@{Doublon\-Tree}!data@{data}}
+\index{data@{data}!DoublonTree@{Doublon\-Tree}}
+\subsubsection[{data}]{\setlength{\rightskip}{0pt plus 5cm}Q\-Variant Doublon\-Tree\-::data (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{class_doublon_tree_a587ca20a3be3ed2829b36dbfda00be05}
+
+
+méthode permettant de récupérer les données du noeud 
+
+\begin{DoxyReturn}{Renvoie}
+les données sous forme de Q\-Variant 
+\end{DoxyReturn}
+\index{Doublon\-Tree@{Doublon\-Tree}!get\-Type@{get\-Type}}
+\index{get\-Type@{get\-Type}!DoublonTree@{Doublon\-Tree}}
+\subsubsection[{get\-Type}]{\setlength{\rightskip}{0pt plus 5cm}u\-\_\-int8\-\_\-t Doublon\-Tree\-::get\-Type (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_doublon_tree_a2885ec60d59853eef0b1932f0068e9ca}
+
+
+méthode permettant de récupérer la type du noeud 
+
+\begin{DoxyReturn}{Renvoie}
+Type du noeud 
+\end{DoxyReturn}
+\index{Doublon\-Tree@{Doublon\-Tree}!parent@{parent}}
+\index{parent@{parent}!DoublonTree@{Doublon\-Tree}}
+\subsubsection[{parent}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Doublon\-Tree} $\ast$ Doublon\-Tree\-::parent (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_doublon_tree_a378ba45c738cbebf3e7527b98b457f65}
+
+
+méthode renvoyant le parent du noeud ciblé 
+
+\begin{DoxyReturn}{Renvoie}
+pointeur sur le papa 
+\end{DoxyReturn}
+\index{Doublon\-Tree@{Doublon\-Tree}!row@{row}}
+\index{row@{row}!DoublonTree@{Doublon\-Tree}}
+\subsubsection[{row}]{\setlength{\rightskip}{0pt plus 5cm}int Doublon\-Tree\-::row (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{class_doublon_tree_a108bb7946eef6efb9057911cf90f6095}
+
+
+méthode permettant de récupérer le numéro de ligne à laquelle se trouve ce noeud 
+
+\begin{DoxyReturn}{Renvoie}
+Numéro de ligne 
+\end{DoxyReturn}
 
 
 La documentation de cette classe a été générée à partir des fichiers suivants \-:\begin{DoxyCompactItemize}
 \item 
-doublontree.\-h\item 
-doublontree.\-cpp\end{DoxyCompactItemize}
+{\bf doublontree.\-h}\item 
+{\bf doublontree.\-cpp}\end{DoxyCompactItemize}

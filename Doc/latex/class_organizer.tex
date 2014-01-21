@@ -1,6 +1,5 @@
-\hypertarget{class_organizer}{\section{Référence de la classe Organizer}
+\section{Référence de la classe Organizer}
 \label{class_organizer}\index{Organizer@{Organizer}}
-}
 
 
 Classe représentant l'application.  
@@ -19,43 +18,45 @@ Graphe d'héritage de Organizer\-:\begin{figure}[H]
 \subsection*{Fonctions membres publiques}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{class_organizer_a5eb7c1fc676db53752dc784136d878bd}{\hyperlink{class_organizer_a5eb7c1fc676db53752dc784136d878bd}{Organizer} ()}\label{class_organizer_a5eb7c1fc676db53752dc784136d878bd}
+{\bf Organizer} ()\label{class_organizer_a5eb7c1fc676db53752dc784136d878bd}
 
-\begin{DoxyCompactList}\small\item\em Constructeur de la classe \hyperlink{class_organizer}{Organizer}. \end{DoxyCompactList}\item 
-bool \hyperlink{class_organizer_aa0203d8ff56c2a2bc620f26b7f4acbe6}{create\-D\-B} () const 
+\begin{DoxyCompactList}\small\item\em Constructeur de la classe \doxyref{Organizer}{p.}{class_organizer}. \end{DoxyCompactList}\item 
+bool {\bf create\-D\-B} () const 
 \begin{DoxyCompactList}\small\item\em Créer la base de donnée sqlite3. \end{DoxyCompactList}\item 
-void \hyperlink{class_organizer_a767df574ab8675f6c6caa72c8c0d1f77}{create\-Table} (const std\-::string \&query) const 
-\begin{DoxyCompactList}\small\item\em create\-Table \end{DoxyCompactList}\item 
-void \hyperlink{class_organizer_acdbfb38595b744a703f218c56b7cdd1b}{insert} (const boost\-::filesystem\-::path \&p) const 
-\begin{DoxyCompactList}\small\item\em insert \end{DoxyCompactList}\item 
-const std\-::string \hyperlink{class_organizer_a51829ddab54c6f52acd31ee752dcf30c}{supprimer\-Guillemets} (const Q\-String \&Qstr)
-\begin{DoxyCompactList}\small\item\em supprimer\-Guillemets \end{DoxyCompactList}\item 
-void \hyperlink{class_organizer_a53f3e3bc13366e77e896ff590c7da7a4}{md5} (\hyperlink{class_doublon}{Doublon} $\ast$d)
-\begin{DoxyCompactList}\small\item\em md5 \end{DoxyCompactList}\item 
-void \hyperlink{class_organizer_a12be02528b8c31e9b65d4df997fbe9d7}{search\-Double} (void)
-\begin{DoxyCompactList}\small\item\em search\-Double \end{DoxyCompactList}\item 
-void \hyperlink{class_organizer_a1addfcdc39e0f88d06dec40ed4c8f3c0}{search\-By\-Size} (const uint64\-\_\-t size)
-\begin{DoxyCompactList}\small\item\em search\-By\-Size \end{DoxyCompactList}\item 
-void \hyperlink{class_organizer_a02f870946fca1233f00da57344160dad}{set\-Racine} (const std\-::string \&\hyperlink{class_organizer_a2566fc607cc0b35100704973d863b9d2}{racine})
-\begin{DoxyCompactList}\small\item\em set\-Racine \end{DoxyCompactList}\item 
-const std\-::string \& \hyperlink{class_organizer_a59afde8760b237f962bcf540cd49c028}{get\-Racine} () const 
-\begin{DoxyCompactList}\small\item\em get\-Racine \end{DoxyCompactList}\item 
-void \hyperlink{class_organizer_ae27eedbd6bdd5aeb2b42c4b90572b8b0}{search\-Empty} ()
-\begin{DoxyCompactList}\small\item\em search\-Empty \end{DoxyCompactList}\item 
-bool \hyperlink{class_organizer_a197fdab12212f89f461f7a46437e8ccc}{is\-Update} (const boost\-::filesystem\-::path \&p) const 
-\begin{DoxyCompactList}\small\item\em is\-Update \end{DoxyCompactList}\end{DoxyCompactItemize}
+void {\bf create\-Table} (const std\-::string \&query) const 
+\begin{DoxyCompactList}\small\item\em Créer une table dans la base de donnée. \end{DoxyCompactList}\item 
+void {\bf insert} (const boost\-::filesystem\-::path \&p) const 
+\begin{DoxyCompactList}\small\item\em Insert un chemin dans la base de donnée. \end{DoxyCompactList}\item 
+const std\-::string {\bf supprimer\-Guillemets} (const Q\-String \&Qstr)
+\begin{DoxyCompactList}\small\item\em Supprime les guillemets d'une chaine de caractères. \end{DoxyCompactList}\item 
+void {\bf md5} ({\bf Doublon} $\ast$d)
+\begin{DoxyCompactList}\small\item\em Calcul la somme M\-D5 d'un fichier. \end{DoxyCompactList}\item 
+void {\bf search\-Double} (void)\label{class_organizer_a12be02528b8c31e9b65d4df997fbe9d7}
+
+\begin{DoxyCompactList}\small\item\em Recherche les fichiers en double. \end{DoxyCompactList}\item 
+void {\bf search\-By\-Size} (const uint64\-\_\-t size)
+\begin{DoxyCompactList}\small\item\em Recherche les fichiers ayant la même taille. \end{DoxyCompactList}\item 
+void {\bf set\-Racine} (const std\-::string \&{\bf racine})
+\begin{DoxyCompactList}\small\item\em Initialise la racine de l'arborecence. \end{DoxyCompactList}\item 
+const std\-::string \& {\bf get\-Racine} () const 
+\begin{DoxyCompactList}\small\item\em Récupérérer la racine de l'arborecence. \end{DoxyCompactList}\item 
+void {\bf search\-Empty} ()\label{class_organizer_ae27eedbd6bdd5aeb2b42c4b90572b8b0}
+
+\begin{DoxyCompactList}\small\item\em Recherche de dossiers vide. \end{DoxyCompactList}\item 
+bool {\bf is\-Update} (const boost\-::filesystem\-::path \&p) const 
+\begin{DoxyCompactList}\small\item\em Test si un dossier est à jour dans la base de données. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Attributs protégés}
 \begin{DoxyCompactItemize}
 \item 
-std\-::multiset$<$ \hyperlink{class_doublon}{Doublon} $\ast$ $>$ \hyperlink{class_organizer_a05f940c569835259f6473fb762368e48}{doublon\-Size}
+std\-::multiset$<$ {\bf Doublon} $\ast$ $>$ {\bf doublon\-Size}
 \item 
-std\-::map$<$ \hyperlink{class_m_d5_key}{M\-D5\-Key}, std\-::list\\*
-$<$ boost\-::filesystem\-::path $>$ $>$ \hyperlink{class_organizer_aeeb5d47d3dc7eedccbfa4b25685e93a5}{doublons}
+std\-::map$<$ {\bf M\-D5\-Key}, std\-::list\\*
+$<$ boost\-::filesystem\-::path $>$ $>$ {\bf doublons}
 \item 
 std\-::list\\*
-$<$ boost\-::filesystem\-::path $>$ \hyperlink{class_organizer_a4b1b739d6b2ed1480f81022da9803c22}{empty\-Dir}
+$<$ boost\-::filesystem\-::path $>$ {\bf empty\-Dir}
 \item 
-std\-::string \hyperlink{class_organizer_a2566fc607cc0b35100704973d863b9d2}{racine}
+std\-::string {\bf racine}
 \end{DoxyCompactItemize}
 
 
@@ -63,13 +64,13 @@ std\-::string \hyperlink{class_organizer_a2566fc607cc0b35100704973d863b9d2}{raci
 Classe représentant l'application. 
 
 \subsection{Documentation des fonctions membres}
-\hypertarget{class_organizer_aa0203d8ff56c2a2bc620f26b7f4acbe6}{\index{Organizer@{Organizer}!create\-D\-B@{create\-D\-B}}
+\index{Organizer@{Organizer}!create\-D\-B@{create\-D\-B}}
 \index{create\-D\-B@{create\-D\-B}!Organizer@{Organizer}}
 \subsubsection[{create\-D\-B}]{\setlength{\rightskip}{0pt plus 5cm}bool Organizer\-::create\-D\-B (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-) const}}\label{class_organizer_aa0203d8ff56c2a2bc620f26b7f4acbe6}
+) const}\label{class_organizer_aa0203d8ff56c2a2bc620f26b7f4acbe6}
 
 
 Créer la base de donnée sqlite3. 
@@ -77,77 +78,63 @@ Créer la base de donnée sqlite3.
 \begin{DoxyReturn}{Renvoie}
 true si la base de donnée est ouverte false sinon 
 \end{DoxyReturn}
-\hypertarget{class_organizer_a767df574ab8675f6c6caa72c8c0d1f77}{\index{Organizer@{Organizer}!create\-Table@{create\-Table}}
+\index{Organizer@{Organizer}!create\-Table@{create\-Table}}
 \index{create\-Table@{create\-Table}!Organizer@{Organizer}}
 \subsubsection[{create\-Table}]{\setlength{\rightskip}{0pt plus 5cm}void Organizer\-::create\-Table (
 \begin{DoxyParamCaption}
 \item[{const std\-::string \&}]{query}
 \end{DoxyParamCaption}
-) const}}\label{class_organizer_a767df574ab8675f6c6caa72c8c0d1f77}
+) const}\label{class_organizer_a767df574ab8675f6c6caa72c8c0d1f77}
 
 
-create\-Table 
+Créer une table dans la base de donnée. 
 
 
 \begin{DoxyParams}[1]{Paramètres}
- & {\em query} & Créer une table dans la base de donnée \\
-\hline
 \mbox{\tt in}  & {\em query} & \-: Commande à exécuter pour la création de la table \\
 \hline
 \end{DoxyParams}
-\hypertarget{class_organizer_a59afde8760b237f962bcf540cd49c028}{\index{Organizer@{Organizer}!get\-Racine@{get\-Racine}}
+\index{Organizer@{Organizer}!get\-Racine@{get\-Racine}}
 \index{get\-Racine@{get\-Racine}!Organizer@{Organizer}}
-\subsubsection[{get\-Racine}]{\setlength{\rightskip}{0pt plus 5cm}const std\-::string \& Organizer\-::get\-Racine (
+\subsubsection[{get\-Racine}]{\setlength{\rightskip}{0pt plus 5cm}const std\-::string\& Organizer\-::get\-Racine (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-) const}}\label{class_organizer_a59afde8760b237f962bcf540cd49c028}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\label{class_organizer_ad2ba7fc945c876ab06b2fc03ab667b1c}
 
 
-get\-Racine 
+Récupérérer la racine de l'arborecence. 
 
 \begin{DoxyReturn}{Renvoie}
-Récupérérer la racine de l'arborecence 
-
 Le chemin de la racine de l'arborecence 
 \end{DoxyReturn}
-\hypertarget{class_organizer_acdbfb38595b744a703f218c56b7cdd1b}{\index{Organizer@{Organizer}!insert@{insert}}
+\index{Organizer@{Organizer}!insert@{insert}}
 \index{insert@{insert}!Organizer@{Organizer}}
 \subsubsection[{insert}]{\setlength{\rightskip}{0pt plus 5cm}void Organizer\-::insert (
 \begin{DoxyParamCaption}
 \item[{const boost\-::filesystem\-::path \&}]{p}
 \end{DoxyParamCaption}
-) const}}\label{class_organizer_acdbfb38595b744a703f218c56b7cdd1b}
+) const}\label{class_organizer_acdbfb38595b744a703f218c56b7cdd1b}
 
 
-insert 
+Insert un chemin dans la base de donnée. 
 
-Insert un chemin dans la base de donnée 
+
 \begin{DoxyParams}[1]{Paramètres}
- & {\em p} & \\
-\hline
 \mbox{\tt in}  & {\em p} & \-: Chemin à insérer dans la base de donnée \\
 \hline
 \end{DoxyParams}
-\hypertarget{class_organizer_a197fdab12212f89f461f7a46437e8ccc}{\index{Organizer@{Organizer}!is\-Update@{is\-Update}}
+\index{Organizer@{Organizer}!is\-Update@{is\-Update}}
 \index{is\-Update@{is\-Update}!Organizer@{Organizer}}
 \subsubsection[{is\-Update}]{\setlength{\rightskip}{0pt plus 5cm}bool Organizer\-::is\-Update (
 \begin{DoxyParamCaption}
 \item[{const boost\-::filesystem\-::path \&}]{p}
 \end{DoxyParamCaption}
-) const}}\label{class_organizer_a197fdab12212f89f461f7a46437e8ccc}
+) const}\label{class_organizer_a197fdab12212f89f461f7a46437e8ccc}
 
 
-is\-Update 
+Test si un dossier est à jour dans la base de données. 
 
-
-\begin{DoxyParams}{Paramètres}
-{\em p} & \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Renvoie}
-Test si un dossier est à jour dans la base de données 
-\end{DoxyReturn}
 
 \begin{DoxyParams}[1]{Paramètres}
 \mbox{\tt in}  & {\em p} & \-: Chemin d'accès à un repertoire \\
@@ -156,121 +143,91 @@ Test si un dossier est à jour dans la base de données
 \begin{DoxyReturn}{Renvoie}
 true si le repertoire est à jour 
 \end{DoxyReturn}
-\hypertarget{class_organizer_a53f3e3bc13366e77e896ff590c7da7a4}{\index{Organizer@{Organizer}!md5@{md5}}
+\index{Organizer@{Organizer}!md5@{md5}}
 \index{md5@{md5}!Organizer@{Organizer}}
 \subsubsection[{md5}]{\setlength{\rightskip}{0pt plus 5cm}void Organizer\-::md5 (
 \begin{DoxyParamCaption}
 \item[{{\bf Doublon} $\ast$}]{d}
 \end{DoxyParamCaption}
-)}}\label{class_organizer_a53f3e3bc13366e77e896ff590c7da7a4}
+)}\label{class_organizer_a53f3e3bc13366e77e896ff590c7da7a4}
 
 
-md5 
+Calcul la somme M\-D5 d'un fichier. 
 
-Calcul la somme M\-D5 d'un fichier 
+
 \begin{DoxyParams}[1]{Paramètres}
- & {\em Qstr} & \\
-\hline
-\mbox{\tt in,out}  & {\em d} & \-: Pointeur sur un \hyperlink{class_doublon}{Doublon} \\
+\mbox{\tt in,out}  & {\em d} & \-: Pointeur sur un \doxyref{Doublon}{p.}{class_doublon} \\
 \hline
 \end{DoxyParams}
-\hypertarget{class_organizer_a1addfcdc39e0f88d06dec40ed4c8f3c0}{\index{Organizer@{Organizer}!search\-By\-Size@{search\-By\-Size}}
+\index{Organizer@{Organizer}!search\-By\-Size@{search\-By\-Size}}
 \index{search\-By\-Size@{search\-By\-Size}!Organizer@{Organizer}}
 \subsubsection[{search\-By\-Size}]{\setlength{\rightskip}{0pt plus 5cm}void Organizer\-::search\-By\-Size (
 \begin{DoxyParamCaption}
 \item[{const uint64\-\_\-t}]{size}
 \end{DoxyParamCaption}
-)}}\label{class_organizer_a1addfcdc39e0f88d06dec40ed4c8f3c0}
+)}\label{class_organizer_a1addfcdc39e0f88d06dec40ed4c8f3c0}
 
 
-search\-By\-Size 
+Recherche les fichiers ayant la même taille. 
 
 
 \begin{DoxyParams}[1]{Paramètres}
- & {\em size} & Recherche les fichiers ayant la même taille \\
-\hline
 \mbox{\tt in}  & {\em size} & \-: Taille de fichier \\
 \hline
 \end{DoxyParams}
-\hypertarget{class_organizer_a12be02528b8c31e9b65d4df997fbe9d7}{\index{Organizer@{Organizer}!search\-Double@{search\-Double}}
-\index{search\-Double@{search\-Double}!Organizer@{Organizer}}
-\subsubsection[{search\-Double}]{\setlength{\rightskip}{0pt plus 5cm}void Organizer\-::search\-Double (
-\begin{DoxyParamCaption}
-\item[{void}]{}
-\end{DoxyParamCaption}
-)}}\label{class_organizer_a12be02528b8c31e9b65d4df997fbe9d7}
-
-
-search\-Double 
-
-Recherche les fichiers en double \hypertarget{class_organizer_ae27eedbd6bdd5aeb2b42c4b90572b8b0}{\index{Organizer@{Organizer}!search\-Empty@{search\-Empty}}
-\index{search\-Empty@{search\-Empty}!Organizer@{Organizer}}
-\subsubsection[{search\-Empty}]{\setlength{\rightskip}{0pt plus 5cm}void Organizer\-::search\-Empty (
-\begin{DoxyParamCaption}
-{}
-\end{DoxyParamCaption}
-)}}\label{class_organizer_ae27eedbd6bdd5aeb2b42c4b90572b8b0}
-
-
-search\-Empty 
-
-Recherche de dossiers vide \hypertarget{class_organizer_a02f870946fca1233f00da57344160dad}{\index{Organizer@{Organizer}!set\-Racine@{set\-Racine}}
+\index{Organizer@{Organizer}!set\-Racine@{set\-Racine}}
 \index{set\-Racine@{set\-Racine}!Organizer@{Organizer}}
 \subsubsection[{set\-Racine}]{\setlength{\rightskip}{0pt plus 5cm}void Organizer\-::set\-Racine (
 \begin{DoxyParamCaption}
 \item[{const std\-::string \&}]{racine}
 \end{DoxyParamCaption}
-)}}\label{class_organizer_a02f870946fca1233f00da57344160dad}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_organizer_a02f870946fca1233f00da57344160dad}
 
 
-set\-Racine 
+Initialise la racine de l'arborecence. 
 
-Initialise la racine de l'arborecence 
+
 \begin{DoxyParams}[1]{Paramètres}
 \mbox{\tt in}  & {\em racine} & \-: Chemin d'un repertoire \\
 \hline
 \end{DoxyParams}
-\hypertarget{class_organizer_a51829ddab54c6f52acd31ee752dcf30c}{\index{Organizer@{Organizer}!supprimer\-Guillemets@{supprimer\-Guillemets}}
+\index{Organizer@{Organizer}!supprimer\-Guillemets@{supprimer\-Guillemets}}
 \index{supprimer\-Guillemets@{supprimer\-Guillemets}!Organizer@{Organizer}}
 \subsubsection[{supprimer\-Guillemets}]{\setlength{\rightskip}{0pt plus 5cm}const std\-::string Organizer\-::supprimer\-Guillemets (
 \begin{DoxyParamCaption}
 \item[{const Q\-String \&}]{Qstr}
 \end{DoxyParamCaption}
-)}}\label{class_organizer_a51829ddab54c6f52acd31ee752dcf30c}
+)}\label{class_organizer_a51829ddab54c6f52acd31ee752dcf30c}
 
 
-supprimer\-Guillemets 
+Supprime les guillemets d'une chaine de caractères. 
 
-Supprime les guillemets d'une chaine de caractères 
+
 \begin{DoxyParams}[1]{Paramètres}
- & {\em Qstr} & \\
-\hline
 \mbox{\tt in}  & {\em Qstr} & \-: Q\-String contenant la chaine avec guillemets \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Renvoie}
-
-
 Chaîne de caractères sans guillemets 
 \end{DoxyReturn}
 
 
 \subsection{Documentation des données membres}
-\hypertarget{class_organizer_aeeb5d47d3dc7eedccbfa4b25685e93a5}{\index{Organizer@{Organizer}!doublons@{doublons}}
+\index{Organizer@{Organizer}!doublons@{doublons}}
 \index{doublons@{doublons}!Organizer@{Organizer}}
-\subsubsection[{doublons}]{\setlength{\rightskip}{0pt plus 5cm}std\-::map$<${\bf M\-D5\-Key},std\-::list$<$boost\-::filesystem\-::path$>$ $>$ Organizer\-::doublons\hspace{0.3cm}{\ttfamily [protected]}}}\label{class_organizer_aeeb5d47d3dc7eedccbfa4b25685e93a5}
-Map contenant les chemins d'accès aux fichiers pour une clé M\-D5 donnée \hypertarget{class_organizer_a05f940c569835259f6473fb762368e48}{\index{Organizer@{Organizer}!doublon\-Size@{doublon\-Size}}
+\subsubsection[{doublons}]{\setlength{\rightskip}{0pt plus 5cm}std\-::map$<${\bf M\-D5\-Key},std\-::list$<$boost\-::filesystem\-::path$>$ $>$ Organizer\-::doublons\hspace{0.3cm}{\ttfamily [protected]}}\label{class_organizer_aeeb5d47d3dc7eedccbfa4b25685e93a5}
+Map contenant les chemins d'accès aux fichiers pour une clé M\-D5 donnée \index{Organizer@{Organizer}!doublon\-Size@{doublon\-Size}}
 \index{doublon\-Size@{doublon\-Size}!Organizer@{Organizer}}
-\subsubsection[{doublon\-Size}]{\setlength{\rightskip}{0pt plus 5cm}std\-::multiset$<${\bf Doublon}$\ast$$>$ Organizer\-::doublon\-Size\hspace{0.3cm}{\ttfamily [protected]}}}\label{class_organizer_a05f940c569835259f6473fb762368e48}
-Multiset contenant les pointeurs sur les doublons de tailles identiques \hypertarget{class_organizer_a4b1b739d6b2ed1480f81022da9803c22}{\index{Organizer@{Organizer}!empty\-Dir@{empty\-Dir}}
+\subsubsection[{doublon\-Size}]{\setlength{\rightskip}{0pt plus 5cm}std\-::multiset$<${\bf Doublon}$\ast$$>$ Organizer\-::doublon\-Size\hspace{0.3cm}{\ttfamily [protected]}}\label{class_organizer_a05f940c569835259f6473fb762368e48}
+Multiset contenant les pointeurs sur les doublons de tailles identiques \index{Organizer@{Organizer}!empty\-Dir@{empty\-Dir}}
 \index{empty\-Dir@{empty\-Dir}!Organizer@{Organizer}}
-\subsubsection[{empty\-Dir}]{\setlength{\rightskip}{0pt plus 5cm}std\-::list$<$boost\-::filesystem\-::path$>$ Organizer\-::empty\-Dir\hspace{0.3cm}{\ttfamily [protected]}}}\label{class_organizer_a4b1b739d6b2ed1480f81022da9803c22}
-List contenant les chemins d'accès aux dossiers vides \hypertarget{class_organizer_a2566fc607cc0b35100704973d863b9d2}{\index{Organizer@{Organizer}!racine@{racine}}
+\subsubsection[{empty\-Dir}]{\setlength{\rightskip}{0pt plus 5cm}std\-::list$<$boost\-::filesystem\-::path$>$ Organizer\-::empty\-Dir\hspace{0.3cm}{\ttfamily [protected]}}\label{class_organizer_a4b1b739d6b2ed1480f81022da9803c22}
+List contenant les chemins d'accès aux dossiers vides \index{Organizer@{Organizer}!racine@{racine}}
 \index{racine@{racine}!Organizer@{Organizer}}
-\subsubsection[{racine}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string Organizer\-::racine\hspace{0.3cm}{\ttfamily [protected]}}}\label{class_organizer_a2566fc607cc0b35100704973d863b9d2}
+\subsubsection[{racine}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string Organizer\-::racine\hspace{0.3cm}{\ttfamily [protected]}}\label{class_organizer_a2566fc607cc0b35100704973d863b9d2}
 Chemin d'accès de la racine de l'arborescence à scanner 
 
 La documentation de cette classe a été générée à partir des fichiers suivants \-:\begin{DoxyCompactItemize}
 \item 
-\hyperlink{organizer_8h}{organizer.\-h}\item 
+{\bf organizer.\-h}\item 
 organizer.\-cpp\end{DoxyCompactItemize}

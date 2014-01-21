@@ -1,45 +1,266 @@
-\hypertarget{class_doublon_model}{\section{Référence de la classe Doublon\-Model}
+\section{Référence de la classe Doublon\-Model}
 \label{class_doublon_model}\index{Doublon\-Model@{Doublon\-Model}}
-}
+
+
+la classe \doxyref{Doublon\-Model}{p.}{class_doublon_model} permettant la représentation en arbre d'une liste de doubons  
+
+
+
+
+{\ttfamily \#include $<$doublonmodel.\-h$>$}
+
 \subsection*{Fonctions membres publiques}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{class_doublon_model_a33c5fb7b1b039ca333453024f461afdd}{{\bfseries Doublon\-Model} (const Q\-String \&data, Q\-Object $\ast$parent=0)}\label{class_doublon_model_a33c5fb7b1b039ca333453024f461afdd}
-
-\item 
-\hypertarget{class_doublon_model_a10e14770aec49a113eb478af1c869bbb}{Q\-Variant {\bfseries data} (const Q\-Model\-Index \&index, int role) const }\label{class_doublon_model_a10e14770aec49a113eb478af1c869bbb}
-
-\item 
-\hypertarget{class_doublon_model_aff5724d094400fd653e4d35ab4a2bfea}{Qt\-::\-Item\-Flags {\bfseries flags} (const Q\-Model\-Index \&index) const }\label{class_doublon_model_aff5724d094400fd653e4d35ab4a2bfea}
-
-\item 
-\hypertarget{class_doublon_model_aafaab9974fb6f13dfed5b352051a9c8b}{Q\-Variant {\bfseries header\-Data} (int section, Qt\-::\-Orientation orientation, int role=Qt\-::\-Display\-Role) const }\label{class_doublon_model_aafaab9974fb6f13dfed5b352051a9c8b}
-
-\item 
-\hypertarget{class_doublon_model_a43711f335c10c2d82cba2ba935d5d903}{Q\-Model\-Index {\bfseries index} (int row, int column, const Q\-Model\-Index \&parent=Q\-Model\-Index()) const }\label{class_doublon_model_a43711f335c10c2d82cba2ba935d5d903}
-
-\item 
-\hypertarget{class_doublon_model_a4b63ebbfb27fe9bbe52647f175d72d39}{Q\-Model\-Index {\bfseries parent} (const Q\-Model\-Index \&index) const }\label{class_doublon_model_a4b63ebbfb27fe9bbe52647f175d72d39}
-
-\item 
-\hypertarget{class_doublon_model_a387f51df68f693ea20af3ab968ca4df6}{int {\bfseries row\-Count} (const Q\-Model\-Index \&parent=Q\-Model\-Index()) const }\label{class_doublon_model_a387f51df68f693ea20af3ab968ca4df6}
-
-\item 
-\hypertarget{class_doublon_model_a47458991a1f0e7f4ae8bf79af4ff0c16}{int {\bfseries column\-Count} (const Q\-Model\-Index \&parent=Q\-Model\-Index()) const }\label{class_doublon_model_a47458991a1f0e7f4ae8bf79af4ff0c16}
-
-\item 
-\hypertarget{class_doublon_model_a3188f8b049e9da84ca293b8e62990ba3}{void {\bfseries setup\-Model\-Data} (const Q\-String \&line, const u\-\_\-int8\-\_\-t type, \hyperlink{class_doublon_tree}{Doublon\-Tree} $\ast$parent)}\label{class_doublon_model_a3188f8b049e9da84ca293b8e62990ba3}
-
-\end{DoxyCompactItemize}
+{\bf Doublon\-Model} (const Q\-String \&{\bf data}, Q\-Object $\ast${\bf parent}=0)
+\begin{DoxyCompactList}\small\item\em Constructeur de la classe \doxyref{Doublon\-Model}{p.}{class_doublon_model}. \end{DoxyCompactList}\item 
+Q\-Variant {\bf data} (const Q\-Model\-Index \&{\bf index}, int role) const 
+\begin{DoxyCompactList}\small\item\em méthode permettant de récupérer les données du neoud \end{DoxyCompactList}\item 
+Q\-Variant {\bf data\-Path} (const Q\-Model\-Index \&{\bf index}, int role) const 
+\begin{DoxyCompactList}\small\item\em méthode permettant de récupérer les données du noeud en tenant compte du type du noeud (noeud informatif, noeud représentant un fichier, ou un dossier) \end{DoxyCompactList}\item 
+Qt\-::\-Item\-Flags {\bf flags} (const Q\-Model\-Index \&{\bf index}) const 
+\begin{DoxyCompactList}\small\item\em méthode s'assurant que la vue utilise ce modèle en lecture seule \end{DoxyCompactList}\item 
+Q\-Variant {\bf header\-Data} (int section, Qt\-::\-Orientation orientation, int role=Qt\-::\-Display\-Role) const 
+\begin{DoxyCompactList}\small\item\em méthode permettant de renseigner le header de la vue dans laquelle est affiché le modèle \end{DoxyCompactList}\item 
+Q\-Model\-Index {\bf index} (int row, int column, const Q\-Model\-Index \&{\bf parent}=Q\-Model\-Index()) const 
+\begin{DoxyCompactList}\small\item\em méthode permettant de retrouver l'index d'un élément à patir de sa ligne et sa colonne \end{DoxyCompactList}\item 
+Q\-Model\-Index {\bf parent} (const Q\-Model\-Index \&{\bf index}) const 
+\begin{DoxyCompactList}\small\item\em méthode renvoyant l'index pointant vers le parent du noeud ciblé \end{DoxyCompactList}\item 
+int {\bf row\-Count} (const Q\-Model\-Index \&{\bf parent}=Q\-Model\-Index()) const 
+\begin{DoxyCompactList}\small\item\em méthode renvoyant ne nombre de lignes \end{DoxyCompactList}\item 
+int {\bf column\-Count} (const Q\-Model\-Index \&{\bf parent}=Q\-Model\-Index()) const 
+\begin{DoxyCompactList}\small\item\em méthode renvoyant le nombre de colonnes \end{DoxyCompactList}\item 
+void {\bf setup\-Model\-Data} (const Q\-String \&line, const u\-\_\-int8\-\_\-t type, {\bf Doublon\-Tree} $\ast${\bf parent})
+\begin{DoxyCompactList}\small\item\em méthode permettant de créer de nouveaux noeuds \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Attributs publics}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{class_doublon_model_ad622e10652206f0f725b2aec69d11a18}{\hyperlink{class_doublon_tree}{Doublon\-Tree} $\ast$ {\bfseries root\-Item}}\label{class_doublon_model_ad622e10652206f0f725b2aec69d11a18}
+{\bf Doublon\-Tree} $\ast$ {\bf root\-Item}\label{class_doublon_model_ad622e10652206f0f725b2aec69d11a18}
 
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Noeud racine du modèle. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Description détaillée}
+la classe \doxyref{Doublon\-Model}{p.}{class_doublon_model} permettant la représentation en arbre d'une liste de doubons 
+
+\subsection{Documentation des constructeurs et destructeur}
+\index{Doublon\-Model@{Doublon\-Model}!Doublon\-Model@{Doublon\-Model}}
+\index{Doublon\-Model@{Doublon\-Model}!DoublonModel@{Doublon\-Model}}
+\subsubsection[{Doublon\-Model}]{\setlength{\rightskip}{0pt plus 5cm}Doublon\-Model\-::\-Doublon\-Model (
+\begin{DoxyParamCaption}
+\item[{const Q\-String \&}]{data, }
+\item[{Q\-Object $\ast$}]{parent = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [explicit]}}\label{class_doublon_model_a33c5fb7b1b039ca333453024f461afdd}
+
+
+Constructeur de la classe \doxyref{Doublon\-Model}{p.}{class_doublon_model}. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em data} & \-: données du noeud \\
+\hline
+{\em parent} & \-: noeud parent (par défault 0 \-: noeud \char`\"{}racine\char`\"{}) \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Documentation des fonctions membres}
+\index{Doublon\-Model@{Doublon\-Model}!column\-Count@{column\-Count}}
+\index{column\-Count@{column\-Count}!DoublonModel@{Doublon\-Model}}
+\subsubsection[{column\-Count}]{\setlength{\rightskip}{0pt plus 5cm}int Doublon\-Model\-::column\-Count (
+\begin{DoxyParamCaption}
+\item[{const Q\-Model\-Index \&}]{parent = {\ttfamily QModelIndex()}}
+\end{DoxyParamCaption}
+) const}\label{class_doublon_model_a47458991a1f0e7f4ae8bf79af4ff0c16}
+
+
+méthode renvoyant le nombre de colonnes 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em parent} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Nombre de colonnes 
+\end{DoxyReturn}
+\index{Doublon\-Model@{Doublon\-Model}!data@{data}}
+\index{data@{data}!DoublonModel@{Doublon\-Model}}
+\subsubsection[{data}]{\setlength{\rightskip}{0pt plus 5cm}Q\-Variant Doublon\-Model\-::data (
+\begin{DoxyParamCaption}
+\item[{const Q\-Model\-Index \&}]{index, }
+\item[{int}]{role}
+\end{DoxyParamCaption}
+) const}\label{class_doublon_model_a10e14770aec49a113eb478af1c869bbb}
+
+
+méthode permettant de récupérer les données du neoud 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em index} & \-: index du noeud duquel récuprer les données \\
+\hline
+{\em role} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+données du noeud ciblé 
+\end{DoxyReturn}
+\index{Doublon\-Model@{Doublon\-Model}!data\-Path@{data\-Path}}
+\index{data\-Path@{data\-Path}!DoublonModel@{Doublon\-Model}}
+\subsubsection[{data\-Path}]{\setlength{\rightskip}{0pt plus 5cm}Q\-Variant Doublon\-Model\-::data\-Path (
+\begin{DoxyParamCaption}
+\item[{const Q\-Model\-Index \&}]{index, }
+\item[{int}]{role}
+\end{DoxyParamCaption}
+) const}\label{class_doublon_model_aa9a8af489489ec841f00646b87df130c}
+
+
+méthode permettant de récupérer les données du noeud en tenant compte du type du noeud (noeud informatif, noeud représentant un fichier, ou un dossier) 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em index} & \-: index du noeud duquel récupérer les données \\
+\hline
+{\em role} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+données du noeud ciblé 
+\end{DoxyReturn}
+\index{Doublon\-Model@{Doublon\-Model}!flags@{flags}}
+\index{flags@{flags}!DoublonModel@{Doublon\-Model}}
+\subsubsection[{flags}]{\setlength{\rightskip}{0pt plus 5cm}Qt\-::\-Item\-Flags Doublon\-Model\-::flags (
+\begin{DoxyParamCaption}
+\item[{const Q\-Model\-Index \&}]{index}
+\end{DoxyParamCaption}
+) const}\label{class_doublon_model_aff5724d094400fd653e4d35ab4a2bfea}
+
+
+méthode s'assurant que la vue utilise ce modèle en lecture seule 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em index} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+
+\end{DoxyReturn}
+\index{Doublon\-Model@{Doublon\-Model}!header\-Data@{header\-Data}}
+\index{header\-Data@{header\-Data}!DoublonModel@{Doublon\-Model}}
+\subsubsection[{header\-Data}]{\setlength{\rightskip}{0pt plus 5cm}Q\-Variant Doublon\-Model\-::header\-Data (
+\begin{DoxyParamCaption}
+\item[{int}]{section, }
+\item[{Qt\-::\-Orientation}]{orientation, }
+\item[{int}]{role = {\ttfamily Qt\-:\-:DisplayRole}}
+\end{DoxyParamCaption}
+) const}\label{class_doublon_model_aafaab9974fb6f13dfed5b352051a9c8b}
+
+
+méthode permettant de renseigner le header de la vue dans laquelle est affiché le modèle 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em section} & \\
+\hline
+{\em orientation} & \\
+\hline
+{\em role} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+
+\end{DoxyReturn}
+\index{Doublon\-Model@{Doublon\-Model}!index@{index}}
+\index{index@{index}!DoublonModel@{Doublon\-Model}}
+\subsubsection[{index}]{\setlength{\rightskip}{0pt plus 5cm}Q\-Model\-Index Doublon\-Model\-::index (
+\begin{DoxyParamCaption}
+\item[{int}]{row, }
+\item[{int}]{column, }
+\item[{const Q\-Model\-Index \&}]{parent = {\ttfamily QModelIndex()}}
+\end{DoxyParamCaption}
+) const}\label{class_doublon_model_a43711f335c10c2d82cba2ba935d5d903}
+
+
+méthode permettant de retrouver l'index d'un élément à patir de sa ligne et sa colonne 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em row} & \\
+\hline
+{\em column} & \\
+\hline
+{\em parent} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Index de l'élément ciblé 
+\end{DoxyReturn}
+\index{Doublon\-Model@{Doublon\-Model}!parent@{parent}}
+\index{parent@{parent}!DoublonModel@{Doublon\-Model}}
+\subsubsection[{parent}]{\setlength{\rightskip}{0pt plus 5cm}Q\-Model\-Index Doublon\-Model\-::parent (
+\begin{DoxyParamCaption}
+\item[{const Q\-Model\-Index \&}]{index}
+\end{DoxyParamCaption}
+) const}\label{class_doublon_model_a4b63ebbfb27fe9bbe52647f175d72d39}
+
+
+méthode renvoyant l'index pointant vers le parent du noeud ciblé 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em index} & \-: index du noeud dont on cherche le Papa \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Index sur le père 
+\end{DoxyReturn}
+\index{Doublon\-Model@{Doublon\-Model}!row\-Count@{row\-Count}}
+\index{row\-Count@{row\-Count}!DoublonModel@{Doublon\-Model}}
+\subsubsection[{row\-Count}]{\setlength{\rightskip}{0pt plus 5cm}int Doublon\-Model\-::row\-Count (
+\begin{DoxyParamCaption}
+\item[{const Q\-Model\-Index \&}]{parent = {\ttfamily QModelIndex()}}
+\end{DoxyParamCaption}
+) const}\label{class_doublon_model_a387f51df68f693ea20af3ab968ca4df6}
+
+
+méthode renvoyant ne nombre de lignes 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em parent} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+Nombre de ligne 
+\end{DoxyReturn}
+\index{Doublon\-Model@{Doublon\-Model}!setup\-Model\-Data@{setup\-Model\-Data}}
+\index{setup\-Model\-Data@{setup\-Model\-Data}!DoublonModel@{Doublon\-Model}}
+\subsubsection[{setup\-Model\-Data}]{\setlength{\rightskip}{0pt plus 5cm}void Doublon\-Model\-::setup\-Model\-Data (
+\begin{DoxyParamCaption}
+\item[{const Q\-String \&}]{line, }
+\item[{const u\-\_\-int8\-\_\-t}]{type, }
+\item[{{\bf Doublon\-Tree} $\ast$}]{parent}
+\end{DoxyParamCaption}
+)}\label{class_doublon_model_a3188f8b049e9da84ca293b8e62990ba3}
+
+
+méthode permettant de créer de nouveaux noeuds 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em line} & \-: donées du noeud \\
+\hline
+{\em type} & \-: type du noeud (informatif=0, fichier=1 ou dossier=2) \\
+\hline
+{\em parent} & \-: parent du noeud à créer \\
+\hline
+\end{DoxyParams}
 
 
 La documentation de cette classe a été générée à partir des fichiers suivants \-:\begin{DoxyCompactItemize}
 \item 
-doublonmodel.\-h\item 
+{\bf doublonmodel.\-h}\item 
 doublonmodel.\-cpp\end{DoxyCompactItemize}
