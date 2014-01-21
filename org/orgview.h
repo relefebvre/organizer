@@ -54,8 +54,13 @@ private slots:
 
 private:
     Ui::OrgView *ui;
-    QItemSelectionModel *selectionModel;
+    /**
+     * @brief modèle pour la représentation des doublons
+     */
     DoublonModel * modDbl ;
+    /**
+     * @brief modèle pour la représentation des dossiers vides
+     */
     DoublonModel * modEmpty ;
 
 

@@ -1,6 +1,13 @@
 #include "doublonmodel.h"
 #include <iostream>
 
+/**
+ *\file doublonmodele.cpp
+ *\author Ducros & Lefebvre
+ *\date 21 Janvier 2014
+ *\brief Définit le modèle représentant les doublons
+ */
+
 DoublonModel::DoublonModel(const QString &data, QObject *parent) :
     QAbstractItemModel(parent)
 {

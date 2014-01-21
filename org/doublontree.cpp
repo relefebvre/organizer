@@ -1,5 +1,11 @@
 #include "doublontree.h"
 
+/**
+ *\file doublontree.cpp
+ *\author Ducros & Lefebvre
+ *\date 21 Janvier 2014
+ *\brief Définit la structure d'un noeud de l'arbre de doublons
+ */
 
 DoublonTree::DoublonTree(const QVariant &data, const u_int8_t type, DoublonTree *parent)
 {
