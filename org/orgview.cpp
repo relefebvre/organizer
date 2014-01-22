@@ -54,6 +54,9 @@ OrgView::OrgView(QWidget *parent) :
     ui->search_double->setEnabled(false);
     ui->search_empty->setEnabled(false);
 
+    ui->deleteEmpty->setEnabled(false);
+    ui->deleteFile->setEnabled(false);
+
     connect(ui->actionAuteurs,SIGNAL(triggered()),this,SLOT(apropos()));
 }
 
@@ -162,6 +165,7 @@ void OrgView::afficherDoublons()
 
     ui->treeView->setModel(modDbl);
     ui->progressBarDouble->setValue(100*nbFilesCount/total);
+    ui->deleteFile->setEnabled(true);
 
     ui->treeView->expandAll();
 
@@ -205,6 +209,7 @@ void OrgView::afficherEmpty()
     ui->progressBarEmpty->setValue(100*nbFilesCount/total);
 
     setStatus("Recherche de dossiers vides terminée");
+    ui->deleteEmpty->setEnabled(true);
 }
 
 void OrgView::setStatus(const std::string & s) const
