@@ -98,28 +98,33 @@ void Organizer::md5(Doublon *d)
     }
     else
     {
-        int fd;
-        fd = open(d->getPath(),O_RDONLY);
-        if (fd == -1)
-        {
+        try {
+            int fd;
+            fd = open(d->getPath(),O_RDONLY);
+            if (fd == -1)
+            {
+                throw -1 ;
+            }
+
+            md5_init(&md);
+
+
+            while (nbLu != boost::filesystem::file_size(d->getPath()))
+            {
+                unsigned int tmp;
+                tmp = read(fd,buf,sizeof(buf));
+                md5_process(&md,buf, tmp);
+                nbLu += tmp;
+            }
+
+            md5_done(&md, out);
+
+            close(fd);
+        }
+        catch (int i) {
             perror("open");
-            exit(errno);
+
         }
-
-        md5_init(&md);
-
-
-        while (nbLu != boost::filesystem::file_size(d->getPath()))
-        {
-            unsigned int tmp;
-            tmp = read(fd,buf,sizeof(buf));
-            md5_process(&md,buf, tmp);
-            nbLu += tmp;
-        }
-
-        md5_done(&md, out);
-
-        close(fd);
     }
 
     d->setKey(out);

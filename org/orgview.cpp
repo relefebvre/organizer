@@ -119,7 +119,7 @@ void OrgView::afficherDoublons()
     modDbl = new DoublonModel(" ") ;
 
     setStatus("Recherche de doublons dans le dossier " + getRacine());
-    std::cout << "Résultats de la recherche de doublons : "<<std::endl ;
+    //std::cout << "Résultats de la recherche de doublons : "<<std::endl ;
 
     int i = 1 ;
     unsigned long nbFilesCount = 0;
@@ -139,7 +139,7 @@ void OrgView::afficherDoublons()
 
             //On ajoute une famille de path ayant la même taille au doublonTree
             modDbl->setupModelData((qs),1, modDbl->rootItem);
-            std::cout << "Nombre de doublons : "<< it->second.size() << std::endl ;
+            //std::cout << "Nombre de doublons : "<< it->second.size() << std::endl ;
 
             QApplication::processEvents();
 
@@ -148,7 +148,7 @@ void OrgView::afficherDoublons()
                 sPath = itp->c_str() ;
 
                 modDbl->setupModelData((sPath),1, modDbl->rootItem->child(i));
-                std::cout << itp->c_str() << std::endl ;
+                //std::cout << itp->c_str() << std::endl ;
 
                 sPath.clear();
                 QApplication::processEvents();
@@ -181,14 +181,14 @@ void OrgView::afficherEmpty()
 
 
     setStatus("Recherche de dossiers vides dans le dossier " + getRacine());
-    std::cout << "Résultats de la recherche de dossiers vides : " <<std::endl ;
+    //std::cout << "Résultats de la recherche de dossiers vides : " <<std::endl ;
 
     for (auto it=emptyDir.begin() ; it!=emptyDir.end() ; ++it)
     {
         sPath = it->c_str() ;
 
         modEmpty->setupModelData((sPath),2, modEmpty->rootItem);
-        std::cout << it->c_str() << std::endl ;
+        //std::cout << it->c_str() << std::endl ;
 
         sPath.clear();
 
